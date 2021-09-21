@@ -20,12 +20,22 @@ module.exports = (eleventyConfig) => {
   }
 
   // Setup nunjucks environment instance for template layouts
+  const commonLoaderOptions = {
+    trimBlocks: true,
+    lstripBlocks: true,
+  }
   if (process.env.ELEVENTY_ENV == 'development') {
-    global.nunjucksEnvironment = new Nunjucks.Environment(
-      new Nunjucks.FileSystemLoader('src/layouts', { watch: true, noCache: false })
+    global.nunjucksEnvironment = new Nunjucks.Environment([
+      new Nunjucks.FileSystemLoader('src/layouts', { ...commonLoaderOptions, watch: true }),
+      new Nunjucks.NodeResolveLoader({ ...commonLoaderOptions, watch: true })
+    ]
     );
   } else {
-    global.nunjucksEnvironment = new Nunjucks.Environment(new Nunjucks.FileSystemLoader('src/layouts'));
+    global.nunjucksEnvironment = new Nunjucks.Environment([
+      new Nunjucks.FileSystemLoader('src/layouts', { ...commonLoaderOptions }),
+      new Nunjucks.NodeResolveLoader({ ...commonLoaderOptions })
+    ]
+    );
   }
   eleventyConfig.setLibrary('njk', global.nunjucksEnvironment);
 

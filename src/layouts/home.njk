@@ -1,7 +1,27 @@
 {%- extends 'base.njk' %}
 {%- block content %}
   <main class="main-content">
-    Hello World
+    <section id="masthead">
+      {% set content %}
+        <div class="container py-lg-4 h-100">
+          <div class="row h-100">
+            <div class="col-12 col-lg-9 align-self-lg-center">
+              <h1 class="text-white">{{ masthead.title | e | safe }}</h1>
+            </div>
+            <div class="col-12 col-lg-3 align-self-lg-end">
+              <a class="btn btn-lg btn-primary" href="{{ masthead.btn.url | safe }}">{{ masthead.btn.text }}</a>
+            </div>
+          </div>
+        </div>
+      {% endset %}
+      {%- set context = {
+        image: masthead.image,
+        imgAr: '30:9',
+        bgColor: masthead.bgColor,
+        children: content
+      } %}
+      {% include "@marke/ui-core/components/masthead/masthead.njk" %}
+    </section>
   </main>
 {%- endblock %}
 {{ content | safe }}

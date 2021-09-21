@@ -1,0 +1,8 @@
+@forward '~@marke/ui-core/design-tokens' with (
+  $input-border-radius: 50rem !default,
+  $input-border-radius-sm: 50rem !default,
+  $input-border-radius-lg: 50rem !default,
+  $btn-border-radius: 50rem !default,
+  $btn-border-radius-sm: 50rem !default,
+  $btn-border-radius-lg: 50rem !default,
+);

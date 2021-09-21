@@ -1,7 +1,72 @@
-{% import "components/navbar.njk" as navbar %}
+<aside class="d-lg-block d-none bg-dark">
+  <div class="container">
+    {% set dropdown %}
+      <div class="dropdown">
+        <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          Para empresas do Parque
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#">Lorem ipsum</a></li>
+          <li><a class="dropdown-item" href="#">Lorem ipsum</a></li>
+          <li><a class="dropdown-item" href="#">Lorem ipsum</a></li>
+        </ul>
+      </div>
+    {% endset %}
+    {% set search %}
+      <input type="email" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="name@example.com">
+    {% endset %}
+    {% set context = {
+      variant: 'dark',
+      componentClasses: ['d-flex', 'justify-content-between'],
+      startItems: [
+        {
+          text: header.actionbar.title
+        }
+      ],
+      endItems: [
+        {
+          html: dropdown
+        },
+        {
+          html: search
+        },
+        {
+          href: site.social.facebook,
+          icon: 'facebook',
+          external: true
+        },
+        {
+          href: site.social.instagram,
+          icon: 'instagram',
+          external: true
+        },
+        {
+          href: site.social.linkedin,
+          icon: 'linkedin',
+          external: true
+        }
+      ]
+    } %}
+    {% include '@marke/ui-core/components/actionbar/actionbar.njk' %}
+  </div>
+</aside>
 <header class="page-header">
   <div class="container position-relative">
-    {%- set navbarLinks = collections.navbar | eleventyNavigation %}
-    {{ navbar.render(navbarLinks = navbarLinks, currentPage = page, brandLogo = site.logo, brandLogoMobile = site.logoMobile, brandUrl = global.site_absolute_url) }}
+    {%- set extraContent %}
+      {{ dropdown | safe }}
+      {{ search | safe }}
+    {%- endset %}
+    {%- set context = {
+      navbarLinks: (collections.navbar | eleventyNavigation),
+      currentPage: page,
+      brandLogo: site.logo,
+      brandLogoMobile: site.logo,
+      brandLogoWidth: 160,
+      brandLogoMobileWidth: 100,
+      brandUrl: global.site_absolute_url | url,
+      variant: 'light',
+      extraOffcanvasContent: extraContent
+    } %}
+    {% include '@marke/ui-core/components/navbar/navbar.njk' %}
   </div>
 </header>
