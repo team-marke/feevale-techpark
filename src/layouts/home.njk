@@ -6,10 +6,16 @@
         <div class="container py-lg-4 h-100">
           <div class="row h-100">
             <div class="col-12 col-lg-9 align-self-lg-center">
-              <h1 class="text-white">{{ masthead.title | e | safe }}</h1>
+              <h1 class="text-white fw-light">{{ masthead.title | markdown | safe }}</h1>
             </div>
             <div class="col-12 col-lg-3 align-self-lg-end">
-              <a class="btn btn-lg btn-primary" href="{{ masthead.btn.url | safe }}">{{ masthead.btn.text }}</a>
+              {%- set context = {
+                theme: 'primary',
+                size: 'lg',
+                html: masthead.btn.url,
+                html: masthead.btn.text+'<i class="fas fa-chevron-right ms-3"></i>'
+              } %}
+              {% include "@marke/ui-core/components/button/button.njk" %}
             </div>
           </div>
         </div>
@@ -21,6 +27,141 @@
         children: content
       } %}
       {% include "@marke/ui-core/components/masthead/masthead.njk" %}
+    </section>
+    <section>
+      <div class="container py-4 py-lg-5">
+        <div class="row gy-4 gx-lg-5 gx-xl-6">
+          <div class="col-12 col-lg-6 order-1 order-lg-0">
+            <h2>{{ welcome.title | markdown | safe }}</h2>
+            <h3>{{ welcome.subtitle | e | safe }}</h3>
+            {{ welcome.text | markdown | safe }}
+            {%- set context = {
+              theme: 'primary',
+              href: welcome.btn.url,
+              text: welcome.btn.text
+            } %}
+            {% include "@marke/ui-core/components/button/button.njk" %}
+          </div>
+          <div class="col-12 col-lg-6">
+            <picture>
+              <source
+                media="(max-width:992px)" 
+                srcset="{%- imageUrl welcome.image.url, { fetch_format: 'auto', quality: 'auto', width: 400, crop: 'thumb', gravity: 'auto', aspect_ratio: '16:9' } %}">
+              <img 
+                class="img-fluid rounded-3"
+                alt="{{ welcome.image.alt | e | safe }}"
+                loading="lazy"
+                src="{%- imageUrl welcome.image.url, { fetch_format: 'auto', width: 540, quality: 'auto' } %}"
+                srcset="{%- imageUrl welcome.image.url, { fetch_format: 'auto', width: 540, quality: 'auto', dpr: 2 } %} 2x"
+              >
+            </picture>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bg-light">
+      <div class="container py-4 py-lg-5">
+        <div class="row gy-4 gx-lg-5 gx-xl-6">
+          <div class="col-12 col-lg-6">
+            <h2>{{ numbers.title | markdown | safe }}</h2>
+          </div>
+          <div class="col-12 col-lg-6">
+            <h3>{{ numbers.subtitle | e | safe }}</h3>
+            {{ numbers.text | markdown | safe }}
+          </div>
+          <div class="col-12">
+            {# Gráficos dos números #}
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="position-relative">
+      <div class="container py-4 py-lg-5">
+        <div class="row gy-4">
+          <div class="col-12 col-md-10 col-lg-8 mx-auto text-center">
+            <h2>{{ units.title | markdown | safe }}</h2>
+            <h3>{{ units.subtitle | e | safe }}</h3>
+            {{ units.text | markdown | safe }}
+          </div>
+          <div class="col-12">
+            {% set cards = [] %}
+            {% for unit in collections.units %}
+              {% set renderedItem %}
+                {% set cardBody %}
+                  <div class="d-flex flex-column h-100">
+                    <h3 class="text-body">{{ unit.data.excerpt.title | e | safe }}</h3>
+                    <div class="card-excerpt">
+                      {{ unit.data.excerpt.text | markdown | safe }}
+                    </div>
+                    {% set context = {
+                      theme: 'primary',
+                      href: unit.url,
+                      text: 'Conheça a unidade',
+                      override_classes: ['mt-auto align-self-start']
+                    } %}
+                    {% include "@marke/ui-core/components/button/button.njk" %}
+                  </div>
+                {% endset %}
+                {% set context = {
+                    image: {
+                      url: unit.data.excerpt.image,
+                      alt: 'Foto da unidade ' + (unit.data.excerpt.title | e | safe),
+                      title: 'Foto da unidade ' + (unit.data.excerpt.title | e | safe),
+                      width: '350',
+                      height: '200'
+                    },
+                    children: cardBody,
+                    componentClasses: ['h-100']
+                } %}
+                {% include "@marke/ui-core/components/card/card.njk" %}
+              {% endset %}
+              {% set cards = (cards.push(renderedItem), cards) %}
+            {% endfor %}
+            {%- set context = {
+              minSlidesPerView: 1,
+              maxSlidesPerView: 3,
+              total: (cards | length),
+              items: cards,
+              visibleOverflow: false,
+              showNavs: true
+            } %}
+            {% include "@marke/ui-core/components/carousel/carousel.njk" %}
+          </div>
+        </div>
+      </div>
+      <img 
+        loading="lazy"
+        src="{%- imageUrl units.decorator, { fetch_format: 'auto', width: 600, quality: 'auto' } %}" 
+        alt="Grafismo decorativo Feevale"
+        class="d-none d-lg-block"
+        style="position: absolute; top: 5%; right: 10%; z-index: -1;"
+      >
+    </section>
+    <section class="bg-light">
+      <div class="container py-4 py-lg-5">
+        <div class="row">
+          <div class="col-12 col-md-10 col-lg-9 mx-auto">
+            {% set context = {
+              id: video.id,
+              alt: video.alt,
+              toggles_modal: true,
+              custom_thumbnail: video.thumbnail
+            } %}
+            {% include "@marke/ui-core/components/video-teaser/video-teaser.njk" %}
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container py-4 py-lg-5">
+        <div class="row">
+          <div class="col-12 col-md-10 col-lg-8 mx-auto text-center">
+            <h2>{{ areas.title | markdown | safe }}</h2>
+            <h3>{{ areas.subtitle | e | safe }}</h3>
+            {{ areas.text | markdown | safe }}
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 {%- endblock %}

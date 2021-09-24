@@ -1,0 +1,10 @@
+//
+// Emphasis tags styles
+//
+
+@use '../marke-ui' as mkui;
+
+em {
+  font-style: normal;
+  color: mkui.$primary;
+}

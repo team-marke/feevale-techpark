@@ -17,6 +17,7 @@ __metadata:
     "@babel/plugin-proposal-object-rest-spread": ^7.14.4
     "@babel/preset-env": ^7.14.4
     "@babel/preset-react": ^7.13.13
+    "@fontsource/lato": ^4.5.0
     "@fortawesome/fontawesome-free": ^5.15.3
     "@fortawesome/fontawesome-svg-core": ^1.2.35
     "@fortawesome/free-brands-svg-icons": ^5.15.3
@@ -35,6 +36,7 @@ __metadata:
     dotenv-webpack: ^7.0.2
     eslint: ^7.27.0
     eslint-plugin-react-hooks: ^4.2.0
+    file-loader: ^6.2.0
     firebase-tools: ^9.12.0
     front-matter: ^3.1.0
     html-minifier: ^4.0.0
@@ -1687,6 +1689,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fontsource/lato@npm:^4.5.0":
+  version: 4.5.0
+  resolution: "@fontsource/lato@npm:4.5.0"
+  checksum: 6fafd09f4e0f9acecc4fe26f2c8dd3f17b7b410eeff614476ca906f60c0e7a5d7aa9892c387c8069925d901fdc95b48c8b5188791bc96af98e807ffb170ae6c6
+  languageName: node
+  linkType: hard
+
 "@fortawesome/fontawesome-common-types@npm:^0.2.35":
   version: 0.2.35
   resolution: "@fortawesome/fontawesome-common-types@npm:0.2.35"
@@ -1840,7 +1849,7 @@ __metadata:
 
 "@marke/ui-core@ssh://git@github.com:team-marke/ui-core#franComponents":
   version: 0.2.0
-  resolution: "@marke/ui-core@ssh://git@github.com:team-marke/ui-core#commit=948b1d79041d2342ec268e21c2306dad720681f5"
+  resolution: "@marke/ui-core@ssh://git@github.com:team-marke/ui-core#commit=637ae0fa015e0c2f8ba3dc8f0c917a1006083cae"
   dependencies:
     "@fortawesome/fontawesome-free": ^5.15.3
     "@fortawesome/fontawesome-svg-core": ^1.2.35
@@ -1855,7 +1864,7 @@ __metadata:
     regenerator-runtime: ^0.13.7
     swiper: ^6.8.0
     yt-player: ^3.5.0
-  checksum: f4b472114462a25c542c4f965355b4a9c3405d1cd741bb3d68f2becfeb75975cda3360d2670c602cf0148da936e0fac0dfab242b449c83c2229b6f984f5c6a30
+  checksum: 339e2b5455c3dbfd29e62a7c92666b1a2d2e87fc5440da8058611cd5c52369c3118dad181d6fedc0a2d0c8663322e4fdf86ed26d53f2f164c952673f76ed4e39
   languageName: node
   linkType: hard
 
@@ -6574,6 +6583,18 @@ __metadata:
   dependencies:
     flat-cache: ^3.0.4
   checksum: f49701feaa6314c8127c3c2f6173cfefff17612f5ed2daaafc6da13b5c91fd43e3b2a58fd0d63f9f94478a501b167615931e7200e31485e320f74a33885a9c74
+  languageName: node
+  linkType: hard
+
+"file-loader@npm:^6.2.0":
+  version: 6.2.0
+  resolution: "file-loader@npm:6.2.0"
+  dependencies:
+    loader-utils: ^2.0.0
+    schema-utils: ^3.0.0
+  peerDependencies:
+    webpack: ^4.0.0 || ^5.0.0
+  checksum: faf43eecf233f4897b0150aaa874eeeac214e4f9de49738a9e0ef734a30b5260059e85b7edadf852b98e415f875bd5f12587768a93fd52aaf2e479ecf95fab20
   languageName: node
   linkType: hard
 

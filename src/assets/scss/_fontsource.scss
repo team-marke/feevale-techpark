@@ -1,0 +1,20 @@
+// Fonts
+@use "~@fontsource/lato/scss/mixins" as lato;
+
+@include lato.fontFace(
+  $weight: 300, 
+  $fontDir: '~@fontsource/lato/files', 
+  $unicodeMap: 'latin'
+);
+
+@include lato.fontFace(
+  $weight: 400, 
+  $fontDir: '~@fontsource/lato/files', 
+  $unicodeMap: 'latin'
+);
+
+@include lato.fontFace(
+  $weight: 700, 
+  $fontDir: '~@fontsource/lato/files', 
+  $unicodeMap: 'latin'
+);

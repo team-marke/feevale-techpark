@@ -2,6 +2,35 @@ import 'regenerator-runtime/runtime.js';
 import '../scss/main.scss';
 
 /**
+ * Load Carousel.
+ */
+ const loadCarousel = () => {
+  if (document.querySelector('.carousel')) {
+    import(/* webpackChunkName: "components.carousel" */ '@marke/ui-core/components/carousel/carousel').then(
+      ({ Carousel }) => {
+        document.querySelectorAll('.carousel').forEach((carousel) => {
+          new Carousel(carousel);
+        });
+      }
+    );
+  }
+};
+
+/**
+ * Load GridResponsiveSlider components.
+ */
+ const loadGridResponsiveSlider = async () => {
+  if (document.querySelector('.grid-responsive-slider')) {
+    const { GridResponsiveSlider } = await import(
+      /* webpackChunkName: "components.grid-responsive-slider" */ '@marke/ui-core/components/grid-responsive-slider/grid-responsive-slider'
+    );
+    document.querySelectorAll('.grid-responsive-slider').forEach((gridResponsiveSlider) => {
+      new GridResponsiveSlider(gridResponsiveSlider);
+    });
+  }
+};
+
+/**
  * Load Navbar components.
  */
  const loadNavbar = async () => {
@@ -28,11 +57,29 @@ import '../scss/main.scss';
 };
 
 /**
+ * Load youtube modal component.
+ */
+ const loadYoutubeModals = async () => {
+  if (document.querySelector('.video-teaser')) {
+    const { VideoTeaser } = await import(
+      /* webpackChunkName: "components.video-teaser" */ '@marke/ui-core/components/video-teaser/video-teaser'
+    );
+    document.querySelectorAll('.video-teaser').forEach((el) => {
+      new VideoTeaser(el);
+    });
+  }
+};
+
+/**
  * Dynamically load modules that are split from the main JS bundle.
  */
 const loadDynamicModules = () => {
+  import(/* webpackChunkName: "fontawesome" */ './vendor/fontawesome');
+  loadCarousel();
+  loadGridResponsiveSlider();
   loadNavbar();
   loadActionbar();
+  loadYoutubeModals();
 };
 
 /**

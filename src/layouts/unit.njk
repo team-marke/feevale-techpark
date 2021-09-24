@@ -1,0 +1,9 @@
+{%- extends 'base.njk' %}
+{%- block content %}
+  <main class="main-content">
+    <section id="masthead">
+      {{ excerpt.title }}
+    </section>
+  </main>
+{%- endblock %}
+{{ content | safe }}
