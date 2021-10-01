@@ -160,6 +160,11 @@
             <h3>{{ areas.subtitle | e | safe }}</h3>
             {{ areas.text | markdown | safe }}
           </div>
+          <ul>
+            {% for company in collections.companies %}
+              <li>{{ company.name }}</li>
+            {% endfor %}
+          </ul>
         </div>
       </div>
     </section>
