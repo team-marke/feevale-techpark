@@ -2,9 +2,15 @@
   <div class="container">
     {% set dropdown %}
       <div class="dropdown">
-        <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-          Para empresas do Parque
-        </button>
+        {%- set context = {
+          theme: 'light',
+          size: 'sm',
+          text: 'Para empresas do Parque',
+          id: dropdownMenuButton1,
+          override_classes: ['dropdown-toggle'],
+          override_attr: { 'data-bs-toggle': 'dropdown' }
+        } %}
+        {% include "@marke/ui-core/components/button/button.njk" %}
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
           <li><a class="dropdown-item" href="#">Lorem ipsum</a></li>
           <li><a class="dropdown-item" href="#">Lorem ipsum</a></li>

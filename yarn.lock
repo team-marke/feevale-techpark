@@ -24,7 +24,7 @@ __metadata:
     "@fortawesome/free-brands-svg-icons": ^5.15.3
     "@fortawesome/free-regular-svg-icons": ^5.15.3
     "@fortawesome/free-solid-svg-icons": ^5.15.3
-    "@marke/ui-core": "ssh://git@github.com:team-marke/ui-core#franComponents"
+    "@marke/ui-core": "ssh://git@github.com:team-marke/ui-core"
     "@popperjs/core": ^2.9.2
     "@types/bootstrap": ^5.0.0
     babel-loader: ^8.2.2
@@ -1866,9 +1866,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@marke/ui-core@ssh://git@github.com:team-marke/ui-core#franComponents":
+"@marke/ui-core@ssh://git@github.com:team-marke/ui-core":
   version: 0.2.0
-  resolution: "@marke/ui-core@ssh://git@github.com:team-marke/ui-core#commit=637ae0fa015e0c2f8ba3dc8f0c917a1006083cae"
+  resolution: "@marke/ui-core@ssh://git@github.com:team-marke/ui-core#commit=927dd3a36e658dfb8660f51f73c816722ded529d"
   dependencies:
     "@fortawesome/fontawesome-free": ^5.15.3
     "@fortawesome/fontawesome-svg-core": ^1.2.35
@@ -1883,7 +1883,7 @@ __metadata:
     regenerator-runtime: ^0.13.7
     swiper: ^6.8.0
     yt-player: ^3.5.0
-  checksum: 339e2b5455c3dbfd29e62a7c92666b1a2d2e87fc5440da8058611cd5c52369c3118dad181d6fedc0a2d0c8663322e4fdf86ed26d53f2f164c952673f76ed4e39
+  checksum: 9a2aa1b38e5c627c9e48fd197e5776cdc7375b47e50e156b49145bf8dd78a6f817b6e73b95a59c55deb66df038a643073a835e856535ecd3fce1a31bb2d2d342
   languageName: node
   linkType: hard
 
