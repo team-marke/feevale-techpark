@@ -18,7 +18,7 @@ module.exports = async () => {
       unit_id: item.fields.unitId,
       area: item.fields.area,
       modality: item.fields.modality,
-      cloudinary_image: item.fields.cloudinaryImage[0].original_secure_url,
+      image: item.fields.cloudinaryImage[0].original_secure_url,
     });
   }
   return companies;

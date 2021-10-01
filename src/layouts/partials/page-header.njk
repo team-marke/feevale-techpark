@@ -6,7 +6,7 @@
           theme: 'light',
           size: 'sm',
           text: 'Para empresas do Parque',
-          id: dropdownMenuButton1,
+          id: 'dropdownMenuButton1',
           override_classes: ['dropdown-toggle'],
           override_attr: { 'data-bs-toggle': 'dropdown' }
         } %}
@@ -63,7 +63,7 @@
       {{ search | safe }}
     {%- endset %}
     {%- set context = {
-      navbarLinks: (collections.navbar | eleventyNavigation),
+      navbarLinks: (collections.navbar | eleventyNavigation('home')),
       currentPage: page,
       brandLogo: site.logo,
       brandLogoMobile: site.logo,

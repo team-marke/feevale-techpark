@@ -12,7 +12,7 @@
               {%- set context = {
                 theme: 'primary',
                 size: 'lg',
-                html: masthead.btn.url,
+                href: masthead.btn.url,
                 html: masthead.btn.text+'<i class="fas fa-chevron-right ms-3"></i>'
               } %}
               {% include "@marke/ui-core/components/button/button.njk" %}
@@ -89,13 +89,13 @@
               {% set renderedItem %}
                 {% set cardBody %}
                   <div class="d-flex flex-column h-100">
-                    <h3 class="text-body">{{ unit.data.excerpt.title | e | safe }}</h3>
+                    <h3 class="text-body">{{ unit.name | e | safe }}</h3>
                     <div class="card-excerpt">
-                      {{ unit.data.excerpt.text | markdown | safe }}
+                      {{ unit.excerpt | safe }}
                     </div>
                     {% set context = {
                       theme: 'primary',
-                      href: unit.url,
+                      href: unit.pathname,
                       text: 'Conheça a unidade',
                       override_classes: ['mt-auto align-self-start']
                     } %}
@@ -104,9 +104,9 @@
                 {% endset %}
                 {% set context = {
                     image: {
-                      url: unit.data.excerpt.image,
-                      alt: 'Foto da unidade ' + (unit.data.excerpt.title | e | safe),
-                      title: 'Foto da unidade ' + (unit.data.excerpt.title | e | safe),
+                      url: unit.image,
+                      alt: 'Foto da unidade ' + (unit.title | e | safe),
+                      title: 'Foto da unidade ' + (unit.title | e | safe),
                       width: '350',
                       height: '200'
                     },
