@@ -84,6 +84,9 @@ jobs:
     executor: node
     steps:
       - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "33:17:0f:02:74:c1:de:92:e8:68:0f:f2:75:97:05:b3"
       - <<: *restore_cache
       - <<: *generate_node_env
       - <<: *yarn_install
@@ -97,6 +100,9 @@ jobs:
     executor: node
     steps:
       - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "33:17:0f:02:74:c1:de:92:e8:68:0f:f2:75:97:05:b3"
       - <<: *restore_cache
       - <<: *generate_node_env_staging
       - <<: *yarn_install
