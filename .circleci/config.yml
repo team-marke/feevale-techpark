@@ -56,11 +56,11 @@ aliases:
   firebase_deploy: &firebase_deploy
     run:
       name: Firebase deploy
-      command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN" --only hosting:production
+      command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN" --only hosting
   firebase_deploy_staging: &firebase_deploy_staging
     run:
       name: Firebase deploy
-      command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN_STAGING" --only hosting:staging
+      command: ./node_modules/.bin/firebase hosting:channel:deploy staging
   install_curl: &install_curl
     run:
       name: Install curl
