@@ -13,7 +13,6 @@ module.exports = async () => {
   const entries = await client.getEntries({ content_type: 'unit' });
   let units = [];
   for (const item of entries.items) {
-    console.log(item.fields.metaDescription);
     units.push({
       name: item.fields.name,
       menu_order: item.fields.menuOrder,

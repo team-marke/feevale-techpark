@@ -75,6 +75,7 @@ import '../scss/main.scss';
  */
 const loadDynamicModules = () => {
   import(/* webpackChunkName: "fontawesome" */ './vendor/fontawesome');
+  import(/* webpackChunkName: "bootstrap" */ './vendor/bootstrap');
   loadCarousel();
   loadGridResponsiveSlider();
   loadNavbar();

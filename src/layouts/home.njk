@@ -154,17 +154,61 @@
     </section>
     <section>
       <div class="container py-4 py-lg-5">
-        <div class="row">
+        <div class="row gy-5">
           <div class="col-12 col-md-10 col-lg-8 mx-auto text-center">
             <h2>{{ areas.title | markdown | safe }}</h2>
             <h3>{{ areas.subtitle | e | safe }}</h3>
             {{ areas.text | markdown | safe }}
           </div>
-          <ul>
-            {% for company in collections.companies %}
-              <li>{{ company.name }}</li>
+          <ul class="nav nav-tabs" id="myTab" role="tablist" style="--areas-tab-cols: {{ collections.areas | length }}">
+            {% for area in collections.areas %}
+              <li class="nav-item" role="presentation">
+                <button 
+                  class="nav-link{% if loop.index == 1 %} active{% endif %}" 
+                  id="{{ area.title | slug }}-tab" 
+                  data-bs-toggle="tab" 
+                  data-bs-target="#{{ area.title | slug }}-panel" 
+                  type="button" 
+                  role="tab" 
+                  aria-controls="home"
+                  >
+                  <img
+                    class="d-block"
+                    loading="lazy"
+                    width="60"
+                    height="60"
+                    src="{%- imageUrl area.image, { fetch_format: 'auto', quality: 'auto', width: 60, height: 60, crop: 'pad', dpr: 2 } %}" 
+                    alt="Ícone sobre {{ area.title | e | safe }}">
+                  <h3 class="h4 mb-2">{{ area.title | e | safe }}</h3>
+                  </button>
+              </li>
             {% endfor %}
           </ul>
+          <div class="tab-content mt-3" id="myTabContent">
+            {% for area in collections.areas %}
+              <div
+                class="tab-pane fade{% if loop.index == 1 %} show active{% endif %}" 
+                id="{{ area.title | slug }}-panel" 
+                role="tabpanel" 
+                aria-labelledby="{{ area.title | slug }}-tab"
+                >
+                  <p>{{ area.description | safe }}</p>
+                  {% for company in (collections.companies | companiesByAreas(area.id)) %}
+                    {% set cardBody %}
+                      <div class="d-flex flex-column align-items-center h-100">
+                        <h4>{{ company.name | e | safe }}</h4>
+                          {{ company.description | safe }}
+                      </div>
+                    {% endset %}
+                    {% set context = {
+                        children: cardBody,
+                        interactive: true
+                    } %}
+                    {% include "@marke/ui-core/components/card/card.njk" %}
+                  {% endfor %}
+                </div>
+            {% endfor %}
+          </div>
         </div>
       </div>
     </section>

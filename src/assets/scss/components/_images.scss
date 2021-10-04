@@ -5,8 +5,11 @@
 // and abandoned it in Bootstrap v3 because it breaks lots of third-party widgets (including Google Maps)
 // which weren't expecting the images within themselves to be involuntarily resized.
 // See also https://github.com/twbs/bootstrap/issues/18178
+
+@use '../marke-ui' as mkui;
+
 .img-fluid {
-  @include img-fluid();
+  @include mkui.img-fluid();
   overflow: hidden;
   text-indent: 100%;
   white-space: nowrap;
@@ -14,13 +17,13 @@
 
 // Image thumbnails
 .img-thumbnail {
-  padding: $thumbnail-padding;
-  background-color: $thumbnail-bg;
-  border: $thumbnail-border-width solid $thumbnail-border-color;
-  @include border-radius($thumbnail-border-radius);
-  @include box-shadow($thumbnail-box-shadow);
+  padding: mkui.$thumbnail-padding;
+  background-color: mkui.$thumbnail-bg;
+  border: mkui.$thumbnail-border-width solid mkui.$thumbnail-border-color;
+  @include mkui.border-radius(mkui.$thumbnail-border-radius);
+  @include mkui.box-shadow(mkui.$thumbnail-box-shadow);
   // Keep them at most 100% wide
-  @include img-fluid();
+  @include mkui.img-fluid();
 }
 
 // Images as background
@@ -35,25 +38,25 @@
   height: 100%;
   object-fit: cover;
   z-index: -1;
-  @include media-breakpoint-down(lg) {
+  @include mkui.media-breakpoint-down(lg) {
       object-position: 33.33%;
       opacity: 0.5;
   }
   &--align-left {
       object-position: left;
-      @include media-breakpoint-down(xl) {
+      @include mkui.media-breakpoint-down(xl) {
           object-position: 20%;
       }
-      @include media-breakpoint-down(lg) {
+      @include mkui.media-breakpoint-down(lg) {
           object-position: 33.33%;
       }
   }
   &--align-right {
       object-position: right;
-      @include media-breakpoint-down(xl) {
+      @include mkui.media-breakpoint-down(xl) {
           object-position: 80%;
       }
-      @include media-breakpoint-down(lg) {
+      @include mkui.media-breakpoint-down(lg) {
           object-position: 66.66%;
       }
   }
@@ -90,11 +93,11 @@
 }
 
 .figure-img {
-  margin-bottom: $spacer / 2;
+  margin-bottom: mkui.$spacer / 2;
   line-height: 1;
 }
 
 .figure-caption {
-  @include font-size($figure-caption-font-size);
-  color: $figure-caption-color;
+  @include mkui.font-size(mkui.$figure-caption-font-size);
+  color: mkui.$figure-caption-color;
 }
