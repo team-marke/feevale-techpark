@@ -25,7 +25,7 @@ class CMSConfig {
     }
     configObj[0].media_library.config.cloud_name = process.env.CLOUDINARY_CLOUD_NAME;
     configObj[0].media_library.config.api_key = process.env.CLOUDINARY_KEY;
-    configObj[0].logo_url = site.logo;
+    configObj[0].logo_url = site.logos.techpark.dark;
     return yaml.dump(configObj[0]);
   }
 }

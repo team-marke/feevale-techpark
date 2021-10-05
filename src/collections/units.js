@@ -19,6 +19,8 @@ module.exports = async () => {
       meta_description: item.fields.metaDescription,
       excerpt: documentToHtmlString(item.fields.excerpt),
       image: item.fields.cloudinaryImage[0].original_secure_url,
+      phone: item.fields.phone,
+      address: item.fields.address,
       pathname: `unidades-parque-tecnologico/${slugify(item.fields.name, { lower: true })}/` 
     });
   }

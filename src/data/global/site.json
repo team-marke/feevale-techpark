@@ -5,7 +5,18 @@
   "version": "{{ pkg.version }}",
   "author": "{{ pkg.author }}",
   "locale": "pt-BR",
-  "logo": "https://res.cloudinary.com/feevale-techpark/image/upload/v1632244220/logo-techpark-header-01.svg",
+  "logos": {
+    "techpark": {
+      "dark": "https://res.cloudinary.com/feevale-techpark/image/upload/v1632244220/logo-techpark-header-01.svg",
+      "light": "https://res.cloudinary.com/feevale-techpark/image/upload/v1632244220/logo-techpark-rodape-01.svg"
+    },
+    "feevale": {
+      "light": "https://res.cloudinary.com/feevale-techpark/image/upload/v1632244218/logo-feevale-rodape-01.svg"
+    }
+  },
+  "contact": {
+    "email": "techpark@feevale.com.br"
+  },
   "favicon": "",
   "social": {
     "facebook": "https://www.facebook.com/feevaletechpark",

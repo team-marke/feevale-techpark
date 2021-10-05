@@ -4,7 +4,7 @@ import '../scss/main.scss';
 /**
  * Load Carousel.
  */
- const loadCarousel = () => {
+const loadCarousel = () => {
   if (document.querySelector('.carousel')) {
     import(/* webpackChunkName: "components.carousel" */ '@marke/ui-core/components/carousel/carousel').then(
       ({ Carousel }) => {
@@ -19,7 +19,7 @@ import '../scss/main.scss';
 /**
  * Load GridResponsiveSlider components.
  */
- const loadGridResponsiveSlider = async () => {
+const loadGridResponsiveSlider = async () => {
   if (document.querySelector('.grid-responsive-slider')) {
     const { GridResponsiveSlider } = await import(
       /* webpackChunkName: "components.grid-responsive-slider" */ '@marke/ui-core/components/grid-responsive-slider/grid-responsive-slider'
@@ -33,7 +33,7 @@ import '../scss/main.scss';
 /**
  * Load Navbar components.
  */
- const loadNavbar = async () => {
+const loadNavbar = async () => {
   if (document.querySelector('.navbar')) {
     const { Navbar } = await import(/* webpackChunkName: "components.navbar" */ '@marke/ui-core/components/navbar/navbar');
     document.querySelectorAll('.navbar').forEach((navbar) => {
@@ -45,7 +45,7 @@ import '../scss/main.scss';
 /**
  * Load Actionbar components.
  */
- const loadActionbar = async () => {
+const loadActionbar = async () => {
   if (document.querySelector('.actionbar')) {
     const { Actionbar } = await import(
       /* webpackChunkName: "components.actionbar" */ '@marke/ui-core/components/actionbar/actionbar'
@@ -59,13 +59,27 @@ import '../scss/main.scss';
 /**
  * Load youtube modal component.
  */
- const loadYoutubeModals = async () => {
+const loadYoutubeModals = async () => {
   if (document.querySelector('.video-teaser')) {
     const { VideoTeaser } = await import(
       /* webpackChunkName: "components.video-teaser" */ '@marke/ui-core/components/video-teaser/video-teaser'
     );
     document.querySelectorAll('.video-teaser').forEach((el) => {
       new VideoTeaser(el);
+    });
+  }
+};
+
+/**
+ * Load Socialbar.
+ */
+const loadSocialbar = async () => {
+  if (document.querySelector('.socialbar')) {
+    const { Socialbar } = await import(
+      /* webpackChunkName: "components.socialbar" */ '@marke/ui-core/components/socialbar/socialbar'
+    );
+    document.querySelectorAll('.socialbar').forEach((socialbar) => {
+      new Socialbar(socialbar);
     });
   }
 };
@@ -81,13 +95,13 @@ const loadDynamicModules = () => {
   loadNavbar();
   loadActionbar();
   loadYoutubeModals();
+  loadSocialbar();
 };
 
 /**
  * Load modules that are included in our main JS bundle.
  */
-const loadBundledModules = () => {
-};
+const loadBundledModules = () => {};
 
 /**
  * Bootstrap all the JS modules here.
@@ -103,5 +117,4 @@ if (document.readyState === 'loading') {
   loadBundledModules();
 }
 
-window.onload = () => {
-};
+window.onload = () => {};

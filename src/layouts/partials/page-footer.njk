@@ -1,2 +1,57 @@
-<footer role="contentinfo" class="page-footer pb-5 pt-lg-4">
+<footer role="contentinfo" class="page-footer bg-dark pb-5 pt-lg-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-3">
+        <a href="{{ global.site_absolute_url | url }}">
+          <img 
+            src="{%- imageUrl site.logos.techpark.light, { fetch_format: 'auto', quality: 'auto', width: 160, crop: 'thumb' } %}"
+            srcset=" {%- imageUrl site.logos.techpark.light, { fetch_format: 'auto', quality: 'auto', width: 160, crop: 'thumb', dpr: 2 } %} 2x"
+            width="160"
+            loading="lazy"
+            class="img-fluid mb-3"
+            alt="{{ site.name | e | safe }}"
+          >
+        </a>
+        <a href="{{ footer.feevale.siteUrl | url }}" target="_blank">
+          <img 
+            src="{%- imageUrl site.logos.feevale.light, { fetch_format: 'auto', quality: 'auto', width: 160, crop: 'thumb' } %}"
+            srcset=" {%- imageUrl site.logos.feevale.light, { fetch_format: 'auto', quality: 'auto', width: 160, crop: 'thumb', dpr: 2 } %} 2x"
+            width="160"
+            loading="lazy"
+            class="img-fluid"
+            alt="{{ footer.feevale.title | e | safe }}"
+          >
+        </a>
+      </div>
+      <div class="col-12 col-lg-3">
+        <h4 class="text-primary mb-1">{{ site.name | e | safe }}</h4>
+        <ul class="list-unstyled mb-0">
+            <li><a class="link-light" href="mailto:{{ site.contact.email | safe }}">{{ site.contact.email | safe }}</a></li>
+        </ul>
+        {%- set context = {
+          variant: 'light',
+          items: {
+            instagram: site.social.instagram,
+            facebook: site.social.facebook,
+            linkedin: site.social.linkedin
+          },
+          componentClasses: ['mb-3']
+        } %}
+        {% include "@marke/ui-core/components/socialbar/socialbar.njk" %}
+        <h4 class="text-primary mb-1">Unidades</h4>
+        <ul class="list-unstyled">
+          {% set unitsLinks = (collections.navbar | eleventyNavigation('units')) %}
+          {% for item in unitsLinks %}
+            <li><a class="link-light" href="{{ item.url | url }}">{{ item.title | e | safe }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="col-12 col-lg-3">
+        {% for unit in collections.units %}
+          <h4 class="text-primary mb-1">{{ unit.name | e | safe }}</h4>
+          <a class="link-light" target="_blank" href="{{ unit.address | gmapsLink }}">{{ unit.address | e | safe }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 </footer>
