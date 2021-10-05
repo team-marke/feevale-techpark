@@ -21,21 +21,6 @@
     margin-right: 0;
     margin-left: 0;
   }
-
-  > .list-group {
-    border-top: inherit;
-    border-bottom: inherit;
-
-    &:first-child {
-      border-top-width: 0;
-      @include mkui.border-top-radius(mkui.$card-inner-border-radius);
-    }
-
-    &:last-child {
-      border-bottom-width: 0;
-      @include mkui.border-bottom-radius(mkui.$card-inner-border-radius);
-    }
-  }
 }
 
 .company-card__body {
@@ -89,7 +74,6 @@
   margin-bottom: 0;
   color: mkui.$card-cap-color;
   background-color: mkui.$white;
-  border-bottom: mkui.$card-border-width solid mkui.$card-border-color;
   @include mkui.border-top-radius(mkui.$card-inner-border-radius);
 }
 
