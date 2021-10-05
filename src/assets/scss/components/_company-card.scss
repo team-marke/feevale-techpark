@@ -1,0 +1,99 @@
+/**
+ * Card component styles.
+ */
+
+@use '../marke-ui' as mkui;
+
+.company-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: mkui.$card-height;
+  word-wrap: break-word;
+  background-color: mkui.$light;
+  background-clip: border-box;
+  border: mkui.$card-border-width solid mkui.$light;
+  box-shadow: mkui.$box-shadow;
+  @include mkui.border-radius(mkui.$card-border-radius);
+
+  > hr {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  > .list-group {
+    border-top: inherit;
+    border-bottom: inherit;
+
+    &:first-child {
+      border-top-width: 0;
+      @include mkui.border-top-radius(mkui.$card-inner-border-radius);
+    }
+
+    &:last-child {
+      border-bottom-width: 0;
+      @include mkui.border-bottom-radius(mkui.$card-inner-border-radius);
+    }
+  }
+}
+
+.company-card__body {
+  flex: 1 1 auto;
+  position: static;
+  padding: mkui.$card-spacer-y * 0.75 mkui.$card-spacer-x * 0.75;
+  @include mkui.media-breakpoint-up(lg) {
+    padding: mkui.$card-spacer-y mkui.$card-spacer-x;
+  }
+  color: mkui.$card-color;
+}
+
+.company-card--interactive {
+  transition: mkui.$transition-base;
+}
+
+.company-card--interactive:hover {
+  box-shadow: mkui.$box-shadow-hover;
+}
+
+.company-card--interactive .company-card__body {
+  transition: mkui.$transition-base;
+  a:not(.stretched-link) {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.company-card--interactive:hover .company-card__body {
+  transform: translateY(-(mkui.$card-spacer-y) / 4);
+}
+
+.company-card__body--overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: mkui.$card-img-overlay-padding;
+  @include mkui.border-radius(mkui.$card-inner-border-radius);
+}
+
+//
+// Optional textual caps
+//
+
+.company-card__header {
+  display: flex;
+  justify-content: center;
+  padding: mkui.$card-cap-padding-y mkui.$card-cap-padding-x;
+  margin-bottom: 0;
+  color: mkui.$card-cap-color;
+  background-color: mkui.$white;
+  border-bottom: mkui.$card-border-width solid mkui.$card-border-color;
+  @include mkui.border-top-radius(mkui.$card-inner-border-radius);
+}
+
+// Card image
+.company-card__img {
+  display: block;
+}

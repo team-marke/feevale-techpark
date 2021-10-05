@@ -89,7 +89,7 @@
               {% set renderedItem %}
                 {% set cardBody %}
                   <div class="d-flex flex-column h-100">
-                    <h3 class="text-body">{{ unit.name | e | safe }}</h3>
+                    <h3>{{ unit.name | e | safe }}</h3>
                     <div class="card-excerpt">
                       {{ unit.excerpt | safe }}
                     </div>
@@ -152,7 +152,7 @@
         </div>
       </div>
     </section>
-    <section>
+    <section class="desktop-areas d-none d-lg-block">
       <div class="container py-4 py-lg-5">
         <div class="row gy-5">
           <div class="col-12 col-md-10 col-lg-8 mx-auto text-center">
@@ -160,7 +160,7 @@
             <h3>{{ areas.subtitle | e | safe }}</h3>
             {{ areas.text | markdown | safe }}
           </div>
-          <ul class="nav nav-tabs" id="myTab" role="tablist" style="--areas-tab-cols: {{ collections.areas | length }}">
+          <ul class="nav nav-tabs" id="areasTab" role="tablist" style="--areas-tab-cols: {{ collections.areas | length }}">
             {% for area in collections.areas %}
               <li class="nav-item" role="presentation">
                 <button 
@@ -184,7 +184,7 @@
               </li>
             {% endfor %}
           </ul>
-          <div class="tab-content mt-3" id="myTabContent">
+          <div class="tab-content mt-3" id="areasTabContent">
             {% for area in collections.areas %}
               <div
                 class="tab-pane fade{% if loop.index == 1 %} show active{% endif %}" 
@@ -193,21 +193,97 @@
                 aria-labelledby="{{ area.title | slug }}-tab"
                 >
                   <p>{{ area.description | safe }}</p>
-                  {% for company in (collections.companies | companiesByAreas(area.id)) %}
-                    {% set cardBody %}
-                      <div class="d-flex flex-column align-items-center h-100">
-                        <h4>{{ company.name | e | safe }}</h4>
-                          {{ company.description | safe }}
-                      </div>
-                    {% endset %}
-                    {% set context = {
-                        children: cardBody,
-                        interactive: true
+                  <div class="row mb-5">
+                    {% for company in (collections.companies | companiesByAreas(area.id)) %}
+                      {% if loop.index <= 4 %}
+                        <div class="col-3">
+                        {% set cardBody %}
+                          <div class="d-flex flex-column text-center h-100">
+                            <h4>{{ company.name | e | safe }}</h4>
+                            {{ company.description | safe }}
+                          </div>
+                        {% endset %}
+                        {% set context = {
+                            image: {
+                              url: company.image,
+                              alt: 'Logo da ' + (company.name | e | safe),
+                              title: 'Logo da ' + (company.name | e | safe),
+                              width: '150',
+                              height: '100'
+                            },
+                            children: cardBody
+                        } %}
+                        {% include "./components/company-card.njk" %}
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                  <div class="text-center">
+                    {%- set context = {
+                      theme: 'primary',
+                      href: '#',
+                      text: 'Saiba mais'
                     } %}
-                    {% include "@marke/ui-core/components/card/card.njk" %}
-                  {% endfor %}
+                    {% include "@marke/ui-core/components/button/button.njk" %}
+                  </div>
                 </div>
             {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="mobile-areas d-block d-lg-none">
+      <div class="container py-4 py-lg-5">
+        <div class="row gy-4 gy-lg-5">
+          <div class="col-12 col-md-10 col-lg-8 mx-auto text-center">
+            <h2>{{ areas.title | markdown | safe }}</h2>
+            <h3>{{ areas.subtitle | e | safe }}</h3>
+            {{ areas.text | markdown | safe }}
+          </div>
+          <div class="col-12">
+            {% set cards = [] %}
+            {% for area in collections.areas %}
+              {% set renderedItem %}
+                {% set cardBody %}
+                  <div class="d-flex flex-column h-100">
+                    <img
+                      class="d-block mb-3"
+                      loading="lazy"
+                      width="60"
+                      height="60"
+                      src="{%- imageUrl area.image, { fetch_format: 'auto', quality: 'auto', width: 60, height: 60, crop: 'pad', dpr: 2 } %}" 
+                      alt="Ícone sobre {{ area.title | e | safe }}"
+                    >
+                    <h3>{{ area.title | e | safe }}</h3>
+                    <div class="card-excerpt">
+                      {{ area.description | safe }}
+                    </div>
+                    {%- set context = {
+                      theme: 'primary',
+                      href: '#',
+                      text: 'Saiba mais',
+                      override_classes: ['mt-auto', 'align-self-start']
+                    } %}
+                    {% include "@marke/ui-core/components/button/button.njk" %}
+                  </div>
+                {% endset %}
+                {% set context = {
+                    children: cardBody,
+                    componentClasses: ['h-100']
+                } %}
+                {% include "@marke/ui-core/components/card/card.njk" %}
+              {% endset %}
+              {% set cards = (cards.push(renderedItem), cards) %}
+            {% endfor %}
+            {%- set context = {
+              minSlidesPerView: 1,
+              maxSlidesPerView: 3,
+              total: (cards | length),
+              items: cards,
+              visibleOverflow: false,
+              showNavs: true
+            } %}
+            {% include "@marke/ui-core/components/carousel/carousel.njk" %}
           </div>
         </div>
       </div>

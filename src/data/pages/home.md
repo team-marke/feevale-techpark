@@ -12,7 +12,7 @@ metadata:
   description:
 masthead:
   image: https://res.cloudinary.com/feevale-techpark/image/upload/v1632244222/Parque_Tecnol%C3%B3gico_Feevale_Techpark.png
-  bgColor: '#000'
+  bgColor: '#5e5e5e'
   title: >-
     Feevale <span class="fw-bold">Techpark</span>
   btn:

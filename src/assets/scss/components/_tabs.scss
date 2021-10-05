@@ -8,7 +8,7 @@
 .nav.nav-tabs {
   display: grid;
   grid-template-columns: repeat(var(--areas-tab-cols), 1fr);
-  gap: .25rem;
+  gap: 0.25rem;
   list-style: none;
   border: none;
 
@@ -18,7 +18,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: .5rem;
+    gap: 0.5rem;
     font-weight: mkui.$nav-link-font-weight;
     color: mkui.$body-color;
     text-decoration: none;
@@ -29,10 +29,10 @@
 
     &:hover,
     &:focus {
-      color: rgba(mkui.$body-color, .85);
-      border-bottom-color: rgba(mkui.$body-color, .85);
+      color: rgba(mkui.$body-color, 0.85);
+      border-bottom-color: rgba(mkui.$body-color, 0.85);
     }
-  
+
     // Disabled state lightens text
     &.disabled {
       color: mkui.$nav-link-disabled-color;
