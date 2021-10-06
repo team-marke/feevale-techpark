@@ -21,7 +21,7 @@ const createAreasArray = async () => {
 };
 
 module.exports = async () => {
-  if (process.env.ELEVENTY_ENV == 'main') {
+  if (process.env.ELEVENTY_ENV == 'production') {
     return await createAreasArray();
   }
   const cachedAreas = cacheClient.get('areas');

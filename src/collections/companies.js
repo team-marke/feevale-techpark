@@ -24,7 +24,7 @@ const createCompaniesArray = async () => {
 };
 
 module.exports = async () => {
-  if (process.env.ELEVENTY_ENV == 'main') {
+  if (process.env.ELEVENTY_ENV == 'production') {
     return await createCompaniesArray();
   }
   const cachedCompanies = cacheClient.get('companies');
