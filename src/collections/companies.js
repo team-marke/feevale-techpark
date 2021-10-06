@@ -1,25 +1,37 @@
 require('dotenv').config();
-const contenful = require('contentful');
+const contentfulClient = require('../assets/js/utils/clients/contentful');
+const cacheClient = require('../assets/js/utils/clients/node-cache');
 const { documentToHtmlString } = require('@contentful/rich-text-html-renderer');
 
-const client = contenful.createClient({
-  space: 'd0y97x3ocvkp',
-  environment: 'master',
-  accessToken: process.env.CONTENTFUL_TOKEN,
-});
+const fetchCompanies = async () => {
+  return await contentfulClient.getEntries({ content_type: 'company' });
+};
 
-module.exports = async () => {
-  const entries = await client.getEntries({ content_type: 'company' });
-  let companies = [];
-  for (const item of entries.items) {
-    companies.push({
-      name: item.fields.name,
+const createCompaniesArray = async () => {
+  const data = await fetchCompanies();
+  let companiesArray = [];
+  for (const item of data.items) {
+    companiesArray.push({
+      title: item.fields.title,
       description: documentToHtmlString(item.fields.description),
-      unit_id: item.fields.unitId,
+      unit: item.fields.unit,
       area: item.fields.area,
       modality: item.fields.modality,
       image: item.fields.cloudinaryImage[0].original_secure_url,
     });
   }
-  return companies;
+  return companiesArray;
+};
+
+module.exports = async () => {
+  if (process.env.ELEVENTY_ENV == 'main') {
+    return await createCompaniesArray();
+  }
+  const cachedCompanies = cacheClient.get('companies');
+  if (cachedCompanies == undefined) {
+    const companiesArray = await createCompaniesArray();
+    cacheClient.set('companies', companiesArray);
+    return companiesArray;
+  }
+  return cachedCompanies;
 };

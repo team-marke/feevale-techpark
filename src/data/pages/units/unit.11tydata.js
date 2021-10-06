@@ -14,12 +14,12 @@ module.exports = {
   eleventyComputed: {
     eleventyNavigation: {
       parent: 'units',
-      title: (data) => data.unit.name,
+      title: (data) => data.unit.title,
       order: (data) => data.unit.order,
-      key: (data) => slugify(data.unit.name, { lower: true }),
+      key: (data) => slugify(data.unit.title, { lower: true }),
     },
     metadata: {
-      title: (data) => `${data.unit.name} | Parque Tecnológico`,
+      title: (data) => `${data.unit.title} | Parque Tecnológico`,
       description: (data) => data.unit.meta_description,
       image: (data) => data.unit.image,
     },

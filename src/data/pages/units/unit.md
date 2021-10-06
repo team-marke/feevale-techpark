@@ -7,5 +7,5 @@ pagination:
   size: 1
   alias: unit
   addAllPagesToCollections: true
-permalink: unidades-parque-tecnologico/{{ unit.name | slug }}/
+permalink: unidades-parque-tecnologico/{{ unit.title | slug }}/
 ---

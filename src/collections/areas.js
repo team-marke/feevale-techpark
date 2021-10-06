@@ -1,22 +1,34 @@
 require('dotenv').config();
-const contenful = require('contentful');
+const contentfulClient = require('../assets/js/utils/clients/contentful');
+const cacheClient = require('../assets/js/utils/clients/node-cache');
 
-const client = contenful.createClient({
-  space: 'd0y97x3ocvkp',
-  environment: 'master',
-  accessToken: process.env.CONTENTFUL_TOKEN,
-});
+const fetchAreas = async () => {
+  return await contentfulClient.getEntries({ content_type: 'area' });
+};
 
-module.exports = async () => {
-  const entries = await client.getEntries({ content_type: 'area' });
-  let units = [];
-  for (const item of entries.items) {
-    units.push({
+const createAreasArray = async () => {
+  const data = await fetchAreas();
+  let areasArray = [];
+  for (const item of data.items) {
+    areasArray.push({
       id: item.sys.id,
       title: item.fields.title,
       description: item.fields.description,
       image: item.fields.cloudinaryImage[0].original_secure_url,
     });
   }
-  return units;
+  return areasArray;
+};
+
+module.exports = async () => {
+  if (process.env.ELEVENTY_ENV == 'main') {
+    return await createAreasArray();
+  }
+  const cachedAreas = cacheClient.get('areas');
+  if (cachedAreas == undefined) {
+    const areasArray = await createAreasArray();
+    cacheClient.set('areas', areasArray);
+    return areasArray;
+  }
+  return cachedAreas;
 };

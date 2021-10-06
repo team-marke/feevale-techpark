@@ -89,7 +89,7 @@
               {% set renderedItem %}
                 {% set cardBody %}
                   <div class="d-flex flex-column h-100">
-                    <h3>{{ unit.name | e | safe }}</h3>
+                    <h3>{{ unit.title | e | safe }}</h3>
                     <div class="card-excerpt">
                       {{ unit.excerpt | safe }}
                     </div>
@@ -200,15 +200,15 @@
                           <div class="col-3">
                           {% set cardBody %}
                             <div class="d-flex flex-column text-center h-100">
-                              <h4>{{ company.name | e | safe }}</h4>
+                              <h4>{{ company.title | e | safe }}</h4>
                               {{ company.description | safe }}
                             </div>
                           {% endset %}
                           {% set context = {
                               image: {
                                 url: company.image,
-                                alt: 'Logo da ' + (company.name | e | safe),
-                                title: 'Logo da ' + (company.name | e | safe),
+                                alt: 'Logo da ' + (company.title | e | safe),
+                                title: 'Logo da ' + (company.title | e | safe),
                                 width: '150',
                                 height: '100'
                               },
