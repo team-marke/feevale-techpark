@@ -2,33 +2,14 @@
   {%- if context.componentClasses %}
     {%- set componentClasses = context.componentClasses %}
   {%- endif %}
-  {%- if not context.overlay %}
-    {%- set overlay = false %}
-  {%- else %}
-    {%- set overlay = context.overlay %}
-  {%- endif -%}
-  {%- if not context.interactive %}
-    {%- set interactive = false %}
-  {%- else %}
-    {%- set interactive = context.interactive %}
-  {%- endif -%}
-  {%- set image = context.image %}
-  {%- if context.image and not context.image.position %}
-    {%- set imagePos = 'top' %}
-    {%- if overlay %}
-      {%- set imagePos = 'overlay' %}
-    {%- endif %}
-  {%- else %}
-    {%- set imagePos = context.image.position %}
+  {%- if context.image %}
+    {%- set image = context.image %}
   {%- endif %}
   {%- set children = context.children %}
 {%- endif %}
 
 <div class="
     company-card
-    {%- if interactive %}
-    company-card--interactive
-    {%- endif %}
     {%- if componentClasses %}
     {{ componentClasses | join(" ") | safe }}
     {%- endif %}
@@ -62,7 +43,7 @@
         width="{{ image.width | e | safe }}"
         height="{{ image.height | e | safe }}"
         loading="lazy"
-        class="company-card__img company-card__img--{{ imagePos | e | safe }}"
+        class="company-card__img"
         alt="{{ image.alt | e | safe }}"
         title="{{ image.title | e | safe }}"
       >
@@ -71,12 +52,7 @@
       </a>
     {%- endif %}
   </div>
-  <div class="
-    company-card__body
-    {%- if overlay %}
-    company-card__body--overlay
-    {%- endif %}
-  ">
+  <div class="company-card__body">
     {{ children | safe }}
   </div>
 </div>

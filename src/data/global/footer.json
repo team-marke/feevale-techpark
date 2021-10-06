@@ -2,5 +2,14 @@
   "feevale": {
     "siteUrl": "https://feevale.br",
     "title": "Universidade Feevale"
+  },
+  "extra": {
+    "title": "Faça parte do Feevale Techpark",
+    "items": [
+      {
+        "label": "Manual da Marca",
+        "url": "https://www.feevale.br/Comum/midias/d74f5bc6-189b-4c76-bb60-b90bcbab68a2/MIV_FEEVALE_TECHPARK.PDF" 
+      }
+    ]
   }
 }

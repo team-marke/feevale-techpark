@@ -4,12 +4,10 @@
  */
 
 import { dom as faDom, library as faLibrary, config as faConfig } from '@fortawesome/fontawesome-svg-core';
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { faChevronRight, faPhoneSquareAlt } from '@fortawesome/free-solid-svg-icons';
 
 (() => {
-  faLibrary.add(
-    faChevronRight
-  );
+  faLibrary.add(faChevronRight, faPhoneSquareAlt);
   faConfig.showMissingIcons = false;
   faDom.watch();
 })();

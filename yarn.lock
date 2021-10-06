@@ -1869,7 +1869,7 @@ __metadata:
 
 "@marke/ui-core@ssh://git@github.com:team-marke/ui-core":
   version: 0.2.0
-  resolution: "@marke/ui-core@ssh://git@github.com:team-marke/ui-core#commit=11073dfe77058f37e83e8c4b661cd98ee7d39ddd"
+  resolution: "@marke/ui-core@ssh://git@github.com:team-marke/ui-core#commit=abe79f4a148f1850c970546d49f4084749a42109"
   dependencies:
     "@fortawesome/fontawesome-free": ^5.15.3
     "@fortawesome/fontawesome-svg-core": ^1.2.35
@@ -1884,7 +1884,7 @@ __metadata:
     regenerator-runtime: ^0.13.7
     swiper: ^6.8.0
     yt-player: ^3.5.0
-  checksum: eed625b107c634e7d7cfe05dfce5c53b7c1338bdc3d7af346da8e767c9ebc2150eff50a3cfe81e0ddfe6202cc38790b55087bd9fb058b71f9ba0f47f056319ba
+  checksum: 76e9259fd888c4921a36449dfc26b76b878f05cda3e7bbe0773ae1fcca3bbc02228a244020ae695eb72ca4a42c0de91f18c9283e1b820e4819ba675492f1c0bb
   languageName: node
   linkType: hard
 

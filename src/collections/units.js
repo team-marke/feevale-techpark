@@ -28,7 +28,6 @@ const createUnitsArray = async () => {
 
 module.exports = async () => {
   if (process.env.ELEVENTY_ENV == 'production') {
-    console.log('Retornando sem cache...');
     return await createUnitsArray();
   }
   const cachedUnits = cacheClient.get('units');

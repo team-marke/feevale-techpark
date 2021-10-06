@@ -1,23 +1,5 @@
 <aside class="d-lg-block d-none bg-dark">
   <div class="container">
-    {% set dropdown %}
-      <div class="dropdown">
-        {%- set context = {
-          theme: 'light',
-          size: 'sm',
-          text: 'Para empresas do Parque',
-          id: 'dropdownMenuButton1',
-          override_classes: ['dropdown-toggle'],
-          override_attr: { 'data-bs-toggle': 'dropdown' }
-        } %}
-        {% include "@marke/ui-core/components/button/button.njk" %}
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item" href="#">Lorem ipsum</a></li>
-          <li><a class="dropdown-item" href="#">Lorem ipsum</a></li>
-          <li><a class="dropdown-item" href="#">Lorem ipsum</a></li>
-        </ul>
-      </div>
-    {% endset %}
     {% set search %}
       <input type="email" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="name@example.com">
     {% endset %}
@@ -30,9 +12,6 @@
         }
       ],
       endItems: [
-        {
-          html: dropdown
-        },
         {
           html: search
         },

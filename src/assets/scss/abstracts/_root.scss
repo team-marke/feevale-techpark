@@ -1,0 +1,7 @@
+@use '../marke-ui' as mkui;
+
+@include mkui.media-breakpoint-down(xl) {
+  :root {
+    --#{mkui.$variable-prefix}body-font-size: #{mkui.rfs-fluid-value(mkui.$font-size-base)};
+  }
+}

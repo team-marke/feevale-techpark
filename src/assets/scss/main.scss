@@ -13,17 +13,24 @@
   $padding-x-lg: 1.75rem,
   $padding-y-sm: 0.25rem,
   $padding-x-sm: 1.5rem,
+  $text-transform: uppercase,
 );
 @use '~@marke/ui-core/components/card';
 @use '~@marke/ui-core/components/carousel';
+@use '~@marke/ui-core/components/copyrightbar';
 @use '~@marke/ui-core/components/grid-responsive-slider';
 @use '~@marke/ui-core/components/masthead' with (
   $height: 580px
 );
 @use '~@marke/ui-core/components/navbar';
 @use '~@marke/ui-core/components/video-modal';
-@use '~@marke/ui-core/components/video-teaser';
+@use '~@marke/ui-core/components/video-teaser' with (
+  $toggler-border-radius: 1rem
+);
 @use '~@marke/ui-core/components/socialbar';
+
+// Abstract styles
+@use './abstracts/root';
 
 // Genral styles
 @use './general/emphasis';
