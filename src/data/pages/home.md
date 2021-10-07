@@ -17,7 +17,7 @@ masthead:
     Feevale <span class="fw-bold">Techpark</span>
   btn:
     text: Como Ingressar
-    url: '#'
+    url: 'https://feevale.br/techpark/o-parque/como-ingressar'
 welcome:
   title: >-
     Bem-vindo ao _Feevale Techpark!_
@@ -26,7 +26,7 @@ welcome:
     O nosso objetivo é gerar um ambiente de convivência e sinergia entre a Universidade, o Poder Público e as empresas de base tecnológica, indústria criativa e outras áreas afins. Dispomos de estrutura, conhecimento e suporte para o desenvolvimento de negócios, fomento ao empreendedorismo, inovação e quaisquer outras expertises que possam ser agregadas ao Parque. Estamos localizados no Vale do Rio dos Sinos / RS.
   btn:
     text: Leia Mais
-    url: '#'
+    url: '/sobre/o-parque-tecnologico/'
   image: 
     alt: Palestra da Feevale sobre negócios 
     url: https://res.cloudinary.com/feevale-techpark/image/upload/v1632244222/Refer%C3%AAncia_nacional_em_termos_de_coopera%C3%A7%C3%A3o_cient%C3%ADfica_e_tecnol%C3%B3gica.png
@@ -63,4 +63,29 @@ areas:
     A integração das empresas com a Universidade Feevale incentiva a transferência de tecnologia, a competitividade empresarial e o fomento a novos negócios, produtos, processos e serviços.
   text: >-
     As empresas vinculadas ao Feevale Techpark são divididas em cinco grandes áreas de atuação. Confira um breve resumo sobre cada uma delas.
+  btn:
+    text: Todas as empresas
+    url: '/nossas-empresas/'
+benefits:
+  title: >-
+    No Feevale Techpark <em>você encontra</em>
+  text: >-
+    ### Benefícios para empreendedores e empresas instaladas
+    
+
+    Fortalecer as empresas instaladas no Feevale Techpark é fortalecer e legitimar todo o ecossistema. Pensando nisso, a Universidade Feevale e o Feevale Techpark disponibilizam diversos benefícios aos seus empreendedores e empresas instaladas.
+  btn:
+    text: Todos os benefícios
+    url: '/beneficios/'
+programs:
+  title: >-
+    Programas que <em>impulsionam</em> negócios
+  text: >-
+    ### Oportunidades para compartilhamento de experiências e novos aprendizados
+
+
+    Conheça os programas que o Feevale Techpark oferece às empresas vinculadas ao parque tecnológico e à comunidade local.
+  btn:
+    text: Todos os programas
+    url: '/programas-para-impulsionar-negocios/'
 ---
