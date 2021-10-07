@@ -32,7 +32,7 @@
     <section id="home-welcome">
       <div class="container py-4 py-lg-5">
         <div class="row gy-4 gx-lg-5 gx-xl-6">
-          <div class="col-12 col-lg-6 order-1 order-lg-0">
+          <div class="col-12 col-lg-7 order-1 order-lg-0">
             <h2>{{ welcome.title | markdown | safe }}</h2>
             <h3>{{ welcome.subtitle | e | safe }}</h3>
             {{ welcome.text | markdown | safe }}
@@ -43,7 +43,7 @@
             } %}
             {% include "@marke/ui-core/components/button/button.njk" %}
           </div>
-          <div class="col-12 col-lg-6">
+          <div class="col-12 col-lg-5">
             <picture>
               <source
                 media="(max-width:992px)" 
@@ -379,10 +379,22 @@
           <div class="col-12 text-center">
             {%- set context = {
               theme: 'primary',
-              href: benefits.btn.url,
-              text: benefits.btn.text
+              href: programs.btn.url,
+              text: programs.btn.text
             } %}
             {% include "@marke/ui-core/components/button/button.njk" %}
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="home-courses-and-events">
+      <div class="container py-4 py-lg-5">
+        <div class="row gy-4 gy-lg-5 gx-lg-5 gx-xl-6">
+          <div class="col-12 col-lg-6">
+            <h2>{{ courses_and_events.title | markdown | safe }}</h2>
+          </div>
+          <div class="col-12 col-lg-6">
+            {{ courses_and_events.text | markdown | safe }}
           </div>
         </div>
       </div>
