@@ -3,28 +3,28 @@ const fetchContent = require('../assets/js/utils/fetch-content');
 const cacheClient = require('../assets/js/utils/clients/node-cache');
 const { documentToHtmlString } = require('@contentful/rich-text-html-renderer');
 
-const getCompanies = async () => {
-  const data = await fetchContent('company');
-  let companies = [];
+const getPartners = async () => {
+  const data = await fetchContent('partner');
+  let partners = [];
   for (const item of data.items) {
-    companies.push({
+    partners.push({
       title: item.fields.title,
       description: documentToHtmlString(item.fields.description),
-      unit: item.fields.unit,
-      area: item.fields.area,
-      modality: item.fields.modality,
+      site: item.fields.title,
       image: item.fields.cloudinaryImage[0].original_secure_url,
+      email: item.fields.email,
+      phone: item.fields.phone,
     });
   }
-  return companies;
+  return partners;
 };
 
 module.exports = async () => {
-  const cachedCompanies = cacheClient.get('companies');
-  if (cachedCompanies == undefined) {
-    const newCompanies = await getCompanies();
-    cacheClient.set('companies', newCompanies);
-    return newCompanies;
+  const cachedPartners = cacheClient.get('partners');
+  if (cachedPartners == undefined) {
+    const newPartners = await getPartners();
+    cacheClient.set('partners', newPartners);
+    return newPartners;
   }
-  return cachedCompanies;
+  return cachedPartners;
 };

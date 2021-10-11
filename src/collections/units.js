@@ -1,18 +1,14 @@
 require('dotenv').config();
-const contentfulClient = require('../assets/js/utils/clients/contentful');
+const fetchContent = require('../assets/js/utils/fetch-content');
 const cacheClient = require('../assets/js/utils/clients/node-cache');
-const slugify = require('slugify');
 const { documentToHtmlString } = require('@contentful/rich-text-html-renderer');
+const slugify = require('slugify');
 
-const fetchUnits = async () => {
-  return await contentfulClient.getEntries({ content_type: 'unit' });
-};
-
-const createUnitsArray = async () => {
-  const data = await fetchUnits();
-  let unitsArray = [];
+const getUnits = async () => {
+  const data = await fetchContent('unit');
+  let units = [];
   for (const item of data.items) {
-    unitsArray.push({
+    units.push({
       title: item.fields.title,
       menu_order: item.fields.menuOrder,
       meta_description: item.fields.metaDescription,
@@ -23,18 +19,15 @@ const createUnitsArray = async () => {
       pathname: `unidades-parque-tecnologico/${slugify(item.fields.title, { lower: true })}/` 
     });
   }
-  return unitsArray;
+  return units;
 };
 
 module.exports = async () => {
-  if (process.env.ELEVENTY_ENV == 'production') {
-    return await createUnitsArray();
-  }
   const cachedUnits = cacheClient.get('units');
   if (cachedUnits == undefined) {
-    const unitsArray = await createUnitsArray();
-    cacheClient.set('units', unitsArray);
-    return unitsArray;
+    const newUnits = await getUnits();
+    cacheClient.set('units', newUnits);
+    return newUnits;
   }
   return cachedUnits;
 };
