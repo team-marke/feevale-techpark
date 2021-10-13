@@ -23,21 +23,23 @@
         src="
         {%-
           imageUrl image.url, { 
-            crop: 'pad',
+            effect: 'art:audrey',
+            fetch_format: 'auto',
+            quality: 'auto',
             width: image.width,
             height: image.height,
-            quality: 'auto',
-            fetch: 'auto'
+            crop: 'pad'
         } %}"
         srcset="
         {%-
           imageUrl image.url, { 
-            crop: 'pad',
-            width: image.width',
-            height: image.height,
-            dpr: 2,
+            effect: 'art:audrey',
+            fetch_format: 'auto',
             quality: 'auto',
-            fetch: 'auto'
+            width: image.width,
+            height: image.height,
+            crop: 'pad',
+            dpr: 2
           } 
         %} 2x"
         width="{{ image.width | e | safe }}"

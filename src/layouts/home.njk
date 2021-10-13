@@ -197,28 +197,26 @@
                   >
                     <p>{{ area.description | safe }}</p>
                     <div class="row mb-5">
-                      {% for company in (collections.companies | companiesByAreas(area.id)) %}
-                        {% if loop.index <= 4 %}
-                          <div class="col-3">
-                          {% set cardBody %}
-                            <div class="d-flex flex-column text-center h-100">
-                              <h4 class="fw-bold">{{ company.title | e | safe }}</h4>
-                              {{ company.description | safe }}
-                            </div>
-                          {% endset %}
-                          {% set context = {
-                              image: {
-                                url: company.image,
-                                alt: 'Logo da ' + (company.title | e | safe),
-                                title: 'Logo da ' + (company.title | e | safe),
-                                width: '150',
-                                height: '100'
-                              },
-                              children: cardBody
-                          } %}
-                          {% include "./components/company-card.njk" %}
+                      {% for company in (collections.companies | companiesByAreas(area.id) | arraySlice(0, 4)) %}
+                        <div class="col-3">
+                        {% set cardBody %}
+                          <div class="d-flex flex-column text-center h-100">
+                            <h4 class="fw-bold">{{ company.title | e | safe }}</h4>
+                            {{ company.description | safe }}
                           </div>
-                        {% endif %}
+                        {% endset %}
+                        {% set context = {
+                            image: {
+                              url: company.image,
+                              alt: 'Logo da ' + (company.title | e | safe),
+                              title: 'Logo da ' + (company.title | e | safe),
+                              width: '150',
+                              height: '100'
+                            },
+                            children: cardBody
+                        } %}
+                        {% include "./components/company-card.njk" %}
+                        </div>
                       {% endfor %}
                     </div>
                   </div>
@@ -341,8 +339,8 @@
                 {% set cardBody %}
                   <div class="d-flex align-items-center h-100">
                     <img
-                      src="{%- imageUrl program.data.logo, { fetch_format: 'auto', quality: 'auto', width: 400, aspect_ratio: '16:9', crop: 'pad' } %}" 
-                      srcset="{%- imageUrl program.data.logo, { fetch_format: 'auto', quality: 'auto', width: 400, aspect_ratio: '16:9', crop: 'pad', dpr: 2 } %} 2x" 
+                      src="{%- imageUrl program.data.logo, { effect: 'art:audrey', fetch_format: 'auto', quality: 'auto', width: 400, aspect_ratio: '16:9', crop: 'pad' } %}" 
+                      srcset="{%- imageUrl program.data.logo, { effect: 'art:audrey', fetch_format: 'auto', quality: 'auto', width: 400, aspect_ratio: '16:9', crop: 'pad', dpr: 2 } %} 2x" 
                       alt="{{ program.data.title | e | safe }}"
                       loading="lazy"
                       class="img-fluid"
@@ -351,7 +349,7 @@
                 {% endset %}
                 {% set context = {
                     image: {
-                      url: 'https://res.cloudinary.com/feevale-techpark/image/upload/v1633439722/sample.jpg',
+                      url: 'https://res.cloudinary.com/feevale-techpark/image/upload/v1634136759/program-bg.png',
                       alt: 'Imagem de fundo',
                       title: program.data.title,
                       width: '550',
@@ -387,14 +385,160 @@
         </div>
       </div>
     </section>
-    <section id="home-courses-and-events">
+    <section id="home-courses-and-events" class="position-relative">
       <div class="container py-4 py-lg-5">
-        <div class="row gy-4 gy-lg-5 gx-lg-5 gx-xl-6">
-          <div class="col-12 col-lg-6">
+        <div class="row gy-4 gy-lg-5 gx-lg-5 gx-xl-6 mb-3">
+          <div class="col-12 col-lg-4">
             <h2>{{ courses_and_events.title | markdown | safe }}</h2>
           </div>
           <div class="col-12 col-lg-6">
             {{ courses_and_events.text | markdown | safe }}
+          </div>
+        </div>
+        <div class="row gy-4 gy-lg-5 gx-lg-5">
+          <div class="col-12">
+            {% set cards = [] %}
+            {% for item in (collections.coursesAndEvents | arraySlice(0, 3)) %}
+              {% set renderedItem %}
+                {% set cardBody %}
+                  <div class="d-flex flex-column h-100">
+                    <time datetime="{{ item.date }}" class="mb-3">{{ item.date | localeDateString }}</time>
+                    <h3>{{ item.title | e | safe }}</h3>
+                    <div class="card-excerpt">
+                      {{ item.excerpt | safe }}
+                    </div>
+                    {% set context = {
+                      theme: 'outline-secondary',
+                      href: item.url,
+                      target: '_blank',
+                      text: 'Leia mais',
+                      override_classes: ['mt-auto align-self-start']
+                    } %}
+                    {% include "@marke/ui-core/components/button/button.njk" %}
+                  </div>
+                {% endset %}
+                {% set context = {
+                    interactive: true,
+                    children: cardBody,
+                    componentClasses: ['h-100']
+                } %}
+                {% include "@marke/ui-core/components/card/card.njk" %}
+              {% endset %}
+              {% set cards = (cards.push(renderedItem), cards) %}
+            {% endfor %}
+            {%- set context = {
+              minSlidesPerView: 1,
+              maxSlidesPerView: 3,
+              total: (cards | length),
+              items: cards
+            } %}
+            {% include "@marke/ui-core/components/carousel/carousel.njk" %}
+          </div>
+          <div class="col-12 text-center">
+            {%- set context = {
+              theme: 'primary',
+              href: courses_and_events.btn.url,
+              text: courses_and_events.btn.text
+            } %}
+            {% include "@marke/ui-core/components/button/button.njk" %}
+          </div>
+        </div>
+      </div>
+      <img 
+        loading="lazy"
+        src="{%- imageUrl units.decorator, { fetch_format: 'auto', width: 600, quality: 'auto' } %}" 
+        alt="Grafismo decorativo Feevale"
+        class="d-none d-lg-block"
+        style="position: absolute; top: 0; left: 5%; z-index: -1;"
+      >
+    </section>
+    <section id="home-partners" class="bg-light">
+      <div class="container py-4 py-lg-5">
+        <div class="row gy-4 gy-lg-5 gx-lg-5 gx-xl-6">
+          <div class="col-12 col-lg-5">
+            <h2>{{ partners.title | markdown | safe }}</h2>
+          </div>
+          <div class="col-12 col-lg-6 gx-3">
+            {% set cards = [] %}
+            {% for partner in (collections.partners | arraySlice(0, 3)) %}
+              {% set renderedItem %}
+                {% set cardBody %}
+                  <div class="d-flex align-items-center h-100">
+                    <picture>
+                      <source
+                        media="(max-width:992px)" 
+                        width="240"
+                        height="135"
+                        srcset="{%- imageUrl partner.image, { effect: 'art:audrey', fetch_format: 'auto', quality: 'auto', width: 240, aspect_ratio: '16:9', crop: 'pad' } %}"
+                      >
+                      <img
+                        width="154"
+                        height="87"
+                        src="{%- imageUrl partner.image, { effect: 'art:audrey', fetch_format: 'auto', quality: 'auto', width: 154, aspect_ratio: '16:9', crop: 'pad' } %}" 
+                        srcset="{%- imageUrl partner.image, { effect: 'art:audrey', fetch_format: 'auto', quality: 'auto', width: 154, aspect_ratio: '16:9', crop: 'pad', dpr: 2 } %} 2x" 
+                        alt="{{ partner.title | e | safe }}"
+                        loading="lazy"
+                        class="img-fluid"
+                      >
+                    </picture>
+                  </div>
+                {% endset %}
+                {% set context = {
+                    children: cardBody
+                } %}
+                {% include '@marke/ui-core/components/card/card.njk' %}
+              {% endset %}
+              {% set cards = (cards.push(renderedItem), cards) %}
+            {% endfor %}
+            {%- set context = {
+              minSlidesPerView: 1,
+              maxSlidesPerView: 3,
+              total: (cards | length),
+              items: cards,
+              visibleOverflow: false
+            } %}
+            {% include "@marke/ui-core/components/carousel/carousel.njk" %}
+          </div>
+          <div class="col-12 text-center">
+            {%- set context = {
+              theme: 'primary',
+              href: partners.btn.url,
+              text: partners.btn.text
+            } %}
+            {% include "@marke/ui-core/components/button/button.njk" %}
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="home-tech-news">
+      <div class="container py-4 py-lg-5">
+        <div class="row gy-4 gy-lg-5 gx-lg-5 gx-xl-6 mb-3">
+          <div class="col-12 col-lg-4">
+            <h2>{{ tech_news.title | markdown | safe }}</h2>
+          </div>
+        </div>
+        <div class="row gy-4 gy-lg-5 gx-lg-5">
+          <div class="col-12">
+            <ul>
+              {% for item in (collections.techNews | arraySlice(0, 4)) %}
+                <li>
+                  <img src="{%- imageUrl item.image, { type: 'fetch', transformation: [ { width: 300, aspect_ratio: '16:9', crop: 'thumb' } ] } %}" alt="{{ item.title }}">
+                  <time datetime="{{ item.date }}" class="mb-3">{{ item.date | localeDateString }}</time>
+                  <h3>{{ item.title | e | safe }}</h3>
+                  <div class="card-excerpt">
+                    {{ item.excerpt | safe }}
+                  </div>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="col-12 text-center">
+            {%- set context = {
+              theme: 'primary',
+              href: tech_news.btn.url,
+              text: tech_news.btn.text
+            } %}
+            {% include "@marke/ui-core/components/button/button.njk" %}
           </div>
         </div>
       </div>
