@@ -14,7 +14,7 @@ const getTechNews = async () => {
         excerpt: item.resumo,
         image: item.midia,
         featured: item.destaque,
-        url: item.tituloURL,
+        url: item.tituloUrl,
         date: item.dataCadastro,
       });
     }

@@ -1,0 +1,51 @@
+//
+// Latest Posts list styles
+//
+
+@use '../marke-ui' as mkui;
+
+.latest-posts {
+  padding-left: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--mkui-gutter-y) var(--mkui-gutter-x);
+
+  @include mkui.media-breakpoint-up(lg) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+  }
+
+  &__post {
+    @include mkui.media-breakpoint-up(lg) {
+      grid-column: 2 / 3;
+      grid-row: span 1;
+    }
+    border-bottom: solid mkui.$border-width mkui.$dark;
+  }
+
+  &__post:first-child {
+    @include mkui.media-breakpoint-up(lg) {
+      grid-column: 1 / 2;
+      grid-row: 1 / 4;
+      border: none;
+    }
+  }
+
+  &__post:last-child {
+    border: none;
+  }
+
+  &__thumb {
+    box-shadow: mkui.$box-shadow;
+    margin-bottom: mkui.$spacer;
+    @include mkui.border-radius(mkui.$card-border-radius);
+  }
+
+  &__thumb,
+  &__excerpt {
+    display: none;
+    @include mkui.media-breakpoint-up(lg) {
+      display: block;
+    }
+  }
+}
