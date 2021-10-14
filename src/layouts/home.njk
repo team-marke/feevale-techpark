@@ -71,7 +71,28 @@
             {{ numbers.text | markdown | safe }}
           </div>
           <div class="col-12">
-            {# Gráficos dos números #}
+            {% set items = [] %}
+            {% for item in numbers.items %}
+              {% set renderedItem %}
+                <div class="text-center">
+                  <div class="h3 fw-bold d-block">
+                    {%- if item.plus %} + {%- endif %}
+                    <span class="counter-up" data-count="{{ item.number | e | safe }}">{{ item.number | e | safe }}</span>
+                    {{ item.metric | e | safe }}
+                  </div>
+                  <div>{{ item.label | e | safe }}</div>
+                </div>
+              {% endset %}
+              {% set items = (items.push(renderedItem), items) %}
+            {% endfor %}
+            {%- set context = {
+              minSlidesPerView: 1,
+              maxSlidesPerView: 4,
+              total: (items | length),
+              items: items,
+              showNavs: false
+            } %}
+            {% include "@marke/ui-core/components/carousel/carousel.njk" %}
           </div>
         </div>
       </div>
@@ -124,7 +145,6 @@
               maxSlidesPerView: 3,
               total: (cards | length),
               items: cards,
-              visibleOverflow: false,
               showNavs: true
             } %}
             {% include "@marke/ui-core/components/carousel/carousel.njk" %}

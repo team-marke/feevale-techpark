@@ -84,6 +84,17 @@ const loadSocialbar = async () => {
   }
 };
 
+const loadAnimeteCounters = async () => {
+  if (document.querySelector('.counter-up')) {
+    const { animateCounter } = await import(
+      /* webpackChunkName: "components.animate-counter" */ '../js/components/animate-counter'
+    );
+    document.querySelectorAll('.counter-up').forEach((counter) => {
+      animateCounter(counter, 7000);
+    });
+  }
+};
+
 /**
  * Dynamically load modules that are split from the main JS bundle.
  */
@@ -96,6 +107,7 @@ const loadDynamicModules = () => {
   loadActionbar();
   loadYoutubeModals();
   loadSocialbar();
+  loadAnimeteCounters();
 };
 
 /**
