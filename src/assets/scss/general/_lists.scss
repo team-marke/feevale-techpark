@@ -1,0 +1,12 @@
+//
+// HTML5 lists general styles
+//
+
+@use '../marke-ui' as mkui;
+
+ol[type="I"] {
+  li::marker {
+    color: mkui.$primary;
+    font-size: 2rem;
+  }
+}

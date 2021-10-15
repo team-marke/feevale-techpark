@@ -8,8 +8,8 @@ eleventyNavigation:
   title: Início
   order: 0
 metadata:
-  title: 
-  description:
+  title: Feevale Techpark | Universidade Feevale
+  description: Conheça o parque tecnológico da Feevale, as unidades e os benefícios que oferece às empresas. Saiba mais sobre este ambiente de inovação e empreededorismo!
 masthead:
   image: https://res.cloudinary.com/feevale-techpark/image/upload/v1632244222/Parque_Tecnol%C3%B3gico_Feevale_Techpark.png
   bgColor: '#5e5e5e'

@@ -1,0 +1,64 @@
+{%- extends 'base.njk' %}
+{%- block content %}
+  <main class="main-content">
+    <section id="about-masthead">
+      {% set content %}
+        <div class="container py-lg-4 h-100">
+          <div class="row h-100">
+            <div class="col-12 col-lg-9 align-self-lg-center">
+              <h1 class="text-white fw-light">{{ masthead.title | markdown | safe }}</h1>
+              <p class="text-white h5">{{ masthead.description | e | safe }}</p>
+            </div>
+            <div class="col-12 col-lg-3 align-self-lg-end">
+              {%- set context = {
+                theme: 'primary',
+                size: 'lg',
+                target: '_blank',
+                href: masthead.btn.url,
+                html: masthead.btn.text+'<i class="fas fa-chevron-right ms-2"></i>'
+              } %}
+              {% include "@marke/ui-core/components/button/button.njk" %}
+            </div>
+          </div>
+        </div>
+      {% endset %}
+      {%- set context = {
+        image: masthead.image,
+        imgAr: '30:9',
+        bgColor: masthead.bgColor,
+        children: content
+      } %}
+      {% include "@marke/ui-core/components/masthead/masthead.njk" %}
+    </section>
+    <section id="about-park">
+      <div class="container py-4 py-lg-5">
+        <div class="row gy-4 gx-lg-5 gx-xl-6">
+          <div class="col-12 col-lg-7 order-1 order-lg-0">
+            <h2>{{ park.title | markdown | safe }}</h2>
+            {{ park.text | markdown | safe }}
+            <ol type="I">
+              {% for area in collections.areas %}
+                <li>{{ area.title }}</li>
+              {% endfor %}
+            </ol>
+          </div>
+          <div class="col-12 col-lg-5">
+            <picture>
+              <source
+                media="(max-width:992px)" 
+                srcset="{%- imageUrl park.image.url, { fetch_format: 'auto', quality: 'auto', width: 400, crop: 'thumb', gravity: 'auto', aspect_ratio: '16:9' } %}">
+              <img 
+                class="img-fluid rounded-3"
+                alt="{{ park.image.alt | e | safe }}"
+                loading="lazy"
+                src="{%- imageUrl park.image.url, { fetch_format: 'auto', width: 540, quality: 'auto' } %}"
+                srcset="{%- imageUrl park.image.url, { fetch_format: 'auto', width: 540, quality: 'auto', dpr: 2 } %} 2x"
+              >
+            </picture>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+{%- endblock %}
+{{ content | safe }}
