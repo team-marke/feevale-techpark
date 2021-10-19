@@ -37,4 +37,67 @@ park:
   image: 
     alt: Planta em uma das salas do Feevale Techpark   
     url: https://res.cloudinary.com/feevale-techpark/image/upload/v1634319870/O_Parque_Tecnol%C3%B3gico_da_Feevale.png
+benefits:
+  title: >-
+    No Feevale Techpark você <span class="text-primary">encontra</span>
+  text: >-
+    As empresas vinculadas ao Feevale Techpark e ao Programa Parceiros de Negócio dispõem de diversos benefícios que visam estimular a interação entre a Universidade Feevale, as empresas do Feevale Techpark e as empresas parceiras, bem como gerar sinergia entre alunos e empresários, desenvolvendo o potencial empreendedor e criativo de ambos.
+  btn:
+    text: Conheça os Benefícios
+    url: '/beneficios'
+partnership:
+  title: >-
+    <span class="text-primary">Parcerias</span> que fazem a diferença
+  text: >-
+    Quanto maior e mais sólidas as parcerias, mais forte se torna o ecossistema. Por isso, o Feevale Techpark conta com a força e apoio da Universidade Feevale através da sua Diretoria de Inovação, enriquecendo e fomentando as alianças.
+
+
+    Por meio da Universidade Feevale, o Feevale Techpark oferece aos seus empreendedores espaços para eventos, laboratórios técnicos, pesquisas de ponta, projetos de extensão e ainda conexão com os acadêmicos. 
+
+
+    Essas ações promovem a aproximação para captação de novos talentos e o desenvolvimento de desafios tecnológicos que visam a solução de gargalos tecnológicos nas empresas.
+university:
+  image: 
+    alt: Foto no alto do Feevale Campus II
+    url: https://res.cloudinary.com/feevale-techpark/image/upload/v1634319870/Universidade-Feevale-01.png
+  decorator: https://res.cloudinary.com/feevale-techpark/image/upload/v1632244217/grafismo-unidades-01.svg
+  title: >-
+    Universidade <span class="text-primary">Feevale</span>
+  text: >-
+    Reconhecida por ser uma instituição inovadora, além da alta qualidade no ensino, na pesquisa e na extensão, a Universidade Feevale é considerada umas das principais instituições do país. 
+
+
+    Aliando a tradição de 50 anos à vanguarda, especialmente na criação de cursos, processos e serviços, a Feevale vem se projetando internacionalmente em função das parcerias com instituições estrangeiras, distribuídas em diversos países.
+
+
+    Atualmente, a Universidade Feevale oferece cursos de Graduação Presencial, Graduação Digital, Pós-Graduação, Cursos e Eventos de Qualificação e Idiomas.
+
+
+    Os câmpus da Feevale oferecem ótimas instalações, que contam com salas de aula climatizadas, laboratórios com equipamentos de alta tecnologia, entre outros recursos que facilitam e enriquecem a experiência acadêmica e escolar.
+
+
+    A Feevale Digital conta com polos de ensino em mais de 10 cidades gaúchas, localizadas no Vale do Sinos, Vale do Paranhana, Serra Gaúcha e até mesmo na China.
+
+
+    O parque tecnológico da Feevale incentiva a implantação de empresas voltadas à tecnologia, à inovação e à criatividade. Suas unidades possibilitam trocas, conexões, ambientes colaborativos, alta tecnologia e diversidade cultural às empresas, acadêmicos e comunidade.
+direction:
+  image: 
+    alt: Foto no alto do Feevale Campus II
+    url: https://res.cloudinary.com/feevale-techpark/image/upload/v1634319870/Diretoria-de-Inovacao-01.png
+  title: >-
+    Diretoria de <span class="text-primary">Inovação</span>
+  text: >-
+    A Universidade Feevale, por  meio da Diretoria de Inovação, está comprometida com a incorporação da inovação como elemento orgânico, juntamente com o ensino, a pesquisa, a extensão e a gestão.
+
+
+    A inovação passa a ser um desafio e deve atuar com um posicionamento diferenciador. Tornar-se uma universidade inovadora em seus produtos e processos, e ser capaz de responder aos desafios da comunidade local, do país e do mundo, são os novos pressupostos.
+
+
+    A percepção das mudanças deve ser trabalhada no sentido de empreender e inovar fazendo a Universidade ter destaque, qualidade e reconhecimento dos seus públicos.
+
+
+    Uma das maiores potencialidades atuais é a transformação do Feevale Techpark em um diferencial estratégico para a Universidade, seus alunos e o desenvolvimento regional.
+
+
+    Assim sendo, com a constituição desta Diretoria, a inovação é potencializada com a articulação interna e as relações com o mercado, que passam a criar condições para inserção institucional e a presença mais intensiva da Feevale nos setores produtivos e na sociedade, bem como o aprofundamento da Transferência de Tecnologia.
 ---

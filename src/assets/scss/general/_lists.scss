@@ -7,6 +7,8 @@
 ol[type="I"] {
   li::marker {
     color: mkui.$primary;
-    font-size: 2rem;
+    @include mkui.media-breakpoint-up(lg) {
+      font-size: 1.75rem;
+    }
   }
 }

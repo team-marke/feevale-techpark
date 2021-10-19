@@ -1,13 +1,13 @@
 {%- extends 'base.njk' %}
 {%- block content %}
   <main class="main-content">
-    <section id="about-masthead">
+    <section id="{{ layout }}-masthead">
       {% set content %}
         <div class="container py-lg-4 h-100">
           <div class="row h-100">
             <div class="col-12 col-lg-9 align-self-lg-center">
               <h1 class="text-white fw-light">{{ masthead.title | markdown | safe }}</h1>
-              <p class="text-white h5">{{ masthead.description | e | safe }}</p>
+              <p class="text-white fs-5">{{ masthead.description | e | safe }}</p>
             </div>
             <div class="col-12 col-lg-3 align-self-lg-end">
               {%- set context = {
@@ -30,9 +30,9 @@
       } %}
       {% include "@marke/ui-core/components/masthead/masthead.njk" %}
     </section>
-    <section id="about-park">
+    <section id="{{ layout }}-park">
       <div class="container py-4 py-lg-5">
-        <div class="row gy-4 gx-lg-5 gx-xl-6">
+        <div class="row align-items-center gy-4 gx-lg-5 gx-xl-6">
           <div class="col-12 col-lg-7 order-1 order-lg-0">
             <h2>{{ park.title | markdown | safe }}</h2>
             {{ park.text | markdown | safe }}
@@ -59,6 +59,94 @@
         </div>
       </div>
     </section>
+    <section id="{{ layout }}-benefits" class="bg-light">
+      <div class="container py-4 py-lg-5">
+        <div class="row gx-lg-5 gx-xl-6">
+          <div class="col-12 col-lg-6">
+            <h2>{{ benefits.title | markdown | safe }}</h2>
+          </div>
+          <div class="col-12 col-lg-6">
+            {{ benefits.text | markdown | safe }}
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="{{ layout }}-partnership">
+      <div class="container pt-4 pt-lg-5">
+        <div class="row gx-lg-5 gx-xl-6">
+          <div class="col-12 col-lg-6">
+            <h2>{{ partnership.title | markdown | safe }}</h2>
+          </div>
+          <div class="col-12 col-lg-6">
+            {{ partnership.text | markdown | safe }}
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="{{ layout }}-university" class="position-relative">
+      <div class="container py-4 py-lg-5">
+        <div class="row gy-4 gy-lg-5">
+          <div class="col-12">
+            <picture>
+              <source
+                media="(max-width:992px)" 
+                srcset="{%- imageUrl university.image.url, { fetch_format: 'auto', quality: 'auto', width: 400, crop: 'thumb', gravity: 'auto', aspect_ratio: '21:9' } %}">
+              <img 
+                width="1176"
+                height="504"
+                class="img-fluid rounded-3"
+                alt="{{ university.image.alt | e | safe }}"
+                loading="lazy"
+                src="{%- imageUrl university.image.url, { fetch_format: 'auto', quality: 'auto', width: 1300, crop: 'thumb', gravity: 'auto', aspect_ratio: '21:9' } %}"
+                srcset="{%- imageUrl university.image.url, { fetch_format: 'auto', quality: 'auto', width: 1300, crop: 'thumb', gravity: 'auto', aspect_ratio: '21:9', dpr: 2 } %} 2x"
+              >
+            </picture>
+          </div>
+          <div class="col-12">
+            <h2 class="text-center mb-lg-5">{{ university.title | markdown | safe }}</h2>
+            <div class="column-count-1 column-count-lg-2" style="column-gap: var(--mkui-gutter-x);">
+            {{ university.text | markdown | safe }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <img 
+        loading="lazy"
+        src="{%- imageUrl university.decorator, { fetch_format: 'auto', width: 350, quality: 'auto' } %}" 
+        alt="Grafismo decorativo Feevale"
+        class="d-none d-lg-block"
+        style="position: absolute; bottom: 0; right: 5%; z-index: -1;"
+      >
+    </section>
+    <section id="{{ layout }}-direction" class="bg-light">
+      <div class="container py-4 py-lg-5">
+        <div class="row gy-4 gy-lg-5">
+          <div class="col-12">
+            <picture>
+              <source
+                media="(max-width:992px)" 
+                srcset="{%- imageUrl direction.image.url, { fetch_format: 'auto', quality: 'auto', width: 400, crop: 'thumb', gravity: 'auto', aspect_ratio: '21:9' } %}">
+              <img 
+                width="1176"
+                height="504"
+                class="img-fluid rounded-3"
+                alt="{{ direction.image.alt | e | safe }}"
+                loading="lazy"
+                src="{%- imageUrl direction.image.url, { fetch_format: 'auto', quality: 'auto', width: 1300, crop: 'thumb', gravity: 'auto', aspect_ratio: '21:9' } %}"
+                srcset="{%- imageUrl direction.image.url, { fetch_format: 'auto', quality: 'auto', width: 1300, crop: 'thumb', gravity: 'auto', aspect_ratio: '21:9', dpr: 2 } %} 2x"
+              >
+            </picture>
+          </div>
+          <div class="col-12">
+            <h2 class="text-center mb-lg-5">{{ direction.title | markdown | safe }}</h2>
+            <div class="column-count-1 column-count-lg-2" style="column-gap: var(--mkui-gutter-x);">
+            {{ direction.text | markdown | safe }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {% include "./partials/tech-news.njk" %}
   </main>
 {%- endblock %}
 {{ content | safe }}

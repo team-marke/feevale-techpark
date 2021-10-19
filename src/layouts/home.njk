@@ -1,7 +1,7 @@
 {%- extends 'base.njk' %}
 {%- block content %}
   <main class="main-content">
-    <section id="home-masthead">
+    <section id="{{ layout }}-masthead">
       {% set content %}
         <div class="container py-lg-4 h-100">
           <div class="row h-100">
@@ -29,7 +29,7 @@
       } %}
       {% include "@marke/ui-core/components/masthead/masthead.njk" %}
     </section>
-    <section id="home-welcome">
+    <section id="{{ layout }}-welcome">
       <div class="container py-4 py-lg-5">
         <div class="row gy-4 gx-lg-5 gx-xl-6">
           <div class="col-12 col-lg-7 order-1 order-lg-0">
@@ -60,9 +60,9 @@
         </div>
       </div>
     </section>
-    <section id="home-numbers" class="bg-light">
+    <section id="{{ layout }}-numbers" class="bg-light">
       <div class="container py-4 py-lg-5">
-        <div class="row gy-4 gx-lg-5 gx-xl-6">
+        <div class="row gx-lg-5 gx-xl-6">
           <div class="col-12 col-lg-6">
             <h2>{{ numbers.title | markdown | safe }}</h2>
           </div>
@@ -97,9 +97,9 @@
         </div>
       </div>
     </section>
-    <section id="home-units" class="position-relative">
+    <section id="{{ layout }}-units" class="position-relative">
       <div class="container py-4 py-lg-5">
-        <div class="row gy-4">
+        <div class="row">
           <div class="col-12 col-md-10 col-lg-8 mx-auto text-center">
             <h2>{{ units.title | markdown | safe }}</h2>
             <h3>{{ units.subtitle | e | safe }}</h3>
@@ -159,7 +159,7 @@
         style="position: absolute; top: 0; right: 5%; z-index: -1;"
       >
     </section>
-    <section id="home-video" class="bg-light">
+    <section id="{{ layout }}-video" class="bg-light">
       <div class="container py-4 py-lg-5">
         <div class="row">
           <div class="col-12 col-md-10 col-lg-9 mx-auto">
@@ -174,9 +174,9 @@
         </div>
       </div>
     </section>
-    <section id="home-areas">
+    <section id="{{ layout }}-areas">
       <div class="container py-4 py-lg-5">
-        <div class="row gy-4 gy-lg-5">
+        <div class="row gy-lg-5">
           <div class="col-12 col-md-10 col-lg-8 mx-auto text-center">
             <h2>{{ areas.title | markdown | safe }}</h2>
             <h3>{{ areas.subtitle | e | safe }}</h3>
@@ -299,9 +299,9 @@
         </div>
       </div>
     </section>
-    <section id="home-benefits" class="bg-light">
+    <section id="{{ layout }}-benefits" class="bg-light">
       <div class="container py-4 py-lg-5">
-        <div class="row gy-4 gy-lg-5 gx-lg-5 gx-xl-6">
+        <div class="row gy-lg-5 gx-lg-5 gx-xl-6">
           <div class="col-12 col-lg-6">
             <h2>{{ benefits.title | markdown | safe }}</h2>
           </div>
@@ -341,9 +341,9 @@
         </div>
       </div>
     </section>
-    <section id="home-programs">
+    <section id="{{ layout }}-programs">
       <div class="container py-4 py-lg-5">
-        <div class="row gy-4 gy-lg-5 gx-lg-5 gx-xl-6 mb-3">
+        <div class="row gy-lg-5 gx-lg-5 gx-xl-6 mb-3">
           <div class="col-12 col-lg-6">
             <h2>{{ programs.title | markdown | safe }}</h2>
           </div>
@@ -405,9 +405,9 @@
         </div>
       </div>
     </section>
-    <section id="home-courses-and-events" class="position-relative">
+    <section id="{{ layout }}-courses-and-events" class="position-relative">
       <div class="container py-4 py-lg-5">
-        <div class="row gy-4 gy-lg-5 gx-lg-5 gx-xl-6 mb-3">
+        <div class="row gy-lg-5 gx-lg-5 gx-xl-6 mb-3">
           <div class="col-12 col-lg-4">
             <h2>{{ courses_and_events.title | markdown | safe }}</h2>
           </div>
@@ -472,7 +472,7 @@
         style="position: absolute; top: 0; left: 5%; z-index: -1;"
       >
     </section>
-    <section id="home-partners" class="bg-light">
+    <section id="{{ layout }}-partners" class="bg-light">
       <div class="container py-4 py-lg-5">
         <div class="row gy-4 gy-lg-5 gx-lg-5 gx-xl-6">
           <div class="col-12 col-lg-5">
@@ -530,53 +530,7 @@
         </div>
       </div>
     </section>
-    <section id="home-tech-news">
-      <div class="container py-4 py-lg-5">
-        <div class="row gy-4 gy-lg-5 gx-lg-5">
-          <div class="col-12 text-center">
-            <h2>{{ tech_news.title | markdown | safe }}</h2>
-          </div>
-          <div class="col-12">
-            <ul class="latest-posts">
-              {% for item in (collections.techNews | arraySlice(0, 4)) %}
-                <li class="latest-posts__post">
-                  {%- if loop.index == 1 %}
-                    <a href="{{ item.url | url }}">
-                      {%- image item.image, { 
-                        class: 'latest-posts__thumb img-fluid', 
-                        type: 'fetch', 
-                        loading: 'lazy',
-                        transformation: [{ 
-                          fetch_format: 'auto', 
-                          quality: 'auto', 
-                          width: 600, 
-                          crop: 'thumb', 
-                          gravity: 'auto', 
-                          aspect_ratio: '16:9'
-                        }] 
-                      } %}
-                    </a>
-                  {%- endif %}
-                  <time datetime="{{ item.date }}" class="mb-3">{{ item.date | localeDateString }}</time>
-                  <a href="{{ item.url | url }}"><h3>{{ item.title | e | safe }}</h3></a>
-                  {%- if loop.index == 1 %}
-                    <div class="latest-posts__excerpt">{{ item.excerpt | safe }}</div>
-                  {%- endif %}
-                </li>
-              {% endfor %}
-            </ul>
-          </div>
-          <div class="col-12 text-center">
-            {%- set context = {
-              theme: 'primary',
-              href: tech_news.btn.url,
-              text: tech_news.btn.text
-            } %}
-            {% include "@marke/ui-core/components/button/button.njk" %}
-          </div>
-        </div>
-      </div>
-    </section>
+    {% include "./partials/tech-news.njk" %}
   </main>
 {%- endblock %}
 {{ content | safe }}

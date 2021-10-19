@@ -108,10 +108,4 @@ partners:
   btn:
     text: Conheça todos os parceiros
     url: '/empresas-parceiras/'
-tech_news:
-  title: >-
-    Tech<span class="text-primary">News</span>
-  btn:
-    text: Saiba mais
-    url: '/technews/'
 ---

@@ -50,4 +50,17 @@
   $rfs-class: false !default,
   $rfs-rem-value: 16 !default,
   $rfs-safari-iframe-resize-bug-fix: false !default,
+  $utilities: (
+    "column-count": (
+      responsive: true,
+      property: column-count,
+      class: column-count,
+      values: (
+        1: 1,
+        2: 2,
+        3: 3,
+        4: 4,
+      )
+    )
+  )
 );

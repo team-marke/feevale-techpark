@@ -1,0 +1,47 @@
+<section id="{{ layout }}-tech-news">
+  <div class="container py-4 py-lg-5">
+    <div class="row gy-lg-5 gx-lg-5">
+      <div class="col-12 text-center">
+        <h2>{{ techNews.title | markdown | safe }}</h2>
+      </div>
+      <div class="col-12 gy-3 gy-lg-5">
+        <ul class="latest-posts">
+          {% for item in (collections.techNews | arraySlice(0, 4)) %}
+            <li class="latest-posts__post">
+              {%- if loop.index == 1 %}
+                <a href="{{ item.url | url }}">
+                  {%- image item.image, { 
+                    class: 'latest-posts__thumb img-fluid', 
+                    type: 'fetch', 
+                    loading: 'lazy',
+                    transformation: [{ 
+                      fetch_format: 'auto', 
+                      quality: 'auto', 
+                      width: 600, 
+                      crop: 'thumb', 
+                      gravity: 'auto', 
+                      aspect_ratio: '21:9'
+                    }] 
+                  } %}
+                </a>
+              {%- endif %}
+              <time datetime="{{ item.date }}" class="mb-3">{{ item.date | localeDateString }}</time>
+              <a href="{{ item.url | url }}"><h3 class="h4">{{ item.title | e | safe }}</h3></a>
+              {%- if loop.index == 1 %}
+                <div class="latest-posts__excerpt">{{ item.excerpt | safe }}</div>
+              {%- endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="col-12 text-center">
+        {%- set context = {
+          theme: 'primary',
+          href: techNews.btn.url,
+          text: techNews.btn.text
+        } %}
+        {% include "@marke/ui-core/components/button/button.njk" %}
+      </div>
+    </div>
+  </div>
+</section>
