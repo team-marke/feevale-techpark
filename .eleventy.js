@@ -15,7 +15,7 @@ const Nunjucks = require('nunjucks');
 module.exports = (eleventyConfig) => {
   // Clean previous builds on production environments
   if (process.env.ELEVENTY_ENV == 'production') {
-    const dirToClean = ['dist/**', '!dist/admin/**', '!dist/assets/**'];
+    const dirToClean = ['dist/**', '!dist/assets/**'];
     del(dirToClean);
   }
 

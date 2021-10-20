@@ -3,14 +3,6 @@ const CACHE_KEYS = {
   RUNTIME: `runtime-${VERSION}`
 };
 
-// URLS that we don’t want to end up in the cache
-const EXCLUDED_URLS = [
-  'admin',
-  '.netlify',
-  'https://identity.netlify.com/v1/netlify-identity-widget.js',
-  'https://unpkg.com/netlify-cms@^2.9.3/dist/netlify-cms.js'
-];
-
 // URLS that we want to be cached when the worker is installed
 const PRE_CACHE_URLS = ['/', '/fonts/lora-v13-latin-700.woff2'];
 
@@ -57,11 +49,6 @@ self.addEventListener('fetch', evt => {
 
   // Check we don't want to ignore this host
   if (IGNORED_HOSTS.indexOf(hostname) >= 0) {
-    return;
-  }
-
-  // Check we don't want to ignore this URL
-  if (EXCLUDED_URLS.some(page => evt.request.url.indexOf(page) > -1)) {
     return;
   }
 

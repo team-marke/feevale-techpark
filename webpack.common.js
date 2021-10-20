@@ -70,31 +70,4 @@ module.exports = {
       },
     },
   },
-  cms: {
-    entry: {
-      cms: './src/admin/cms.js',
-    },
-    output: {
-      path: path.resolve(__dirname, 'dist/admin/assets/'),
-      filename: '[name].js',
-      chunkFilename: '[name].[chunkhash].js',
-      publicPath: '/admin/assets/',
-    },
-    module: {
-      rules: [
-        {
-          test: /\.m?js$/,
-          include: [path.resolve(__dirname, 'src/admin')],
-          use: {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-react'],
-              plugins: ['@babel/plugin-proposal-object-rest-spread'],
-              plugins: ['@babel/plugin-proposal-class-properties'],
-            },
-          },
-        },
-      ],
-    },
-  },
 };

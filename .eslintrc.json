@@ -33,19 +33,6 @@
         "es2020": true,
         "node": true
       }
-    },
-    {
-      "files": ["src/admin/**/*.js"],
-      "env": {
-        "browser": true,
-        "es2020": true,
-        "react": true
-      },
-      "plugins": ["react-hooks"],
-      "rules": {
-        "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "warn"
-      }
     }
   ]
 }
