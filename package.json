@@ -1,12 +1,12 @@
 {
-  "name": "11ty-netlifycms-bs-template",
+  "name": "feevale-techpark",
   "version": "0.2.0",
   "description": "",
   "author": "Marke Marketing Digital Ltda",
   "license": "CC-BY-NC-ND-4.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/team-marke/exemplo"
+    "url": "https://github.com/team-marke/feevale-techpark"
   },
   "dependencies": {
     "@fontsource/lato": "^4.5.0",
