@@ -4,10 +4,17 @@
       <div class="col-12 text-center">
         <h2>{{ techNews.title | markdown | safe }}</h2>
       </div>
-      <div class="col-12 gy-3 gy-lg-5">
+      <div class="col-12 gy-3 gy-lg-4">
         <ul class="latest-posts">
           {% for item in (collections.techNews | arraySlice(0, 4)) %}
             <li class="latest-posts__post">
+              {% set context = {
+                  titleTag: 'h3',
+                  title: item.title, 
+                  date: item.date,
+                  url: item.url,
+                  excerpt: item.excerpt
+                } %}
               {%- if loop.index == 1 %}
                 <a href="{{ item.url | url }}">
                   {%- image item.image, { 
@@ -25,11 +32,7 @@
                   } %}
                 </a>
               {%- endif %}
-              <time datetime="{{ item.date }}" class="mb-3">{{ item.date | localeDateString }}</time>
-              <a href="{{ item.url | url }}"><h3 class="h4">{{ item.title | e | safe }}</h3></a>
-              {%- if loop.index == 1 %}
-                <div class="latest-posts__excerpt">{{ item.excerpt | safe }}</div>
-              {%- endif %}
+              {% include "@marke/ui-core/components/post-preview/post-preview.njk" %}
             </li>
           {% endfor %}
         </ul>

@@ -37,6 +37,26 @@ park:
   image: 
     alt: Planta em uma das salas do Feevale Techpark   
     url: https://res.cloudinary.com/feevale-techpark/image/upload/v1634319870/O_Parque_Tecnol%C3%B3gico_da_Feevale.png
+history_timeline:
+  title: >-
+    Nossa <span class="text-primary">História</span>
+  items:
+    - title: 1998
+      description: Criação da Associação de Desenvolvimento Tecnológico do Vale – Valetec, responsável pelo Parque Tecnológico do Vale dos Sinos.
+    - title: 2002
+      description: Doação de 3 hectares pelo município de Campo Bom para a implantação da segunda fase do Parque Tecnológico do Vale do Sinos.
+    - title: 2004
+      description: Doação de mais 6,5 hectares pelo município de Campo Bom para implantação da segunda fase do Parque Tecnológico do Vale do Sinos.
+    - title: 2005
+      description: Inauguração do primeiro prédio empresarial na Unidade Campo Bom, que compreende a Incubadora Tecnológica da Universidade Feevale.
+    - title: 2011
+      description: Inauguração da Unidade de Novo Hamburgo do Valetec.
+    - title: 2012
+      description: Inauguração do segundo prédio empresarial da Unidade Campo Bom. Doação de mais 10 hectares pelo município para ampliação do parque tecnológico.
+    - title: 2014
+      description: Execução das obras de infraestrutura da segunda fase do Parque Tecnológico do Vale do Sinos. Mudança na governança do mesmo, passando a ser administrado pela Universidade Feevale.
+    - title: 2015
+      description: Alteração do nome do Parque Tecnológico para Feevale Techpark e reposicionamento.
 benefits:
   title: >-
     No Feevale Techpark você <span class="text-primary">encontra</span>

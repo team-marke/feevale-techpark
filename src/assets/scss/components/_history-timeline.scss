@@ -1,0 +1,42 @@
+//
+// History Timeline component styles
+//
+
+@use 'sass:math';
+@use '../marke-ui' as mkui;
+
+$container-offset: 1.75rem;
+$circle-diameter: 1.25rem;
+
+.history-timeline {
+  position: relative;
+  padding-left: $container-offset;
+  &__item {
+    position: relative;
+  }
+  &__dividers {
+    position: absolute;
+    left: -$container-offset;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    color: mkui.$primary;
+  }
+  &__desc {
+    padding-top: $circle-diameter * 2;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: math.div($circle-diameter, 2);
+    transform: translateX(-.25rem);
+    width: .5rem;
+    height: 100%;
+    border-radius: mkui.$border-radius;
+    background: mkui.$primary;
+  }
+  @include mkui.media-breakpoint-up(lg) {
+    display: none;
+  }
+}
