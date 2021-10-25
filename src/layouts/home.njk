@@ -23,7 +23,6 @@
       {% endset %}
       {%- set context = {
         image: masthead.image,
-        imgAr: '30:9',
         bgColor: masthead.bgColor,
         children: content
       } %}
@@ -126,7 +125,7 @@
                 {% endset %}
                 {% set context = {
                     image: {
-                      url: unit.image,
+                      url: unit.cardImage,
                       alt: 'Foto da unidade ' + (unit.title | e | safe),
                       title: 'Foto da unidade ' + (unit.title | e | safe),
                       width: '350',

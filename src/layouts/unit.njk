@@ -1,9 +1,62 @@
 {%- extends 'base.njk' %}
 {%- block content %}
   <main class="main-content">
-    <section id="masthead">
-      
+    <section id="{{ layout }}-masthead">
+      {% set content %}
+        <div class="container py-lg-4 h-100">
+          <div class="row h-100">
+            <div class="col-12 col-lg-9 align-self-lg-center">
+              <h1 class="text-white fw-light">{{ unit.title | e | safe }}</h1>
+            </div>
+            <div class="col-12 col-lg-3 align-self-lg-end">
+              {%- set context = {
+                theme: 'primary',
+                size: 'lg',
+                target: '_blank',
+                href: masthead.btn.url,
+                html: masthead.btn.text+'<i class="fas fa-chevron-right ms-2"></i>'
+              } %}
+              {% include "@marke/ui-core/components/button/button.njk" %}
+            </div>
+          </div>
+        </div>
+      {% endset %}
+      {%- set context = {
+        image: unit.mastheadImage,
+        bgColor: masthead.bgColor,
+        children: content
+      } %}
+      {% include "@marke/ui-core/components/masthead/masthead.njk" %}
     </section>
+    <section id="{{ layout }}-welcome">
+      <div class="container py-4 py-lg-5">
+        <div class="row gy-4">
+          <div class="col-12">
+            <h2>Conheça a <span class="text-primary">{{ unit.title | e | safe }}</span></h2>
+          </div>
+          <div class="col-12">
+            <div class="column-count-1 column-count-lg-2" style="column-gap: var(--mkui-gutter-x);">
+              {{ unit.content | safe }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {% if unit.steps %}
+    <section id="{{ layout }}-steps" class="bg-light">
+      <div class="container py-4 py-lg-5">
+        <div class="row gy-4">
+          <div class="col-12 col-lg-9 col-xl-8 mx-auto text-center">
+            {% for step in unit.steps %}
+              <h3 class="h2">{{ loop.index }}º etapa: <span class="text-primary">{{ step.title }}</span></h3>
+              {{ step.description | safe }}
+              {% if not loop.last %}<div class="separator"></div>{% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endif %}
   </main>
 {%- endblock %}
 {{ content | safe }}

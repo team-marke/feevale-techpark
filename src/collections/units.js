@@ -4,22 +4,39 @@ const cacheClient = require('../assets/js/utils/clients/node-cache');
 const { documentToHtmlString } = require('@contentful/rich-text-html-renderer');
 const slugify = require('slugify');
 
+const orderUnits = (units) => {
+  return units.sort((a, b) => {
+    if (a.priority > b.priority) {
+      return 1;
+    }
+    if (a.priority < b.priority) {
+      return -1;
+    }
+    return 0;
+  });
+};
+
 const getUnits = async () => {
   const data = await fetchContent('unit');
   let units = [];
   for (const item of data.items) {
     units.push({
       title: item.fields.title,
-      menu_order: item.fields.menuOrder,
+      priority: item.fields.priority,
       meta_description: item.fields.metaDescription,
       excerpt: documentToHtmlString(item.fields.excerpt),
-      image: item.fields.cloudinaryImage[0].original_secure_url,
       phone: item.fields.phone,
       address: item.fields.address,
-      pathname: `unidades-parque-tecnologico/${slugify(item.fields.title, { lower: true })}/` 
+      mastheadImage: item.fields.mastheadImage[0].original_secure_url,
+      cardImage: item.fields.cardImage
+        ? item.fields.cardImage[0].original_secure_url
+        : item.fields.mastheadImage[0].original_secure_url,
+      content: documentToHtmlString(item.fields.content),
+      steps: item.fields.steps ? item.fields.steps : null,
+      pathname: `unidades-parque-tecnologico/${slugify(item.fields.title, { lower: true })}/`,
     });
   }
-  return units;
+  return orderUnits(units);
 };
 
 module.exports = async () => {

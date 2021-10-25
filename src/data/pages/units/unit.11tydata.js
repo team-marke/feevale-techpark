@@ -21,7 +21,7 @@ module.exports = {
     metadata: {
       title: (data) => `${data.unit.title} | Parque Tecnológico`,
       description: (data) => data.unit.meta_description,
-      image: (data) => data.unit.image,
+      image: (data) => data.unit.mastheadImage,
     },
   },
 };
