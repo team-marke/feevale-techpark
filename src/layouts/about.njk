@@ -1,35 +1,14 @@
 {%- extends 'base.njk' %}
 {%- block content %}
   <main class="main-content">
-    <section id="{{ layout }}-masthead">
-      {% set content %}
-        <div class="container py-lg-4 h-100">
-          <div class="row h-100">
-            <div class="col-12 col-lg-9 align-self-lg-center">
-              <h1 class="text-white fw-light">{{ masthead.title | markdown | safe }}</h1>
-              <p class="text-white fs-5">{{ masthead.description | e | safe }}</p>
-            </div>
-            <div class="col-12 col-lg-3 align-self-lg-end">
-              {%- set context = {
-                theme: 'primary',
-                size: 'lg',
-                target: '_blank',
-                href: masthead.btn.url,
-                html: masthead.btn.text+'<i class="fas fa-chevron-right ms-2"></i>'
-              } %}
-              {% include "@marke/ui-core/components/button/button.njk" %}
-            </div>
-          </div>
-        </div>
-      {% endset %}
-      {%- set context = {
-        image: masthead.image,
-        imgAr: '30:9',
-        bgColor: masthead.bgColor,
-        children: content
-      } %}
-      {% include "@marke/ui-core/components/masthead/masthead.njk" %}
-    </section>
+    {% set masthead = {
+      image: masthead.image,
+      title: masthead.title,
+      description: masthead.description,
+      bgColor: masthead.bgColor,
+      btn: { text: masthead.btn.text, url: masthead.btn.url }
+    } %}
+    {% include "./partials/masthead.njk" %}
     <section id="{{ layout }}-park">
       <div class="container py-4 py-lg-5">
         <div class="row align-items-center gy-4 gx-lg-5 gx-xl-6">

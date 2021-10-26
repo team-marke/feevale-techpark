@@ -8,4 +8,11 @@ pagination:
   alias: unit
   addAllPagesToCollections: true
 permalink: unidades-parque-tecnologico/{{ unit.title | slug }}/
+companies: 
+  title: >-
+    <span class="text-primary">Empresas</span> instaladas nesta unidade
+  description: Conheça as empresas ou instituições que fazem parte do Ecossistema de Inovação do
+  btn:
+    text: Todas as empresas
+    url: '/nossas-empresas/'
 ---

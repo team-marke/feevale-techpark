@@ -13,13 +13,9 @@ metadata:
   description: Conheça a história do parque tecnológico da Feevale e as vantagens que oferece às empresas. Saiba mais sobre a Universidade e a Diretoria de Inovação.
 masthead:
   image: https://res.cloudinary.com/feevale-techpark/image/upload/v1634319952/Conhe%C3%A7a_o_Feevale_Techpark.png
-  bgColor: '#5e5e5e'
   title: >-
     Conheça o <span class="fw-bold">Feevale Techpark</span>
   description: Somos um centro de inovação e referência nacional em cooperação científica e tecnológica. O Feevale Techpark presta apoio às empresas consolidadas ou iniciantes, organizações públicas, privadas ou mistas.
-  btn:
-    text: Como Ingressar
-    url: 'https://feevale.br/techpark/o-parque/como-ingressar'
 park:
   title: >-
     O Parque <span class="text-primary">Tecnológico</span> da Feevale

@@ -21,18 +21,22 @@ const getUnits = async () => {
   let units = [];
   for (const item of data.items) {
     units.push({
+      id: item.sys.id,
       title: item.fields.title,
+      description: item.fields.description,
       priority: item.fields.priority,
       meta_description: item.fields.metaDescription,
       excerpt: documentToHtmlString(item.fields.excerpt),
-      phone: item.fields.phone,
-      address: item.fields.address,
       mastheadImage: item.fields.mastheadImage[0].original_secure_url,
       cardImage: item.fields.cardImage
         ? item.fields.cardImage[0].original_secure_url
         : item.fields.mastheadImage[0].original_secure_url,
+      phone: item.fields.phone,
+      address: item.fields.address,
       content: documentToHtmlString(item.fields.content),
+      slider: item.fields.slider.map((img) => img.original_secure_url),
       steps: item.fields.steps ? item.fields.steps : null,
+      cta: item.fields.callToAction ? item.fields.callToAction : null,
       pathname: `unidades-parque-tecnologico/${slugify(item.fields.title, { lower: true })}/`,
     });
   }

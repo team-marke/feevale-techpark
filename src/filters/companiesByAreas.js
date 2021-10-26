@@ -5,5 +5,5 @@
  * @returns {Array} filtered companies array
  */
 module.exports = (companies, areaId) => {
-  return companies.filter((company) => company.area.sys.id == areaId);
+  return companies.filter((company) => company.area == areaId);
 };

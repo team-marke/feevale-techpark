@@ -8,10 +8,11 @@ const getCompanies = async () => {
   let companies = [];
   for (const item of data.items) {
     companies.push({
+      id: item.sys.id,
       title: item.fields.title,
       description: documentToHtmlString(item.fields.description),
-      unit: item.fields.unit,
-      area: item.fields.area,
+      unit: item.fields.unit.sys.id,
+      area: item.fields.area.sys.id,
       modality: item.fields.modality,
       image: item.fields.cloudinaryImage[0].original_secure_url,
     });

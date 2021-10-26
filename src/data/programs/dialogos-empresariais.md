@@ -1,7 +1,7 @@
 ---
 priority: 1
 title: Diálogos Empresariais
-logo: https://res.cloudinary.com/feevale-techpark/image/upload/v1632244218/logo-dialogos-empresariais-01.png
+logo: https://res.cloudinary.com/feevale-techpark/image/upload/v1635271451/logo-dialogos-empresariais.png
 ---
 A experiência universidade-empresa mostra que, embora os benefícios para ambas as partes pareçam sempre muito claros no início, ainda é preciso trabalhar conjuntamente para o desenvolvimento dos objetivos a serem alcançados e no estabelecimento de um relacionamento estável entre as partes.
 

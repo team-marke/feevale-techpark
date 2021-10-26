@@ -1,36 +1,17 @@
 {%- extends 'base.njk' %}
 {%- block content %}
   <main class="main-content">
-    <section id="{{ layout }}-masthead">
-      {% set content %}
-        <div class="container py-lg-4 h-100">
-          <div class="row h-100">
-            <div class="col-12 col-lg-9 align-self-lg-center">
-              <h1 class="text-white fw-light">{{ unit.title | e | safe }}</h1>
-            </div>
-            <div class="col-12 col-lg-3 align-self-lg-end">
-              {%- set context = {
-                theme: 'primary',
-                size: 'lg',
-                target: '_blank',
-                href: masthead.btn.url,
-                html: masthead.btn.text+'<i class="fas fa-chevron-right ms-2"></i>'
-              } %}
-              {% include "@marke/ui-core/components/button/button.njk" %}
-            </div>
-          </div>
-        </div>
-      {% endset %}
-      {%- set context = {
-        image: unit.mastheadImage,
-        bgColor: masthead.bgColor,
-        children: content
-      } %}
-      {% include "@marke/ui-core/components/masthead/masthead.njk" %}
-    </section>
+    {% set masthead = {
+      image: unit.mastheadImage,
+      bgColor: masthead.bgColor,
+      title: unit.title,
+      description: unit.description,
+      btn: { text: masthead.btn.text, url: masthead.btn.url }
+    } %}
+    {% include "./partials/masthead.njk" %}
     <section id="{{ layout }}-welcome">
       <div class="container py-4 py-lg-5">
-        <div class="row gy-4">
+        <div class="row gy-lg-4">
           <div class="col-12">
             <h2>Conheça a <span class="text-primary">{{ unit.title | e | safe }}</span></h2>
           </div>
@@ -57,6 +38,113 @@
       </div>
     </section>
     {% endif %}
+    <section id="{{ layout }}-slider">
+      <div class="container py-4 py-lg-5">
+        <div class="row gy-4">
+          <div class="col-12 col-md-10 col-lg-9 mx-auto">
+            {% set images = [] %}
+            {% for image in unit.slider %}
+              {% set imageMarkup %}
+                <picture>
+                  <source
+                    media="(max-width:992px)" 
+                    srcset="{%- imageUrl image, { fetch_format: 'auto', quality: 'auto', width: 400, crop: 'thumb', gravity: 'auto', aspect_ratio: '16:9' } %}">
+                  <img 
+                    class="img-fluid rounded-3"
+                    alt="Imagem da {{ unit.title | e | safe }}"
+                    loading="lazy"
+                    src="{%- imageUrl image, { fetch_format: 'auto', quality: 'auto', width: 876, crop: 'thumb', gravity: 'auto', aspect_ratio: '16:9' } %}"
+                    srcset="{%- imageUrl image, { fetch_format: 'auto', quality: 'auto', width: 876, crop: 'thumb', gravity: 'auto', aspect_ratio: '16:9', dpr: 2 } %} 2x"
+                  >
+                </picture>
+              {% endset %}
+              {% set images = (images.push(imageMarkup), images) %}
+            {% endfor %}
+            {%- set context = {
+              minSlidesPerView: 1,
+              maxSlidesPerView: 1,
+              total: (images | length),
+              items: images,
+              showNavs: true
+            } %}
+            {% include "@marke/ui-core/components/carousel/carousel.njk" %}
+          </div>
+        </div>
+      </div>
+    </section>
+    {% if not unit.steps %}
+    <section id="{{ layout }}-companies" class="bg-light">
+      <div class="container py-4 py-lg-5">
+        <div class="row gy-4">
+          <div class="col-12 text-center">
+            <h2>{{ companies.title | markdown | safe }}</h2>
+            <p>{{ companies.description | e | safe }} {{ unit.title | e | safe}}</p>
+          </div>
+          <div class="col-12">
+            {% set cards = [] %}
+            {% for company in (collections.companies | companiesByUnit(unit.id) | arraySlice(0, 4)) %}
+              {% set renderedItem %}
+                {% set cardBody %}
+                  <div class="d-flex flex-column text-center h-100">
+                    <h4 class="fw-bold">{{ company.title | e | safe }}</h4>
+                    {{ company.description | safe }}
+                  </div>
+                {% endset %}
+                {% set context = {
+                    image: {
+                      url: company.image,
+                      alt: 'Logo da ' + (company.title | e | safe),
+                      title: 'Logo da ' + (company.title | e | safe),
+                      width: '150',
+                      height: '100'
+                    },
+                    children: cardBody
+                } %}
+                {% include "./components/company-card.njk" %}
+              {% endset %}
+              {% set cards = (cards.push(renderedItem), cards) %}
+            {% endfor %}
+            {%- set context = {
+              minSlidesPerView: 1,
+              maxSlidesPerView: 4,
+              total: (cards | length),
+              items: cards
+            } %}
+            {% include "@marke/ui-core/components/carousel/carousel.njk" %}
+          </div>
+          <div class="col-12 text-center">
+            {%- set context = {
+                theme: 'primary',
+                href: companies.btn.url,
+                text: companies.btn.text
+              } %}
+              {% include "@marke/ui-core/components/button/button.njk" %}
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endif %}
+    {% if unit.steps %}
+    <section id="{{ layout }}-cta" class="bg-light">
+      <div class="container py-4 py-lg-5">
+        <div class="row gx-lg-5 gx-xl-6">
+          <div class="col-12 col-lg-6">
+            <h2>{{ unit.cta.title | e | safe }}</h2>
+          </div>
+          <div class="col-12 col-lg-6">
+            <p>{{ unit.cta.description | e | safe }}</p>
+            {%- set context = {
+              theme: 'primary',
+              href: unit.cta.btn.url,
+              text: unit.cta.btn.text
+            } %}
+            {% include "@marke/ui-core/components/button/button.njk" %}
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endif %}
+    {% include "./partials/tech-news.njk" %}
   </main>
 {%- endblock %}
 {{ content | safe }}

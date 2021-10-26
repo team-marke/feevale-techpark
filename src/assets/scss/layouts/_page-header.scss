@@ -1,0 +1,13 @@
+// 
+// Page header styles
+//
+
+@use '../marke-ui' as mkui;
+
+.page-header {
+  position: sticky;
+  top: 0;
+  z-index: mkui.$zindex-fixed;
+  background: mkui.$body-bg;
+  box-shadow: mkui.$box-shadow-sm;
+}
