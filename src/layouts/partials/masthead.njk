@@ -2,13 +2,13 @@
   {% set content %}
     <div class="container py-lg-4 h-100">
       <div class="row h-100">
-        <div class="col-12 col-lg-7 align-self-lg-center">
+        <div class="col-12 col-lg-6 align-self-lg-center">
           <h1 class="text-white fw-light">{{ masthead.title | markdown | safe }}</h1>
           {%- if masthead.description %}
             <p class="text-white fs-5">{{ masthead.description | e | safe }}</p>
           {%- endif %}
         </div>
-        <div class="col-12 col-lg-3 offset-lg-2 align-self-lg-end">
+        <div class="col-12 col-lg-4 offset-lg-2 align-self-lg-end text-lg-end">
           {%- set context = {
             theme: 'primary',
             size: 'lg',
@@ -24,6 +24,7 @@
   {%- set context = {
     image: masthead.image,
     bgColor: masthead.bgColor,
+    imgAr: '30:9',
     children: content
   } %}
   {% include "@marke/ui-core/components/masthead/masthead.njk" %}

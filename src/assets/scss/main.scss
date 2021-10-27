@@ -2,7 +2,9 @@
 @use 'fontsource' as fonts;
 
 // Components
-@use '~@marke/ui-core/components/actionbar';
+@use '~@marke/ui-core/components/actionbar' with(
+  $link-hover-decoration: unset
+);
 @use '~@marke/ui-core/components/button' with(
   $border-radius: 50rem,
   $border-radius-sm: 50rem,
@@ -20,7 +22,7 @@
 @use '~@marke/ui-core/components/copyrightbar';
 @use '~@marke/ui-core/components/grid-responsive-slider';
 @use '~@marke/ui-core/components/masthead' with (
-  $height: 580px
+  $height: 500px
 );
 @use '~@marke/ui-core/components/navbar';
 @use '~@marke/ui-core/components/video-modal';

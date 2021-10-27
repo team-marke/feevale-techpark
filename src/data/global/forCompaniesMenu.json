@@ -1,0 +1,29 @@
+{
+  "title": "Espaço exclusivo para empresas do parque",
+  "items": [
+    {
+      "title": "Gerar Boleto",
+      "description": "Visualize e gere o boleto da sua mensalidade aqui.",
+      "btn": {
+        "text": "Acesse",
+        "url": "#"
+      }
+    },
+    {
+      "title": "Agendar Salas de Reunião",
+      "description": "Efetue aqui as reservas de salas do Feevale Techpark para suas reuniões corporativas.",
+      "btn": {
+        "text": "Acesse",
+        "url": "#"
+      }
+    },
+    {
+      "title": "Cadastro de Oportunidades",
+      "description": "Cadastre aqui as vagas de trabalho disponíveis em sua empresa.",
+      "btn": {
+        "text": "Acesse",
+        "url": "#"
+      }
+    }
+  ]
+}

@@ -16,8 +16,10 @@ masthead:
   title: >-
     <span class="fw-bold">Programas</span> para impulsionar negócios
   description: Conheça os programas exclusivos que o Feevale Techpark oferece às empresas vinculadas ao parque tecnológico.
-pills:
-  btn: 
-    text: Saiba mais
-    url: https://www.feevale.br/inovacao/pilulas-da-inovacao
+partners:
+  title: >-
+    <span class="text-primary">Parceiros</span> Institucionais
+  btn:
+    text: Conheça todos os parceiros
+    url: '/empresas-parceiras/'
 ---

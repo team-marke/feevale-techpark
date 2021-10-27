@@ -2,6 +2,7 @@ require('dotenv').config();
 const fetchContent = require('../assets/js/utils/fetch-content');
 const cacheClient = require('../assets/js/utils/clients/node-cache');
 const { documentToHtmlString } = require('@contentful/rich-text-html-renderer');
+const slugify = require('slugify');
 
 const getPartners = async () => {
   const data = await fetchContent('partner');
@@ -10,6 +11,7 @@ const getPartners = async () => {
     partners.push({
       title: item.fields.title,
       description: documentToHtmlString(item.fields.description),
+      type: item.fields.type ? slugify(item.fields.type, { lower: true }) : null,
       site: item.fields.title,
       image: item.fields.cloudinaryImage[0].original_secure_url,
       email: item.fields.email,

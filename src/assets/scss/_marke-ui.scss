@@ -1,4 +1,5 @@
 @forward '~@marke/ui-core/design-tokens' with (
+  $enable-shadows: true !default,
   $primary: #FFD605 !default,
   $secondary: #5e5e5e !default,
   $light: #eeeeef !default,
@@ -23,9 +24,10 @@
   $border-radius-lg: 1rem !default,
   $card-border-radius: 1rem !default,
   $card-spacer-x: 1.25rem !default,
-  $dropdown-padding-y: 0.75rem !default,
   $nav-pills-link-active-color: #eeeeef !default,
   $nav-pills-link-active-bg: #5e5e5e !default,
+  $dropdown-padding-y: 0.75rem !default,
+  $offcanvas-box-shadow: none !default,
   $spacer: 1rem !default,
   $spacers: (
     0: 0,
@@ -63,6 +65,18 @@
         2: 2,
         3: 3,
         4: 4,
+      )
+    ),
+    "width": (
+      property: width,
+      class: w,
+      responsive: true,
+      values: (
+        25: 25%,
+        50: 50%,
+        75: 75%,
+        100: 100%,
+        auto: auto,
       )
     )
   ) !default

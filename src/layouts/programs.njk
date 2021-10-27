@@ -9,14 +9,75 @@
       btn: { text: masthead.btn.text, url: masthead.btn.url }
     } %}
     {% include "./partials/masthead.njk" %}
-    <section id="{{ layout }}-pills">
-      <div class="container py-4 py-lg-5">
-        <div class="row gy-4 gx-lg-5 gx-xl-6">
-          <div class="col-6">
-            <div class="nav nav-pills d-inline-block shadow rounded-3" id="programs-tab" role="tablist" aria-orientation="vertical">
+    <section id="{{ layout }}-programs-mobile" class="d-block d-lg-none">
+      <div class="container py-4">
+        <div class="row gy-4">
+          <div class="col-12">
+            {% set cards = [] %}
+            {% for program in collections.programs %}
+              {% set renderedItem %}
+                {% set cardBody %}
+                  <div class="d-flex flex-column h-100">
+                    <img 
+                      class="img-fluid mb-3"
+                      alt="Logo do programa {{ program.title | e | safe }}"
+                      loading="lazy"
+                      width="273"
+                      height="82"
+                      src="{%- imageUrl program.data.logo, { fetch_format: 'auto', quality: 'auto', crop: 'pad', width: 273, height: 82 } %}"
+                      srcset="{%- imageUrl program.data.logo, { fetch_format: 'auto', quality: 'auto', crop: 'pad', width: 273, height: 82, dpr: 2 } %} 2x"
+                    >
+                    <h3>{{ program.data.title | e | safe }}</h3>
+                    {% if program.templateContent %}
+                      <div class="card-excerpt">
+                        {{ program.templateContent | safe }}
+                      </div>
+                    {% endif %}
+                    {% if program.data.link %}
+                      {% set context = {
+                        theme: 'primary',
+                        target: '_blank',
+                        href: program.data.link,
+                        text: 'Saiba Mais',
+                        override_classes: ['mt-auto align-self-start']
+                      } %}
+                      {% include "@marke/ui-core/components/button/button.njk" %}
+                    {% endif %}
+                  </div>
+                {% endset %}
+                {% set context = {
+                    children: cardBody,
+                    componentClasses: ['h-100']
+                } %}
+                {% include "@marke/ui-core/components/card/card.njk" %}
+              {% endset %}
+              {% set cards = (cards.push(renderedItem), cards) %}
+            {% endfor %}
+            {%- set context = {
+              minSlidesPerView: 1,
+              maxSlidesPerView: 3,
+              total: (cards | length),
+              items: cards,
+              showNavs: true
+            } %}
+            {% include "@marke/ui-core/components/carousel/carousel.njk" %}
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="{{ layout }}-programs-desktop" class="d-none d-lg-block">
+      <div class="container py-5">
+        <div class="row gy-4 gx-5 gx-xl-6">
+          <div class="col-5">
+            <div 
+              class="nav nav-pills d-inline-block shadow rounded" 
+              id="programs-tab" 
+              aria-orientation="vertical"
+              role="tablist" 
+            >
               {% for program in collections.programs %}
                 <button 
-                  class="nav-link text-start w-100 py-4 px-6{% if loop.index == 1 %} active{% endif %}" 
+                  class="nav-link text-start w-100 py-4 px-5{% if loop.index == 1 %} active{% endif %}" 
                   id="{{ program.data.title | slug }}-tab" 
                   data-bs-toggle="pill" 
                   data-bs-target="#{{ program.data.title | slug }}" 
@@ -25,12 +86,12 @@
                   aria-controls="{{ program.data.title | slug }}" 
                   aria-selected="{% if loop.index == 1 %}true{% else %}false{% endif %}"
                 >
-                  <span class="fs-3">{{ program.data.title | e | safe }}</span>
+                  <span class="h3" style="color: inherit;">{{ program.data.title | e | safe }}</span>
                 </button>
               {% endfor %}
             </div>
           </div>
-          <div class="col-6">
+          <div class="col-7">
             <div class="tab-content" id="programs-tab-content">
               {% for program in collections.programs %}
                 <div 
@@ -49,16 +110,103 @@
                     srcset="{%- imageUrl program.data.logo, { fetch_format: 'auto', quality: 'auto', crop: 'pad', width: 540, height: 162, dpr: 2 } %} 2x"
                   >
                   {{ program.templateContent | safe }}
-                  {%- set context = {
-                    theme: 'primary',
-                    target: '_blank',
-                    href: pills.btn.url,
-                    text: pills.btn.text
-                  } %}
-                  {% include "@marke/ui-core/components/button/button.njk" %}
+                  {% if program.data.link %}
+                    {%- set context = {
+                      theme: 'primary',
+                      target: '_blank',
+                      href: program.data.link,
+                      text: 'Saiba Mais'
+                    } %}
+                    {% include "@marke/ui-core/components/button/button.njk" %}
+                  {% endif %}
                 </div>
               {% endfor %}
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="{{ layout }}-partners" class="bg-light">
+      <div class="container py-4 py-lg-5">
+        <div class="row gy-4 gy-lg-5">
+          <div class="col-12 text-center">
+            <h2>{{ partners.title | markdown | safe }}</h2>
+          </div>
+          <div class="col-12 col-lg-9 mx-auto text-center gx-3">
+            <h3>Associados:</h3>
+            {% set cards = [] %}
+            {% for partner in (collections.partners | partnersByType('associado') | arraySlice(0, 4)) %}
+              {% set renderedItem %}
+                <picture>
+                  <source
+                    media="(max-width:992px)" 
+                    width="240"
+                    height="135"
+                    srcset="{%- imageUrl partner.image, { effect: 'art:audrey', fetch_format: 'auto', quality: 'auto', width: 240, aspect_ratio: '16:9', crop: 'pad' } %}"
+                  >
+                  <img
+                    width="154"
+                    height="87"
+                    src="{%- imageUrl partner.image, { effect: 'art:audrey', fetch_format: 'auto', quality: 'auto', width: 154, aspect_ratio: '16:9', crop: 'pad' } %}" 
+                    srcset="{%- imageUrl partner.image, { effect: 'art:audrey', fetch_format: 'auto', quality: 'auto', width: 154, aspect_ratio: '16:9', crop: 'pad', dpr: 2 } %} 2x" 
+                    alt="{{ partner.title | e | safe }}"
+                    loading="lazy"
+                    class="img-fluid"
+                  >
+                </picture>
+              {% endset %}
+              {% set cards = (cards.push(renderedItem), cards) %}
+            {% endfor %}
+            {%- set context = {
+              minSlidesPerView: 1,
+              maxSlidesPerView: (cards | length),
+              total: (cards | length),
+              items: cards,
+              visibleOverflow: false
+            } %}
+            {% include "@marke/ui-core/components/carousel/carousel.njk" %}
+          </div>
+          <div class="col-12 col-lg-9 mx-auto text-center gx-3">
+            <h3>Parceiros Estratégicos:</h3>
+            {% set cards = [] %}
+            {% for partner in (collections.partners | partnersByType('parceiro-estrategico') | arraySlice(0, 4)) %}
+              {% set renderedItem %}
+                <picture>
+                  <source
+                    media="(max-width:992px)" 
+                    width="240"
+                    height="135"
+                    srcset="{%- imageUrl partner.image, { effect: 'art:audrey', fetch_format: 'auto', quality: 'auto', width: 240, aspect_ratio: '16:9', crop: 'pad' } %}"
+                  >
+                  <img
+                    width="154"
+                    height="87"
+                    src="{%- imageUrl partner.image, { effect: 'art:audrey', fetch_format: 'auto', quality: 'auto', width: 154, aspect_ratio: '16:9', crop: 'pad' } %}" 
+                    srcset="{%- imageUrl partner.image, { effect: 'art:audrey', fetch_format: 'auto', quality: 'auto', width: 154, aspect_ratio: '16:9', crop: 'pad', dpr: 2 } %} 2x" 
+                    alt="{{ partner.title | e | safe }}"
+                    loading="lazy"
+                    class="img-fluid"
+                  >
+                </picture>
+              {% endset %}
+              {% set cards = (cards.push(renderedItem), cards) %}
+            {% endfor %}
+            {%- set context = {
+              minSlidesPerView: 1,
+              maxSlidesPerView: (cards | length),
+              total: (cards | length),
+              items: cards,
+              visibleOverflow: false
+            } %}
+            {% include "@marke/ui-core/components/carousel/carousel.njk" %}
+          </div>
+          <div class="col-12 text-center">
+            {%- set context = {
+              theme: 'primary',
+              href: partners.btn.url,
+              text: partners.btn.text
+            } %}
+            {% include "@marke/ui-core/components/button/button.njk" %}
           </div>
         </div>
       </div>

@@ -1,7 +1,61 @@
 <aside class="d-lg-block d-none bg-dark">
   <div class="container">
-    {% set search %}
-      <input type="email" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="name@example.com">
+    {% set dropdownContent %}
+      {% for item in forCompaniesMenu.items %}
+        <div>
+          <p class="h4">{{ item.title | e | safe }}</p>
+          <p>{{ item.description | e | safe }}</p>
+          {%- set context = {
+            theme: 'primary',
+            text: item.btn.text,
+            href: item.btn.url,
+            target: '_blank'
+          } %}
+          {% include "@marke/ui-core/components/button/button.njk" %}
+          <hr>
+        </div>
+      {% endfor %}
+      <p>{{ forCompaniesMenu.title | e | safe }}</p>
+    {% endset %}
+    {% set forCompaniesDropdown %}
+      <div class="dropdown">
+        {%- set context = {
+          theme: 'light',
+          size: 'sm',
+          text: 'Para Empresas do Parque',
+          type: 'button',
+          id: 'forCompaniesDropdown',
+          override_classes: ['dropdown-toggle'],
+          override_atts: {
+            'data-bs-toggle': 'dropdown',
+            'data-bs-auto-close': 'outside',
+            'aria-expanded': 'false'
+          }
+        } %}
+        {% include "@marke/ui-core/components/button/button.njk" %}
+        <div class="dropdown-menu dropdown-menu-end p-4" style="min-width: 400px;" aria-labelledby="forCompaniesDropdown">
+          {{ dropdownContent | safe }}
+        </div>
+      </div>
+    {% endset %}
+    {% set forCompaniesDropdownMobile %}
+      <div class="dropdown">
+        {%- set context = {
+          theme: 'primary',
+          text: 'Para Empresas do Parque',
+          type: 'button',
+          id: 'forCompaniesDropdown',
+          override_classes: ['dropdown-toggle'],
+          override_atts: {
+            'data-bs-toggle': 'dropdown',
+            'aria-expanded': 'false'
+          }
+        } %}
+        {% include "@marke/ui-core/components/button/button.njk" %}
+        <div class="dropdown-menu dropdown-menu-end p-3" aria-labelledby="forCompaniesDropdown">
+          {{ dropdownContent | safe }}
+        </div>
+      </div>
     {% endset %}
     {% set context = {
       variant: 'dark',
@@ -13,7 +67,7 @@
       ],
       endItems: [
         {
-          html: search
+          html: forCompaniesDropdown
         },
         {
           href: site.social.facebook,
@@ -37,10 +91,6 @@
 </aside>
 <header class="page-header">
   <div class="container position-relative">
-    {%- set extraContent %}
-      {{ dropdown | safe }}
-      {{ search | safe }}
-    {%- endset %}
     {%- set context = {
       navbarLinks: (collections.navbar | eleventyNavigation('home')),
       currentPage: page,
@@ -50,7 +100,7 @@
       brandLogoMobileWidth: 100,
       brandUrl: global.site_absolute_url | url,
       variant: 'light',
-      extraOffcanvasContent: extraContent
+      extraOffcanvasContent: forCompaniesDropdownMobile
     } %}
     {% include '@marke/ui-core/components/navbar/navbar.njk' %}
   </div>

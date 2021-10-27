@@ -1,8 +1,10 @@
 {
   "extends": "eslint:recommended",
   "parserOptions": {
-    "sourceType": "module",
-    "ecmaVersion": 2015
+    "sourceType": "module"
+  },
+  "ecmaFeatures": {
+    "arrowFunctions": true
   },
   "rules": {
     "no-unused-vars": 1
@@ -28,7 +30,8 @@
         "src/transforms/**/*.js",
         "src/**/*.11tydata.js",
         "src/**/*.11ty.js",
-        "src/data/global/**/*.js"
+        "src/data/global/**/*.js",
+        "src/collections/**/*.js"
       ],
       "env": {
         "es2020": true,
