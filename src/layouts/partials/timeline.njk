@@ -1,0 +1,35 @@
+<section id="{{ layout }}-timeline">
+  <div class="container py-4 py-lg-5">
+    <div class="row gy-4">
+      <div class="col-12 text-center">
+        <h2>{{ timeline.title | markdown | safe }}</h2>
+      </div>
+      <div id="timeline-mobile" class="col-12 d-block d-lg-none">
+        <div class="vertical-timeline">
+          {% for item in timeline.items %}
+            <div class="vertical-timeline__item">
+              <div class="vertical-timeline__title">
+                <span class="h2 fw-bold">{{ item.title | e | safe }}</span>
+              </div>
+              <div class="vertical-timeline__dividers">
+                <svg height="40" width="20" style="z-index: 20">
+                  <rect width="20" height="40" style="fill: #fff"></rect>
+                  <circle cx="10" cy="20" r="10" fill="currentColor" />
+                </svg>
+                <svg height="8" width="100">
+                  <polygon points="0,0 0,8 100,4" fill="currentColor" />
+                </svg>
+              </div>
+              <div class="vertical-timeline__desc">
+                <p>{{ item.description | e | safe }}</p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div id="timeline-desktop" class="col-12 d-none d-lg-block">
+        {% include "../svg/desktop-timeline.njk" %}
+      </div>
+    </div>
+  </div>
+</section>

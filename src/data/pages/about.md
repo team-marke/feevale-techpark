@@ -33,7 +33,7 @@ park:
   image: 
     alt: Planta em uma das salas do Feevale Techpark   
     url: https://res.cloudinary.com/feevale-techpark/image/upload/v1634319870/O_Parque_Tecnol%C3%B3gico_da_Feevale.png
-history_timeline:
+timeline:
   title: >-
     Nossa <span class="text-primary">História</span>
   items:

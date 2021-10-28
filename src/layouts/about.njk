@@ -17,7 +17,7 @@
             {{ park.text | markdown | safe }}
             <ol class="list-unstyled column-count-1 column-count-lg-2">
               {% for area in collections.areas %}
-                <li><span class="h3 text-primary">{{ loop.index | romanize }}</span> {{ area.title }}</li>
+                <li><span class="h3 text-primary fw-bold">{{ loop.index | romanize }}</span> {{ area.title }}</li>
               {% endfor %}
             </ol>
           </div>
@@ -38,18 +38,7 @@
         </div>
       </div>
     </section>
-    <section id="{{ layout }}-timeline">
-      <div class="container py-4 py-lg-5">
-        <div class="row gy-4">
-          <div class="col-12 text-center">
-            <h2>{{ history_timeline.title | markdown | safe }}</h2>
-          </div>
-          <div class="col-12">
-            {% include "./partials/history-timeline.njk" %}
-          </div>
-        </div>
-      </div>
-    </section>
+    {% include "./partials/timeline.njk" %}
     <section id="{{ layout }}-benefits" class="bg-light">
       <div class="container py-4 py-lg-5">
         <div class="row gx-lg-5 gx-xl-6">

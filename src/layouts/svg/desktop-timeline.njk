@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1215.28 1005.89" class="d-none d-lg-block">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1215.28 1005.89">
   <defs>
     <style>
       .cls-1 {
@@ -176,25 +176,3 @@
     </g>
   </g>
 </svg>
-
-<div class="history-timeline">
-  {% for item in history_timeline.items %}
-    <div class="history-timeline__item">
-      <div class="history-timeline__title">
-        <span class="h2 fw-bold">{{ item.title | e | safe }}</span>
-      </div>
-      <div class="history-timeline__dividers">
-        <svg height="40" width="20" style="z-index: 20">
-          <rect width="20" height="40" style="fill: #fff"></rect>
-          <circle cx="10" cy="20" r="10" fill="currentColor" />
-        </svg>
-        <svg height="8" width="100">
-          <polygon points="0,0 0,8 100,4" fill="currentColor" />
-        </svg>
-      </div>
-      <div class="history-timeline__desc">
-        <p>{{ item.description | e | safe }}</p>
-      </div>
-    </div>
-  {% endfor %}
-</div>
