@@ -15,9 +15,9 @@
           <div class="col-12 col-lg-7 order-1 order-lg-0">
             <h2>{{ park.title | markdown | safe }}</h2>
             {{ park.text | markdown | safe }}
-            <ol type="I">
+            <ol class="list-unstyled column-count-1 column-count-lg-2">
               {% for area in collections.areas %}
-                <li>{{ area.title }}</li>
+                <li><span class="h3 text-primary">{{ loop.index | romanize }}</span> {{ area.title }}</li>
               {% endfor %}
             </ol>
           </div>
@@ -58,6 +58,12 @@
           </div>
           <div class="col-12 col-lg-6">
             {{ benefits.text | markdown | safe }}
+            {%- set context = {
+              theme: 'primary',
+              href: benefits.btn.url,
+              text: benefits.btn.text
+            } %}
+            {% include "@marke/ui-core/components/button/button.njk" %}
           </div>
         </div>
       </div>
