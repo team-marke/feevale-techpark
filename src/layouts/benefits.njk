@@ -1,0 +1,18 @@
+{%- extends 'base.njk' %}
+{%- block content %}
+  <main class="main-content">
+    {% include "./partials/masthead.njk" %}
+    {% include "./partials/benefits.njk" %}
+    {# <section id="{{ layout }}-programs-mobile" class="d-block d-lg-none">
+      <div class="container py-4">
+        <div class="row gy-4">
+          <div class="col-12">
+            
+          </div>
+        </div>
+      </div>
+    </section> #}
+    {% include "./partials/tech-news.njk" %}
+  </main>
+{%- endblock %}
+{{ content | safe }}
