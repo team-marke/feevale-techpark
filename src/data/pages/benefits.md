@@ -58,6 +58,9 @@ support:
       image:
         alt: Ícone de uma lâmpada acendendo
         url: https://res.cloudinary.com/feevale-techpark/image/upload/v1635427823/inovacao-e-transferencia-01.svg
+  divider_line: 
+    url: https://res.cloudinary.com/feevale-techpark/image/upload/v1635427815/linhas-divisora-01.svg
+    alt: Linha divisória cinza
 all_benefits:
   title: >-
     Conheça todos os <span class="text-primary">benefícios</span>

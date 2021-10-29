@@ -3,16 +3,80 @@
   <main class="main-content">
     {% include "./partials/masthead.njk" %}
     {% include "./partials/benefits.njk" %}
-    {# <section id="{{ layout }}-programs-mobile" class="d-block d-lg-none">
-      <div class="container py-4">
-        <div class="row gy-4">
+    <section id="{{ layout }}-support" class="bg-light">
+      <div class="container py-4 py-lg-5">
+        <div class="row gy-lg-5 gx-lg-5 gx-xl-6">
+          <div class="col-12 col-lg-8 col-xl-6 mx-auto text-center">
+            <h2>{{ support.title | markdown | safe }}</h2>
+          </div>
           <div class="col-12">
-            
+            {% set cards = [] %}
+            {% for item in support.items %}
+              {% set renderedItem %}
+                <div class="h-100 align-items-center d-flex flex-column text-center">
+                  <img
+                    src="{%- imageUrl item.image.url, { fetch_format: 'auto', quality: 'auto', width: 90, height: 90, crop: 'pad' } %}"
+                    srcset="{%- imageUrl item.image.url, { fetch_format: 'auto', quality: 'auto', width: 90, height: 90, crop: 'pad', dpr: 2 } %} 2x" 
+                    width="90"
+                    height="90"
+                    alt="{{ item.image.alt }}"
+                    loading="lazy"
+                    class="mb-3"
+                  >
+                  <h3>{{ item.title | e | safe }}</h3>
+                  {{ item.description | markdown | safe }}
+                  {% if not loop.last %}
+                  <img
+                    src="{%- imageUrl support.divider_line.url, { fetch_format: 'auto', quality: 'auto', width: 16, height: 300 } %}" 
+                    srcset="{%- imageUrl support.divider_line.url, { fetch_format: 'auto', quality: 'auto', width: 15, height: 300, dpr: 2 } %} 2x" 
+                    width="16"
+                    height="300"
+                    alt="{{ support.divider_line.alt }}"
+                    loading="lazy"
+                    class="d-none d-lg-block"
+                    style="position: absolute; right: 0; top: 50%; transform: translate(8px, -150px)"
+                  >
+                  {% endif %}
+                  {%- set context = {
+                    theme: 'primary',
+                    href: item.btn.url,
+                    text: item.btn.text,
+                    override_classes: ['mt-auto']
+                  } %}
+                  {% include "@marke/ui-core/components/button/button.njk" %}
+                </div>
+              {% endset %}
+              {% set cards = (cards.push(renderedItem), cards) %}
+            {% endfor %}
+            {%- set context = {
+              minSlidesPerView: 1,
+              maxSlidesPerView: 3,
+              total: (cards | length),
+              items: cards
+            } %}
+            {% include "@marke/ui-core/components/carousel/carousel.njk" %}
           </div>
         </div>
       </div>
-    </section> #}
-    {% include "./partials/tech-news.njk" %}
+    </section>
+    <section id="{{ layout }}-all-benefits">
+      <div class="container py-4 py-lg-5">
+        <div class="row gx-lg-5 gx-xl-6">
+          <div class="col-12 col-lg-6">
+            <h2>{{ all_benefits.title | markdown | safe }}</h2>
+          </div>
+          <div class="col-12 col-lg-6">
+            {{ all_benefits.text | markdown | safe }}
+            {%- set context = {
+              theme: 'primary',
+              href: all_benefits.btn.url,
+              text: all_benefits.btn.text
+            } %}
+            {% include "@marke/ui-core/components/button/button.njk" %}
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 {%- endblock %}
 {{ content | safe }}
