@@ -7,35 +7,45 @@
   {%- endif %}
 >
   <div class="container py-4 py-lg-5">
-    <div class="row gy-lg-5 gx-lg-5 gx-xl-6">
+    <div class="row gy-4 gy-lg-5 gx-lg-5 gx-xl-6">
       <div class="col-12 col-lg-6">
         <h2>{{ benefits.title | markdown | safe }}</h2>
       </div>
       <div class="col-12 col-lg-6">
         {{ benefits.text | markdown | safe }}
       </div>
-      {% for benefit in collections.benefits %}
-        <div class="col-12 col-lg-6">
-          <div class="d-flex gap-2">
-            <img
-              src="{%- imageUrl 'https://res.cloudinary.com/feevale-techpark/image/upload/v1632244218/linha-beneficios-01.svg', { 
-                fetch_format: 'auto', 
-                quality: 'auto', 
-                width: 12,
-                dpr: 2 
-              } %}" 
-              width="12"
-              height="184"
-              alt="Linha decorativa amarela"
-              loading="lazy"
-            >
-            <div>
-              <h3>{{ benefit.data.title | e | safe }}</h3>
-              {{ benefit._templateContent | safe }}
+      <div class="col-12">
+        {% set items = [] %}
+        {% for benefit in collections.benefits %}
+          {% set renderedItem %}
+            <div class="d-flex">
+              {% set dividerSrc = 'https://res.cloudinary.com/feevale-techpark/image/upload/v1632244218/linha-beneficios-01.svg' %}
+              <img
+                src="{%- imageUrl dividerSrc, { fetch_format: 'auto', quality: 'auto', width: 14, crop: 'scale' } %}" 
+                src="{%- imageUrl dividerSrc, { fetch_format: 'auto', quality: 'auto', width: 14, crop: 'scale', dpr: 2 } %} 2x"
+                width="14"
+                height="176"
+                alt="Linha divisoria amarela"
+                loading="lazy"
+                class="align-self-start me-2"
+              >
+              <div>
+                <h3>{{ benefit.data.title | e | safe }}</h3>
+                {{ benefit._templateContent | safe }}
+              </div>
             </div>
-          </div>
-        </div>
-      {% endfor %}
+          {% endset %}
+          {% set items = (items.push(renderedItem), items) %}
+        {% endfor %}
+        {%- set context = {
+          minColumns: 1,
+          maxColumns: 2,
+          total: (items | length),
+          items: items,
+          showPagination: true
+        } %}
+        {% include "@marke/ui-core/components/grid-responsive-slider/grid-responsive-slider.njk" %}
+      </div>
       <div class="col-12 text-center">
         {%- set context = {
           theme: 'primary',

@@ -279,48 +279,7 @@
         </div>
       </div>
     </section>
-    <section id="{{ layout }}-benefits" class="bg-light">
-      <div class="container py-4 py-lg-5">
-        <div class="row gy-lg-5 gx-lg-5 gx-xl-6">
-          <div class="col-12 col-lg-6">
-            <h2>{{ benefits.title | markdown | safe }}</h2>
-          </div>
-          <div class="col-12 col-lg-6">
-            {{ benefits.text | markdown | safe }}
-          </div>
-          {% for benefit in collections.benefits %}
-            <div class="col-12 col-lg-6">
-              <div class="d-flex gap-2">
-                <img
-                  src="{%- imageUrl 'https://res.cloudinary.com/feevale-techpark/image/upload/v1632244218/linha-beneficios-01.svg', { 
-                    fetch_format: 'auto', 
-                    quality: 'auto', 
-                    width: 12,
-                    dpr: 2 
-                  } %}" 
-                  width="12"
-                  height="184"
-                  alt="Linha decorativa amarela"
-                  loading="lazy"
-                >
-                <div>
-                  <h3>{{ benefit.data.title | e | safe }}</h3>
-                  {{ benefit._templateContent | safe }}
-                </div>
-              </div>
-            </div>
-          {% endfor %}
-          <div class="col-12 text-center">
-            {%- set context = {
-              theme: 'primary',
-              href: benefits.btn.url,
-              text: benefits.btn.text
-            } %}
-            {% include "@marke/ui-core/components/button/button.njk" %}
-          </div>
-        </div>
-      </div>
-    </section>
+    {% include "./partials/benefits.njk" %}
     <section id="{{ layout }}-programs">
       <div class="container py-4 py-lg-5">
         <div class="row gy-lg-5 gx-lg-5 gx-xl-6 mb-3">
