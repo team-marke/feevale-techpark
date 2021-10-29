@@ -95,6 +95,17 @@ const loadAnimeteCounters = async () => {
   }
 };
 
+const loadPartnersListing = async () => {
+  if (document.querySelector('.partners-listing')) {
+    const { PartnersListing } = await import(
+      /* webpackChunkName: "components.partners-listing" */ '../js/components/partners-listing'
+    );
+    document.querySelectorAll('.partners-listing').forEach((el) => {
+      new PartnersListing(el);
+    });
+  }
+};
+
 /**
  * Dynamically load modules that are split from the main JS bundle.
  */
@@ -108,6 +119,7 @@ const loadDynamicModules = () => {
   loadYoutubeModals();
   loadSocialbar();
   loadAnimeteCounters();
+  loadPartnersListing();
 };
 
 /**

@@ -1,0 +1,17 @@
+//
+// Partners Listing component styles
+//
+
+@use '../marke-ui' as mkui;
+
+.partners-listing{
+  &__search{
+    width: 100%;
+    margin-bottom: mkui.$spacer * 1.75;
+  }
+  &__results{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: mkui.$spacer * 1.75;
+  }
+}

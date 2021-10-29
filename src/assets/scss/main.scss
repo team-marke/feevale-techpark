@@ -30,6 +30,7 @@
   $toggler-border-radius: 1rem
 );
 @use '~@marke/ui-core/components/socialbar';
+@use '~@marke/ui-core/components/text-field';
 
 // Abstract styles
 @use './abstracts/root';
@@ -42,6 +43,7 @@
 @use './components/company-card';
 @use './components/vertical-timeline';
 @use './components/images';
+@use './components/partners-listing';
 @use './components/tabs';
 @use './components/latest-posts';
 
