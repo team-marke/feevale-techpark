@@ -4,13 +4,15 @@
     {% include "./partials/masthead.njk" %}
     <section id="{{ layout }}-business-partners">
       <div class="container py-4 py-lg-5">
-        <div class="row gx-lg-5 gx-xl-6">
+        <div class="row gx-lg-5 gx-xl-6 mb-3 mb-lg-5">
           <div class="col-12 col-lg-6">
             <h2>{{ business_partners.title | markdown | safe }}</h2>
           </div>
           <div class="col-12 col-lg-6">
             {{ business_partners.text | markdown | safe }}
           </div>
+        </div>
+        <div class="row">
           <div class="col-12">
             {% include "./components/partners-listing.njk" %}
           </div>

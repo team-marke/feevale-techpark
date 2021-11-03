@@ -12,7 +12,7 @@ const getPartners = async () => {
       title: item.fields.title,
       description: documentToHtmlString(item.fields.description),
       type: item.fields.type ? slugify(item.fields.type, { lower: true }) : null,
-      site: item.fields.title,
+      site: item.fields.site,
       image: item.fields.cloudinaryImage[0].original_secure_url,
       email: item.fields.email,
       phone: item.fields.phone,

@@ -30,7 +30,10 @@
   $toggler-border-radius: 1rem
 );
 @use '~@marke/ui-core/components/socialbar';
-@use '~@marke/ui-core/components/text-field';
+@use '~@marke/ui-core/components/text-field' with (
+  $padding-x: 2rem,
+  $border-color: transparent
+);
 
 // Abstract styles
 @use './abstracts/root';
