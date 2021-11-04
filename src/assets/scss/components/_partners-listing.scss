@@ -7,7 +7,17 @@
 $spacer: mkui.$spacer * 2.25;
 
 .partners-listing {
-  &__search {
+  &__search-container {
+    position: relative;
+  }
+  &__search-icon {
+    font-size: 1rem;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-0.5rem) translateX(-1rem);
+  }
+  &__search-input {
     width: 100%;
     margin-bottom: $spacer / 2;
     box-shadow: mkui.$box-shadow;
@@ -23,7 +33,7 @@ $spacer: mkui.$spacer * 2.25;
       grid-template-columns: repeat(3, 1fr);
       gap: $spacer;
     }
-    
+
     .partner-hidden {
       display: none;
     }

@@ -135,7 +135,7 @@
           <div class="col-12 col-lg-9 mx-auto text-center gx-3">
             <h3>Associados:</h3>
             {% set cards = [] %}
-            {% for partner in (collections.partners | partnersByType('associado') | arraySlice(0, 4)) %}
+            {% for partner in (collections.institutionalPartners | partnersByType('parceiro-associado') | arraySlice(0, 4)) %}
               {% set renderedItem %}
                 <picture>
                   <source
@@ -169,7 +169,7 @@
           <div class="col-12 col-lg-9 mx-auto text-center gx-3">
             <h3>Parceiros Estratégicos:</h3>
             {% set cards = [] %}
-            {% for partner in (collections.partners | partnersByType('parceiro-estrategico') | arraySlice(0, 4)) %}
+            {% for partner in (collections.institutionalPartners | partnersByType('parceiro-estrategico') | arraySlice(0, 4)) %}
               {% set renderedItem %}
                 <picture>
                   <source

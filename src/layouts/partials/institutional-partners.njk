@@ -1,0 +1,58 @@
+<section id="{{ layout }}-institutional-partners" class="bg-light">
+  <div class="container py-4 py-lg-5">
+    <div class="row gy-4 gy-lg-5 gx-lg-5 gx-xl-6">
+      <div class="col-12 col-lg-5">
+        <h2>{{ institutional_partners.title | markdown | safe }}</h2>
+      </div>
+      <div class="col-12 col-lg-6 gx-3">
+        {% set cards = [] %}
+        {% for partner in (collections.institutionalPartners | arraySlice(0, 3)) %}
+          {% set renderedItem %}
+            {% set cardBody %}
+              <div class="d-flex align-items-center h-100">
+                <picture>
+                  <source
+                    media="(max-width:992px)" 
+                    width="240"
+                    height="135"
+                    srcset="{%- imageUrl partner.image, { effect: 'art:audrey', fetch_format: 'auto', quality: 'auto', width: 240, aspect_ratio: '16:9', crop: 'pad' } %}"
+                  >
+                  <img
+                    width="154"
+                    height="87"
+                    src="{%- imageUrl partner.image, { effect: 'art:audrey', fetch_format: 'auto', quality: 'auto', width: 154, aspect_ratio: '16:9', crop: 'pad' } %}" 
+                    srcset="{%- imageUrl partner.image, { effect: 'art:audrey', fetch_format: 'auto', quality: 'auto', width: 154, aspect_ratio: '16:9', crop: 'pad', dpr: 2 } %} 2x" 
+                    alt="{{ partner.title | e | safe }}"
+                    loading="lazy"
+                    class="img-fluid"
+                  >
+                </picture>
+              </div>
+            {% endset %}
+            {% set context = {
+                children: cardBody
+            } %}
+            {% include '@marke/ui-core/components/card/card.njk' %}
+          {% endset %}
+          {% set cards = (cards.push(renderedItem), cards) %}
+        {% endfor %}
+        {%- set context = {
+          minSlidesPerView: 1,
+          maxSlidesPerView: 3,
+          total: (cards | length),
+          items: cards,
+          visibleOverflow: false
+        } %}
+        {% include "@marke/ui-core/components/carousel/carousel.njk" %}
+      </div>
+      <div class="col-12 text-center">
+        {%- set context = {
+          theme: 'primary',
+          href: institutional_partners.btn.url,
+          text: institutional_partners.btn.text
+        } %}
+        {% include "@marke/ui-core/components/button/button.njk" %}
+      </div>
+    </div>
+  </div>
+</section>

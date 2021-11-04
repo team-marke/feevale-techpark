@@ -4,10 +4,16 @@
  */
 
 import { dom as faDom, library as faLibrary, config as faConfig } from '@fortawesome/fontawesome-svg-core';
-import { faChevronRight, faPhoneSquareAlt, faEnvelopeSquare, faExternalLinkSquareAlt } from '@fortawesome/free-solid-svg-icons';
+import {
+  faChevronRight,
+  faPhoneSquareAlt,
+  faEnvelopeSquare,
+  faExternalLinkSquareAlt,
+  faSearch,
+} from '@fortawesome/free-solid-svg-icons';
 
 (() => {
-  faLibrary.add(faChevronRight, faPhoneSquareAlt, faEnvelopeSquare, faExternalLinkSquareAlt);
+  faLibrary.add(faChevronRight, faPhoneSquareAlt, faEnvelopeSquare, faExternalLinkSquareAlt, faSearch);
   faConfig.showMissingIcons = false;
   faDom.watch();
 })();

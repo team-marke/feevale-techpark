@@ -1,7 +1,10 @@
 <div class="partners-listing">
-  <input type="text" class="partners-listing__search text-field">
+  <div class="partners-listing__search-container">
+    <i class="fas fa-search partners-listing__search-icon"></i>
+    <input type="text" class="partners-listing__search-input text-field">
+  </div>
   <div class="partners-listing__partners">
-    {% for partner in collections.partners %}
+    {% for partner in collections.businessPartners %}
       <div data-partner-name="{{ partner.title | e | safe }}">
         {% set cardBody %}
           <div class="d-flex flex-column h-100">

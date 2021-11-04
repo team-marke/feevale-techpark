@@ -98,7 +98,7 @@ courses_and_events:
   btn:
     text: Todos os Cursos e Eventos
     url: '/cursos-e-eventos/'
-partners:
+institutional_partners:
   title: >-
     Parceiros <span class="text-primary">Institucionais</span>
   btn:

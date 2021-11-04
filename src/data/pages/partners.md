@@ -21,4 +21,10 @@ business_partners:
     Parceiros de <span class="text-primary">Negócio</span>
   text: >-
     Este programa visa fomentar a formação de alianças estratégicas e relacionamentos de longo prazo, atingir objetivos mútuos e gerar relevância ao Feevale Techpark, às empresas nele instaladas e seus parceiros.
+institutional_partners:
+  title: >-
+    Parceiros <span class="text-primary">Institucionais</span>
+  btn:
+    text: Conheça todos os parceiros
+    url: '/empresas-parceiras/'
 ---
