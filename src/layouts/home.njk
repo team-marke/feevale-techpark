@@ -357,7 +357,7 @@
         <div class="row gy-4 gy-lg-5 gx-lg-5">
           <div class="col-12">
             {% set cards = [] %}
-            {% for item in (collections.coursesAndEvents | arraySlice(0, 3)) %}
+            {% for item in collections.coursesAndEvents %}
               {% set renderedItem %}
                 {% set cardBody %}
                   <div class="d-flex flex-column h-100">
@@ -389,13 +389,15 @@
               minSlidesPerView: 1,
               maxSlidesPerView: 3,
               total: (cards | length),
-              items: cards
+              items: cards,
+              showNavs: true
             } %}
             {% include "@marke/ui-core/components/carousel/carousel.njk" %}
           </div>
           <div class="col-12 text-center">
             {%- set context = {
               theme: 'primary',
+              target: '_blank',
               href: courses_and_events.btn.url,
               text: courses_and_events.btn.text
             } %}

@@ -97,7 +97,7 @@ courses_and_events:
     Fique por dentro dos próximos cursos e eventos sobre empreendedorismo, inovação e tecnologia, promovidos pelo Feevale Techpark.
   btn:
     text: Todos os Cursos e Eventos
-    url: '/cursos-e-eventos/'
+    url: 'https://www.feevale.br/cursos-e-eventos'
 institutional_partners:
   title: >-
     Parceiros <span class="text-primary">Institucionais</span>
