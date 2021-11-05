@@ -1,0 +1,27 @@
+{%- if context %}
+  {% set companies = context.companies %}
+{% endif %}
+
+
+<div class="companies-listing">
+  <div class="companies-listing__filters">
+
+    {% set context = {
+      label: 'Seleção',
+      name: 'sample-select-1',
+      id: 'sample-select-1',
+      placeholder: 'Selecione',
+      options: {
+        'Opção Um': 1,
+        'Opção Dois': 2,
+        'Opção Três': 3
+      }
+    } %}
+    {% include "@marke/ui-core/components/select/select.njk" %}
+  </div>
+  <div class="companies-listing__companies">
+    {% for company in companies %}
+      <div>{{ company.title }}</div>
+    {% endfor %}  
+  </div>
+</div>

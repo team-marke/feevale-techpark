@@ -1,0 +1,31 @@
+{%- extends 'base.njk' %}
+{%- block content %}
+  <main class="main-content">
+    {% set masthead = {
+      image: masthead.image,
+      bgColor: masthead.bgColor,
+      title: masthead.title,
+      description: masthead.description,
+      btn: { text: masthead.btn.text, url: masthead.btn.url }
+    } %}
+    {% include "./partials/masthead.njk" %}
+    <section id="{{ layout }}-companies">
+      <div class="container py-4 py-lg-5">
+        <div class="row mb-3 mb-lg-5">
+          <div class="col-12">
+            <h2>{{ companies_list.title | markdown | safe }}</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            {% set context = {
+              companies: collections.companies
+            } %}
+            {% include "./components/companies-listing.njk" %}
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+{%- endblock %}
+{{ content | safe }}
