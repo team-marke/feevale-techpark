@@ -1,25 +1,21 @@
 const fetch = require('node-fetch');
 const cacheClient = require('../assets/js/utils/clients/node-cache');
+const numberOfPosts = 25;
 
 const getTechNews = async () => {
   let allTechNews = [];
-  let count = 0;
-  let data = [];
-  do {
-    const response = await fetch(`https://servico.feevale.br/site/v1/noticias/${count}/100/techpark`);
-    data = await response.json();
-    for (const item of data) {
-      allTechNews.push({
-        title: item.titulo,
-        excerpt: item.resumo,
-        image: item.midia,
-        featured: item.destaque,
-        url: item.tituloUrl,
-        date: item.dataCadastro,
-      });
-    }
-    count++;
-  } while (Array.isArray(data) && data.length > 0);
+  const response = await fetch(`https://servico.feevale.br/site/v1/noticias/0/${numberOfPosts}/techpark`);
+  const data = await response.json();
+  for (const item of data) {
+    allTechNews.push({
+      title: item.titulo,
+      excerpt: item.resumo,
+      image: item.midia,
+      featured: item.destaque,
+      url: item.tituloUrl,
+      date: item.dataCadastro,
+    });
+  }
   return allTechNews;
 };
 

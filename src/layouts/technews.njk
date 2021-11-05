@@ -1,14 +1,95 @@
 {%- extends 'base.njk' %}
 {%- block content %}
   <main class="main-content">
-    <section id="masthead">
-      <ul>
+    {% include "./partials/masthead.njk" %}
+    <section id="{{ layout }}-posts" class="position-relative">
+      <div class="container py-4 py-lg-5">
+        <div class="row mb-3 mb-lg-5">
+          <div class="col-12 col-lg-7">
+            <h2>{{ posts.title | markdown | safe }}</h2>
+          </div>
+        </div>
         {% for item in news %}
-          <li>
-            {{ item.title }}
-          </li>
+          <div class="row gy-3 gx-lg-5 gx-xl-6 mb-5 mb-xl-6">
+            <div class="col-12 col-lg-6">
+              <a href="{{ item.url | url }}">
+                {%- image item.image, { 
+                  class: 'img-fluid rounded shadow', 
+                  type: 'fetch', 
+                  loading: 'lazy',
+                  transformation: [{ 
+                    fetch_format: 'auto', 
+                    quality: 'auto', 
+                    width: 600, 
+                    crop: 'thumb', 
+                    gravity: 'auto', 
+                    aspect_ratio: '21:9'
+                  }] 
+                } %}
+              </a>
+            </div>
+            <div class="col-12 col-lg-6 d-flex flex-column">
+              {% set context = {
+                titleTag: 'h3',
+                title: item.title, 
+                date: item.date,
+                url: item.url,
+                excerpt: item.excerpt
+              } %}
+              {% include "@marke/ui-core/components/post-preview/post-preview.njk" %}
+              {%- set context = {
+                theme: 'primary',
+                href: item.url,
+                text: posts.btn_label,
+                override_classes: ['mt-auto', 'align-self-start']
+              } %}
+              {% include "@marke/ui-core/components/button/button.njk" %}
+            </div>
+          </div>
         {% endfor %}
-      </ul>
+        <div class="row mb-3 mb-lg-5">
+          <div class="col-12">
+            <div class="d-flex flex-wrap gap-2">
+            {% for page in pagination.hrefs %}
+              {% if loop.index0 == pagination.pageNumber %}
+                {% set btnTheme = 'primary' %}
+              {% else %}
+                {% set btnTheme = 'light' %}
+              {% endif %}
+              {%- set context = {
+                theme: btnTheme,
+                href: page,
+                text: loop.index,
+                override_classes: ['mt-auto', 'align-self-start']
+              } %}
+              {% include "@marke/ui-core/components/button/button.njk" %}
+            {% endfor %}  
+            {%- set context = {
+              theme: 'light',
+              href: posts.all_posts_url,
+              text: 'Ver mais'
+            } %}
+            {% include "@marke/ui-core/components/button/button.njk" %}
+            </div>
+          </div>
+        </div>
+      </div>
+      <img 
+        loading="lazy"
+        src="{%- imageUrl posts.decorator, { fetch_format: 'auto', width: 700, quality: 'auto' } %}" 
+        alt="Grafismo decorativo Feevale"
+        class="d-none d-lg-block"
+        style="position: absolute; top: 3%; right: 15%; z-index: -1;"
+      >
+    </section>
+    <section id="{{ layout }}-posts" class="bg-light">
+      <div class="container py-4 py-lg-5">
+        <div class="row">
+          <div class="col-12 col-lg-7">
+            <h2>{{ videos.title | markdown | safe }}</h2>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 {%- endblock %}
