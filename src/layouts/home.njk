@@ -42,7 +42,7 @@
     </section>
     <section id="{{ layout }}-numbers" class="bg-light">
       <div class="container py-4 py-lg-5">
-        <div class="row gx-lg-5 gx-xl-6">
+        <div class="row gx-lg-5 gx-xl-6 mb-3 mb-lg-5">
           <div class="col-12 col-lg-6">
             <h2>{{ numbers.title | markdown | safe }}</h2>
           </div>
@@ -50,6 +50,8 @@
             <h3>{{ numbers.subtitle | e | safe }}</h3>
             {{ numbers.text | markdown | safe }}
           </div>
+        </div>
+        <div class="row">
           <div class="col-12">
             {% set items = [] %}
             {% for item in numbers.items %}
@@ -79,7 +81,7 @@
     </section>
     <section id="{{ layout }}-units" class="position-relative">
       <div class="container py-4 py-lg-5">
-        <div class="row">
+        <div class="row gy-4 gy-lg-5">
           <div class="col-12 col-md-10 col-lg-8 mx-auto text-center">
             <h2>{{ units.title | markdown | safe }}</h2>
             <h3>{{ units.subtitle | e | safe }}</h3>
@@ -156,7 +158,7 @@
     </section>
     <section id="{{ layout }}-areas">
       <div class="container py-4 py-lg-5">
-        <div class="row gy-lg-5">
+        <div class="row gy-4">
           <div class="col-12 col-md-10 col-lg-8 mx-auto text-center">
             <h2>{{ areas.title | markdown | safe }}</h2>
             <h3>{{ areas.subtitle | e | safe }}</h3>
@@ -282,7 +284,7 @@
     {% include "./partials/benefits.njk" %}
     <section id="{{ layout }}-programs">
       <div class="container py-4 py-lg-5">
-        <div class="row gy-lg-5 gx-lg-5 gx-xl-6 mb-3">
+        <div class="row gy-lg-5 gx-lg-5 gx-xl-6 mb-3 mb-lg-5">
           <div class="col-12 col-lg-6">
             <h2>{{ programs.title | markdown | safe }}</h2>
           </div>
@@ -346,7 +348,7 @@
     </section>
     <section id="{{ layout }}-courses-and-events" class="position-relative">
       <div class="container py-4 py-lg-5">
-        <div class="row gy-lg-5 gx-lg-5 gx-xl-6 mb-3">
+        <div class="row gy-lg-5 gx-lg-5 gx-xl-6 mb-3 mb-lg-5">
           <div class="col-12 col-lg-4">
             <h2>{{ courses_and_events.title | markdown | safe }}</h2>
           </div>

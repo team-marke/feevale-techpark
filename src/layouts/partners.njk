@@ -14,6 +14,10 @@
         </div>
         <div class="row">
           <div class="col-12">
+            {% set context = {
+              search_placeholder: business_partners.search_placeholder,
+              partners: collections.businessPartners
+            } %}
             {% include "./components/partners-listing.njk" %}
           </div>
         </div>

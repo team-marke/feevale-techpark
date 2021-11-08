@@ -62,10 +62,10 @@
     <section id="{{ layout }}-all-benefits">
       <div class="container py-4 py-lg-5">
         <div class="row gx-lg-5 gx-xl-6">
-          <div class="col-12 col-lg-6">
+          <div class="col-12 col-lg-5">
             <h2>{{ all_benefits.title | markdown | safe }}</h2>
           </div>
-          <div class="col-12 col-lg-6">
+          <div class="col-12 col-lg-7">
             {{ all_benefits.text | markdown | safe }}
             {%- set context = {
               theme: 'primary',

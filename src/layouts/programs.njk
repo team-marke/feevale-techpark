@@ -104,10 +104,10 @@
                     class="img-fluid mb-3"
                     alt="Logo do programa {{ program.title | e | safe }}"
                     loading="lazy"
-                    width="540"
-                    height="162"
-                    src="{%- imageUrl program.data.logo, { fetch_format: 'auto', quality: 'auto', crop: 'pad', width: 540, height: 162 } %}"
-                    srcset="{%- imageUrl program.data.logo, { fetch_format: 'auto', quality: 'auto', crop: 'pad', width: 540, height: 162, dpr: 2 } %} 2x"
+                    width="300"
+                    height="150"
+                    src="{%- imageUrl program.data.logo, { fetch_format: 'auto', quality: 'auto', crop: 'pad', width: 300, height: 150 } %}"
+                    srcset="{%- imageUrl program.data.logo, { fetch_format: 'auto', quality: 'auto', crop: 'pad', width: 300, height: 150, dpr: 2 } %} 2x"
                   >
                   {{ program.templateContent | safe }}
                   {% if program.data.link %}

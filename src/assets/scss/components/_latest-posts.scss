@@ -20,7 +20,7 @@
       grid-column: 2 / 3;
       grid-row: span 1;
     }
-    border-bottom: solid mkui.$border-width mkui.$dark;
+    border-bottom: solid mkui.$border-width mkui.$light;
     .post-preview__excerpt {
       display: none !important;
     }

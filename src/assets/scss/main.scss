@@ -32,7 +32,8 @@
 @use '~@marke/ui-core/components/socialbar';
 @use '~@marke/ui-core/components/text-field' with (
   $padding-x: 2rem,
-  $border-color: transparent
+  $border-color: transparent,
+  $placeholder-color: rgba(mkui.$dark, .5)
 );
 
 // Abstract styles

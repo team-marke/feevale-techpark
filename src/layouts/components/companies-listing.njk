@@ -6,7 +6,7 @@
 <div class="companies-listing">
   <div class="companies-listing__filters">
 
-    {% set context = {
+    {# {% set context = {
       label: 'Seleção',
       name: 'sample-select-1',
       id: 'sample-select-1',
@@ -17,7 +17,7 @@
         'Opção Três': 3
       }
     } %}
-    {% include "@marke/ui-core/components/select/select.njk" %}
+    {% include "@marke/ui-core/components/select/select.njk" %} #}
   </div>
   <div class="companies-listing__companies">
     {% for company in companies %}
