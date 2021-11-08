@@ -1,23 +1,17 @@
 {%- if context %}
   {% set companies = context.companies %}
+  {% set units = context.units %}
 {% endif %}
 
 
 <div class="companies-listing">
   <div class="companies-listing__filters">
-
-    {# {% set context = {
-      label: 'Seleção',
-      name: 'sample-select-1',
-      id: 'sample-select-1',
-      placeholder: 'Selecione',
-      options: {
-        'Opção Um': 1,
-        'Opção Dois': 2,
-        'Opção Três': 3
-      }
-    } %}
-    {% include "@marke/ui-core/components/select/select.njk" %} #}
+    <select class="select companies-dynamic-select" aria-label="Seleção" id="sample-select-1">
+      <option value="">Selecione</option>
+      {% for unit in units %}
+        <option value="{{ unit.title | slug }}">{{ unit.title }}</option>
+      {% endfor %}  
+    </select>
   </div>
   <div class="companies-listing__companies">
     {% for company in companies %}

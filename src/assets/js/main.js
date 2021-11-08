@@ -106,6 +106,17 @@ const loadPartnersListing = async () => {
   }
 };
 
+const loadCompaniesDynamicSelect = async () => {
+  if (document.querySelector('.companies-dynamic-select')) {
+    const { CompaniesDynamicSelect } = await import(
+      /* webpackChunkName: "components.companies-dynamic-select" */ '../js/components/companies-dynamic-select'
+    );
+    document.querySelectorAll('.companies-dynamic-select').forEach((el) => {
+      new CompaniesDynamicSelect(el);
+    });
+  }
+};
+
 /**
  * Dynamically load modules that are split from the main JS bundle.
  */
@@ -120,6 +131,7 @@ const loadDynamicModules = () => {
   loadSocialbar();
   loadAnimeteCounters();
   loadPartnersListing();
+  loadCompaniesDynamicSelect();
 };
 
 /**
