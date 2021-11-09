@@ -111,9 +111,9 @@ const loadCompaniesDynamicSelect = async () => {
     const { CompaniesDynamicSelect } = await import(
       /* webpackChunkName: "components.companies-dynamic-select" */ '../js/components/companies-dynamic-select'
     );
-    document.querySelectorAll('.companies-dynamic-select').forEach((el) => {
-      new CompaniesDynamicSelect(el);
-    });
+    const el = document.querySelector('.companies-dynamic-select');
+    const companiesContainer = document.querySelector('.companies-listing__companies');
+    new CompaniesDynamicSelect(el, companiesContainer);
   }
 };
 

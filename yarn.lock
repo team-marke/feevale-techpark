@@ -1790,6 +1790,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/json-patch@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@types/json-patch@npm:0.0.30"
+  checksum: 279092cedb5fabd653d2865fff0afb39fd517db5745ed5fdf01a3f00e3dff9317395c699211e7c2a36b903a6dfbe1be173ba361c9fd7c9bccd160d5828b678ce
+  languageName: node
+  linkType: hard
+
 "@types/json-schema@npm:*, @types/json-schema@npm:^7.0.5, @types/json-schema@npm:^7.0.6":
   version: 7.0.7
   resolution: "@types/json-schema@npm:7.0.7"
@@ -2646,7 +2653,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^0.21.1":
+"axios@npm:^0.21.1, axios@npm:^0.21.4":
   version: 0.21.4
   resolution: "axios@npm:0.21.4"
   dependencies:
@@ -3929,12 +3936,39 @@ __metadata:
   languageName: node
   linkType: hard
 
+"contentful-management@npm:^7.45.0":
+  version: 7.45.0
+  resolution: "contentful-management@npm:7.45.0"
+  dependencies:
+    "@types/json-patch": 0.0.30
+    axios: ^0.21.4
+    contentful-sdk-core: ^6.10.1
+    fast-copy: ^2.1.0
+    lodash.isplainobject: ^4.0.6
+    type-fest: ^0.21.3
+  checksum: 3655f4c8b419342bf8b4cf8fa1b26e8682661afdf05426eb1440e1f6eae8f11a8515884c2a1f1ad735edae93e05879b6ca3927a040c9843360b149301d99e400
+  languageName: node
+  linkType: hard
+
 "contentful-resolve-response@npm:^1.3.0":
   version: 1.3.0
   resolution: "contentful-resolve-response@npm:1.3.0"
   dependencies:
     fast-copy: ^2.1.0
   checksum: b089487a71e502de97c86dd41c0edae45ced9b6985ffc1a81a79c689f7425db6a0210e5fa8ac9de74559b16d58564cac77274a83ad12d9401e360bd96484d5b5
+  languageName: node
+  linkType: hard
+
+"contentful-sdk-core@npm:^6.10.1":
+  version: 6.10.3
+  resolution: "contentful-sdk-core@npm:6.10.3"
+  dependencies:
+    fast-copy: ^2.1.0
+    lodash.isplainobject: ^4.0.6
+    lodash.isstring: ^4.0.1
+    p-throttle: ^4.1.1
+    qs: ^6.9.4
+  checksum: 471142ff941e42cdb7f2448980453dd7ea3e154d4e44dbff3cc910bdb6b957e352e0f480e26f4bda4088896b2130282be452b96c388494977688ce6720fa0999
   languageName: node
   linkType: hard
 
@@ -5728,6 +5762,7 @@ __metadata:
     bootstrap: ^5.0.1
     cloudinary: ^1.25.2
     contentful: ^9.0.0
+    contentful-management: ^7.45.0
     css-loader: ^5.2.6
     css-minimizer-webpack-plugin: ^2.0.0
     del: ^6.0.0
@@ -9761,6 +9796,13 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"p-throttle@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "p-throttle@npm:4.1.1"
+  checksum: fe8709f3c3b1da7c033479375c2c302e80c1a5d86449013afa7cd46d1dc210bc824a7e4a9d088e66d31987d00878c2b5491bb2fe76246d4d2fc9a1636f5f8298
+  languageName: node
+  linkType: hard
+
 "p-try@npm:^2.0.0":
   version: 2.2.0
   resolution: "p-try@npm:2.2.0"
@@ -13575,6 +13617,13 @@ fsevents@~2.3.1:
   version: 0.20.2
   resolution: "type-fest@npm:0.20.2"
   checksum: 4fb3272df21ad1c552486f8a2f8e115c09a521ad7a8db3d56d53718d0c907b62c6e9141ba5f584af3f6830d0872c521357e512381f24f7c44acae583ad517d73
+  languageName: node
+  linkType: hard
+
+"type-fest@npm:^0.21.3":
+  version: 0.21.3
+  resolution: "type-fest@npm:0.21.3"
+  checksum: e6b32a3b3877f04339bae01c193b273c62ba7bfc9e325b8703c4ee1b32dc8fe4ef5dfa54bf78265e069f7667d058e360ae0f37be5af9f153b22382cd55a9afe0
   languageName: node
   linkType: hard
 

@@ -9,13 +9,15 @@
     <select class="select companies-dynamic-select" aria-label="Seleção" id="sample-select-1">
       <option value="">Selecione</option>
       {% for unit in units %}
-        <option value="{{ unit.title | slug }}">{{ unit.title }}</option>
+        <option value="{{ unit.title | slug }}">{{ unit.title | e | safe }}</option>
       {% endfor %}  
     </select>
   </div>
   <div class="companies-listing__companies">
-    {% for company in companies %}
-      <div>{{ company.title }}</div>
+    {% for unit in units %}
+      {% for company in companies | companiesByUnit(unit.id) %}
+        <div data-unit-slug="{{ unit.title | slug }}"><h3>{{ company.title | e | safe }}</h3></div>
+      {% endfor %}
     {% endfor %}  
   </div>
 </div>
