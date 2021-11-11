@@ -13,7 +13,7 @@ const getCompanies = async () => {
       description: documentToHtmlString(item.fields.description),
       unit: item.fields.unit.sys.id,
       area: item.fields.area.sys.id,
-      modality: item.fields.modality,
+      modality: item.fields.modality.sys.id,
       image: item.fields.cloudinaryImage[0].original_secure_url,
     });
   }

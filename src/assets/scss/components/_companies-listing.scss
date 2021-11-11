@@ -1,0 +1,12 @@
+.companies-listing {
+  &__filters {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+  }
+  &__filter {
+    label {
+      display: block;
+    }
+  }
+}

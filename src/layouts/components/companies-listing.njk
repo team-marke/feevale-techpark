@@ -1,24 +1,61 @@
 {%- if context %}
   {% set companies = context.companies %}
   {% set units = context.units %}
+  {% set areas = context.areas %}
+  {% set modalities = context.modalities %}
+  {% set search_placeholder = context.search_placeholder %}
 {% endif %}
 
 
 <div class="companies-listing">
   <div class="companies-listing__filters">
-    <label for="companies-dynamic-select">Unidades</label>
-    <select class="select companies-dynamic-select" aria-label="Seleção" id="companies-dynamic-select">
+
+    <div class="companies-listing__filter">
+    <label for="units-dynamic-select"><h3>Unidades</h3></label>
+    <select class="select units-dynamic-select" aria-label="Seleção" id="units-dynamic-select" data-filter-name="unit">
       <option value="all">Todas</option>
       {% for unit in units %}
         <option value="{{ unit.title | slug }}">{{ unit.title | e | safe }}</option>
       {% endfor %}  
     </select>
+    </div>
+
+    <div class="companies-listing__filter">
+    <label for="areas-select"><h3>Áreas de Atuação</h3></label>
+    <select class="select areas-select" aria-label="Seleção" id="areas-select" data-filter-name="area">
+      <option value="all">Todas</option>
+      {% for area in areas %}
+        <option value="{{ area.title | slug }}">{{ area.title | e | safe }}</option>
+      {% endfor %}  
+    </select>
+    </div>
+
+    <div class="companies-listing__filter">
+    <label for="modalities-select"><h3>Modalidades</h3></label>
+    <select class="select modalities-select" aria-label="Seleção" id="modalities-select" data-filter-name="modality">
+      <option value="all">Todas</option>
+      {% for modality in modalities %}
+        <option value="{{ modality.title | slug }}">{{ modality.title | e | safe }}</option>
+      {% endfor %}  
+    </select>
+    </div>
+
+    <div class="companies-listing__filter">
+      <i class="fas fa-search companies-listing__search-icon"></i>
+      <input type="text" class="companies-listing__search-input text-field" placeholder="{{ search_placeholder | e | safe }}">
+    </div>
+
   </div>
   <div class="companies-listing__companies">
-    {% for unit in units %}
-      {% for company in companies | companiesByUnit(unit.id) %}
-        <div data-unit-slug="{{ unit.title | slug }}"><h3>{{ company.title | e | safe }}</h3></div>
-      {% endfor %}
-    {% endfor %}  
+    {% for company in companies %}
+      <div 
+        data-unit-slug="{{ (company.unit | entryById(units)).title | slug }}"
+        data-area-slug="{{ (company.area | entryById(areas)).title | slug }}"
+        data-modality-slug="{{ (company.modality | entryById(modalities)).title | slug }}"
+        data-title="{{ company.title | e | safe }}"
+      >
+        <h3>{{ company.title | e | safe }}</h3>
+      </div>
+    {% endfor %}
   </div>
 </div>

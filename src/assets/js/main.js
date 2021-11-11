@@ -106,14 +106,10 @@ const loadPartnersListing = async () => {
   }
 };
 
-const loadCompaniesDynamicSelect = async () => {
-  if (document.querySelector('.companies-dynamic-select')) {
-    const { CompaniesDynamicSelect } = await import(
-      /* webpackChunkName: "components.companies-dynamic-select" */ '../js/components/companies-dynamic-select'
-    );
-    const el = document.querySelector('.companies-dynamic-select');
-    const companiesContainer = document.querySelector('.companies-listing__companies');
-    new CompaniesDynamicSelect(el, companiesContainer);
+const loadCompaniesFilters = async () => {
+  if (document.querySelector('.companies-listing__filters')) {
+    const { main } = await import(/* webpackChunkName: "components.partners-listing" */ '../js/components/companies-filters');
+    main();
   }
 };
 
@@ -131,7 +127,7 @@ const loadDynamicModules = () => {
   loadSocialbar();
   loadAnimeteCounters();
   loadPartnersListing();
-  loadCompaniesDynamicSelect();
+  loadCompaniesFilters();
 };
 
 /**

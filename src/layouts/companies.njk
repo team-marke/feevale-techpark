@@ -20,7 +20,10 @@
           <div class="col-12">
             {% set context = {
               companies: collections.companies,
-              units: collections.units
+              units: collections.units,
+              areas: collections.areas,
+              modalities: collections.modalities,
+              search_placeholder: 'Digite aqui o nome da empresa'
             } %}
             {% include "./components/companies-listing.njk" %}
           </div>
