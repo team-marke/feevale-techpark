@@ -1,12 +1,62 @@
+@use '../marke-ui' as mkui;
+
+$spacer: mkui.$spacer * 2.25;
+
 .companies-listing {
   &__filters {
     width: 100%;
     display: flex;
+    justify-content: space-between;
     gap: 1rem;
+    flex-direction: column;
+    @include mkui.media-breakpoint-up(lg) {
+      flex-direction: row;
+      align-items: end;
+    }
+    margin-bottom: mkui.$spacer * 3;
   }
   &__filter {
     label {
       display: block;
+    }
+  }
+  &__search-container {
+    position: relative;
+  }
+  &__search-icon {
+    font-size: 1rem;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-0.5rem) translateX(-1rem);
+  }
+  &__search-input{
+    width: 100%;
+    box-shadow: mkui.$box-shadow;
+    @include mkui.media-breakpoint-up(lg) {
+      min-width: 300px;
+    }
+  }
+  &__select-container {
+    position: relative;
+  }
+  &__select-icon {
+    font-size: 1rem;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-0.5rem) translateX(-1rem);
+  }
+  &__select {
+    width: 100%;
+  }
+  &__companies {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacer / 2;
+    @include mkui.media-breakpoint-up(lg) {
+      grid-template-columns: repeat(4, 1fr);
+      gap: $spacer;
     }
   }
 }

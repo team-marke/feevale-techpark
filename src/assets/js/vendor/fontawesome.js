@@ -10,10 +10,11 @@ import {
   faEnvelopeSquare,
   faExternalLinkSquareAlt,
   faSearch,
+  faChevronDown,
 } from '@fortawesome/free-solid-svg-icons';
 
 (() => {
-  faLibrary.add(faChevronRight, faPhoneSquareAlt, faEnvelopeSquare, faExternalLinkSquareAlt, faSearch);
+  faLibrary.add(faChevronRight, faPhoneSquareAlt, faEnvelopeSquare, faExternalLinkSquareAlt, faSearch, faChevronDown);
   faConfig.showMissingIcons = false;
   faDom.watch();
 })();

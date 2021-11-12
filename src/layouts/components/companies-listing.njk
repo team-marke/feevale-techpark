@@ -6,45 +6,50 @@
   {% set search_placeholder = context.search_placeholder %}
 {% endif %}
 
-
 <div class="companies-listing">
   <div class="companies-listing__filters">
-
     <div class="companies-listing__filter">
     <label for="units-dynamic-select"><h3>Unidades</h3></label>
-    <select class="select units-dynamic-select" aria-label="Seleção" id="units-dynamic-select" data-filter-name="unit">
-      <option value="all">Todas</option>
-      {% for unit in units %}
-        <option value="{{ unit.title | slug }}">{{ unit.title | e | safe }}</option>
-      {% endfor %}  
-    </select>
+    <div class="companies-listing__select-container">
+      <i class="companies-listing__select-icon fas fa-chevron-down"></i>
+      <select class="select companies-listing__select units-dynamic-select" aria-label="Seleção" id="units-dynamic-select" data-filter-name="unit">
+        <option value="all">Todas</option>
+        {% for unit in units %}
+          <option value="{{ unit.title | slug }}">{{ unit.title | e | safe }}</option>
+        {% endfor %}  
+      </select>
     </div>
-
+    </div>
     <div class="companies-listing__filter">
     <label for="areas-select"><h3>Áreas de Atuação</h3></label>
-    <select class="select areas-select" aria-label="Seleção" id="areas-select" data-filter-name="area">
-      <option value="all">Todas</option>
-      {% for area in areas %}
-        <option value="{{ area.title | slug }}">{{ area.title | e | safe }}</option>
-      {% endfor %}  
-    </select>
+    <div class="companies-listing__select-container">
+      <i class="companies-listing__select-icon fas fa-chevron-down"></i>
+      <select class="select companies-listing__select areas-select" aria-label="Seleção" id="areas-select" data-filter-name="area">
+        <option value="all">Todas</option>
+        {% for area in areas %}
+          <option value="{{ area.title | slug }}">{{ area.title | e | safe }}</option>
+        {% endfor %}  
+      </select>
     </div>
-
+    </div>
     <div class="companies-listing__filter">
     <label for="modalities-select"><h3>Modalidades</h3></label>
-    <select class="select modalities-select" aria-label="Seleção" id="modalities-select" data-filter-name="modality">
-      <option value="all">Todas</option>
-      {% for modality in modalities %}
-        <option value="{{ modality.title | slug }}">{{ modality.title | e | safe }}</option>
-      {% endfor %}  
-    </select>
+    <div class="companies-listing__select-container">
+      <i class="companies-listing__select-icon fas fa-chevron-down"></i>
+      <select class="select companies-listing__select modalities-select" aria-label="Seleção" id="modalities-select" data-filter-name="modality">
+        <option value="all">Todas</option>
+        {% for modality in modalities %}
+          <option value="{{ modality.title | slug }}">{{ modality.title | e | safe }}</option>
+        {% endfor %}  
+      </select>
     </div>
-
+    </div>
     <div class="companies-listing__filter">
-      <i class="fas fa-search companies-listing__search-icon"></i>
-      <input type="text" class="companies-listing__search-input text-field" placeholder="{{ search_placeholder | e | safe }}">
+      <div class="companies-listing__search-container">
+        <i class="fas fa-search companies-listing__search-icon"></i>
+        <input type="text" class="text-field companies-listing__search-input" placeholder="{{ search_placeholder | e | safe }}">
+      </div>
     </div>
-
   </div>
   <div class="companies-listing__companies">
     {% for company in companies %}
@@ -54,7 +59,30 @@
         data-modality-slug="{{ (company.modality | entryById(modalities)).title | slug }}"
         data-title="{{ company.title | e | safe }}"
       >
-        <h3>{{ company.title | e | safe }}</h3>
+        {% set cardBody %}
+          <div class="d-flex flex-column text-center h-100">
+            <h4 class="fw-bold">{{ company.title | e | safe }}</h4>
+            {{ company.description | safe }}
+            {%- set context = {
+              theme: 'primary',
+              href: 'https://' + (company.site | url),
+              text: 'Conheça',
+              override_classes: ['align-self-center']
+            } %}
+            {% include "@marke/ui-core/components/button/button.njk" %}
+          </div>
+        {% endset %}
+        {% set context = {
+            image: {
+              url: company.image,
+              alt: 'Logo da ' + (company.title | e | safe),
+              title: 'Logo da ' + (company.title | e | safe),
+              width: '150',
+              height: '100'
+            },
+            children: cardBody
+        } %}
+        {% include "./company-card.njk" %}
       </div>
     {% endfor %}
   </div>

@@ -11,6 +11,7 @@ const getCompanies = async () => {
       id: item.sys.id,
       title: item.fields.title,
       description: documentToHtmlString(item.fields.description),
+      site: item.fields.site,
       unit: item.fields.unit.sys.id,
       area: item.fields.area.sys.id,
       modality: item.fields.modality.sys.id,
