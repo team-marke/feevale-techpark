@@ -1,0 +1,243 @@
+{%- extends 'base.njk' %}
+{%- block content %}
+  <main class="main-content">
+    {% include "./partials/masthead.njk" %}
+    <section id="{{ layout }}-incubator" class="bg-light">
+      <div class="container py-4 py-lg-5">
+        <div class="row gx-lg-5 gx-xl-6 mb-3 mb-lg-5">
+          <div class="col-12 col-lg-5">
+            <h2>{{ incubator.title | markdown | safe }}</h2>
+          </div>
+          <div class="col-12 col-lg-7">
+            {{ incubator.text | markdown | safe }}
+          </div>
+        </div>
+        <div class="row gy-4 gy-lg-5">
+          <div class="col-12 text-center">
+            <h3>{{ incubator.modalities.title | markdown | safe }}</h3>
+          </div>
+          <div class="col-12">
+            {% set items = [] %}
+            {% for item in incubator.modalities.items %}
+              {% set renderedItem %}
+                {% set cardBody %}
+                  <div class="text-center">
+                    <p class="fw-bold">{{ item.title | e | safe }}</p>
+                    {{ item.description | markdown | safe }}
+                  </div>
+                {% endset %}
+                {% set componentClasses = ['h-100'] %}
+                {% if loop.index0 % 2 == 1 %}
+                  {% set componentClasses = ['h-100', 'bg-primary'] %}
+                {% endif %}
+                {% set context = {
+                    children: cardBody,
+                    componentClasses: componentClasses
+                } %}
+                {% include "@marke/ui-core/components/card/card.njk" %}
+              {% endset %}
+              {% set items = (items.push(renderedItem), items) %}
+            {% endfor %}
+            {%- set context = {
+              minSlidesPerView: 1,
+              maxSlidesPerView: 3,
+              total: (items | length),
+              items: items,
+              showNavs: false
+            } %}
+            {% include "@marke/ui-core/components/carousel/carousel.njk" %}
+          </div>
+          <div class="col-12 text-center">
+            {{ incubator.modalities.documents.title | e | safe }}
+          </div>
+          <div class="col-12 text-center">
+            {% set items = [] %}
+            {% for item in incubator.modalities.documents.items %}
+              {% set renderedItem %}
+                {% set cardBody %}
+                  <div class="d-flex flex-column h-100 text-center">
+                    <p class="fw-bold">{{ item.title | e | safe }}</p>
+                    {{ item.description | markdown | safe }}
+                    {% set context = {
+                      theme: 'outline-dark',
+                      href: item.file,
+                      text: 'Visualizar',
+                      target: '_blank',
+                      override_classes: ['mt-auto', 'align-self-center']
+                    } %}
+                    {% include "@marke/ui-core/components/button/button.njk" %}
+                  </div>
+                {% endset %}
+                {% set componentClasses = ['h-100'] %}
+                {% if loop.index0 % 2 == 1 %}
+                  {% set componentClasses = ['h-100', 'bg-primary'] %}
+                {% endif %}
+                {% set context = {
+                    children: cardBody,
+                    componentClasses: componentClasses
+                } %}
+                {% include "@marke/ui-core/components/card/card.njk" %}
+              {% endset %}
+              {% set items = (items.push(renderedItem), items) %}
+            {% endfor %}
+            {%- set context = {
+              minSlidesPerView: 1,
+              maxSlidesPerView: 3,
+              total: (items | length),
+              items: items,
+              showNavs: false
+            } %}
+            {% include "@marke/ui-core/components/carousel/carousel.njk" %}
+          </div>
+          <div class="col-12 text-center">
+            {% set context = {
+              theme: 'primary',
+              href: incubator.modalities.btn.url,
+              text: incubator.modalities.btn.text,
+              target: '_blank'
+            } %}
+            {% include "@marke/ui-core/components/button/button.njk" %}
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="{{ layout }}-park">
+      <div class="container py-4 py-lg-5">
+        <div class="row gx-lg-5 gx-xl-6 mb-3 mb-lg-5">
+          <div class="col-12 col-lg-5">
+            <h2>{{ park.title | markdown | safe }}</h2>
+          </div>
+          <div class="col-12 col-lg-7">
+            {{ park.text | markdown | safe }}
+          </div>
+        </div>
+        <div class="row gy-4 gy-lg-5">
+          <div class="col-12 text-center">
+            <h3>{{ park.residence.title | e | safe }}</h3>
+            {{ park.residence.description | e | safe }}
+          </div>
+          <div class="col-12">
+            {% set items = [] %}
+            {% for item in park.residence.items %}
+              {% set renderedItem %}
+                {% set cardBody %}
+                  <div class="text-center">
+                    <p class="fw-bold">{{ item.title | e | safe }}</p>
+                    {{ item.description | markdown | safe }}
+                    {% set context = {
+                      theme: 'outline-dark',
+                      href: item.file,
+                      text: 'Visualizar',
+                      target: '_blank',
+                      override_classes: ['mt-auto', 'align-self-center']
+                    } %}
+                    {% include "@marke/ui-core/components/button/button.njk" %}
+                  </div>
+                {% endset %}
+                {% set componentClasses = ['h-100'] %}
+                {% if loop.index0 % 2 == 1 %}
+                  {% set componentClasses = ['h-100', 'bg-primary'] %}
+                {% endif %}
+                {% set context = {
+                    children: cardBody,
+                    componentClasses: componentClasses
+                } %}
+                {% include "@marke/ui-core/components/card/card.njk" %}
+              {% endset %}
+              {% set items = (items.push(renderedItem), items) %}
+            {% endfor %}
+            {%- set context = {
+              minSlidesPerView: 1,
+              maxSlidesPerView: 4,
+              total: (items | length),
+              items: items,
+              showNavs: false
+            } %}
+            {% include "@marke/ui-core/components/carousel/carousel.njk" %}
+          </div>
+          <div class="col-12 text-center">
+            {% set context = {
+              theme: 'primary',
+              href: park.residence.btn.url,
+              text: park.residence.btn.text,
+              target: '_blank'
+            } %}
+            {% include "@marke/ui-core/components/button/button.njk" %}
+          </div>
+          <div class="col-12 text-center">
+            <h3>{{ park.batch.title | e | safe }}</h3>
+            {{ park.batch.description | e | safe }}
+          </div>
+          <div class="col-12 text-center">
+            {% set items = [] %}
+            {% for item in park.batch.items %}
+              {% set renderedItem %}
+                {% set cardBody %}
+                  <div class="d-flex flex-column h-100 text-center">
+                    <p class="fw-bold">{{ item.title | e | safe }}</p>
+                    {{ item.description | markdown | safe }}
+                    {% set context = {
+                      theme: 'outline-dark',
+                      href: item.file,
+                      text: 'Visualizar',
+                      target: '_blank',
+                      override_classes: ['mt-auto', 'align-self-center']
+                    } %}
+                    {% include "@marke/ui-core/components/button/button.njk" %}
+                  </div>
+                {% endset %}
+                {% set componentClasses = ['h-100'] %}
+                {% if loop.index0 % 2 == 1 %}
+                  {% set componentClasses = ['h-100', 'bg-primary'] %}
+                {% endif %}
+                {% set context = {
+                    children: cardBody,
+                    componentClasses: componentClasses
+                } %}
+                {% include "@marke/ui-core/components/card/card.njk" %}
+              {% endset %}
+              {% set items = (items.push(renderedItem), items) %}
+            {% endfor %}
+            {%- set context = {
+              minSlidesPerView: 1,
+              maxSlidesPerView: 3,
+              total: (items | length),
+              items: items,
+              showNavs: false
+            } %}
+            {% include "@marke/ui-core/components/carousel/carousel.njk" %}
+          </div>
+          <div class="col-12 text-center">
+            {% set context = {
+              theme: 'primary',
+              href: incubator.modalities.btn.url,
+              text: incubator.modalities.btn.text,
+              target: '_blank'
+            } %}
+            {% include "@marke/ui-core/components/button/button.njk" %}
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="{{ layout }}-find" class="bg-light">
+      <div class="container py-4 py-lg-5">
+        <div class="row gx-lg-5 gx-xl-6">
+          <div class="col-12 col-lg-5">
+            <h2>{{ find.title | markdown | safe }}</h2>
+          </div>
+          <div class="col-12 col-lg-7">
+            {{ find.text | markdown | safe }}
+            {% set context = {
+              theme: 'primary',
+              href: find.btn.url,
+              text: find.btn.text,
+              target: '_blank'
+            } %}
+            {% include "@marke/ui-core/components/button/button.njk" %}
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+{%- endblock %}
+{{ content | safe }}

@@ -24,7 +24,9 @@
 @use '~@marke/ui-core/components/masthead' with (
   $height: 500px
 );
-@use '~@marke/ui-core/components/navbar';
+@use '~@marke/ui-core/components/navbar' with (
+  $nav-link-padding-x: .75rem
+);
 @use '~@marke/ui-core/components/video-modal';
 @use '~@marke/ui-core/components/video-teaser' with (
   $toggler-border-radius: 1rem
