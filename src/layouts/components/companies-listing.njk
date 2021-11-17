@@ -62,7 +62,7 @@
         {% set cardBody %}
           <div class="d-flex flex-column text-center h-100">
             <h4 class="fw-bold">{{ company.title | e | safe }}</h4>
-            {{ company.description | safe }}
+            <p>{{ company.description | e | safe }}</p>
             {%- set context = {
               theme: 'primary',
               href: 'https://' + (company.site | url),

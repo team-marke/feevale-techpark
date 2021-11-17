@@ -84,7 +84,7 @@ const loadSocialbar = async () => {
   }
 };
 
-const loadAnimeteCounters = async () => {
+const loadAnimateCounters = async () => {
   if (document.querySelector('.counter-up')) {
     const { animateCounter } = await import(
       /* webpackChunkName: "components.animate-counter" */ '../js/components/animate-counter'
@@ -108,8 +108,19 @@ const loadPartnersListing = async () => {
 
 const loadCompaniesFilters = async () => {
   if (document.querySelector('.companies-listing__filters')) {
-    const { main } = await import(/* webpackChunkName: "components.partners-listing" */ '../js/components/companies-filters');
+    const { main } = await import(
+      /* webpackChunkName: "components.partners-listing" */ '../js/components/companies-filters'
+    );
     main();
+  }
+};
+
+const loadCompanyRegisterForm = async () => {
+  if (document.querySelector('.company-register-form')) {
+    const { CompanyRegisterForm } = await import(
+      /* webpackChunkName: "components.company-register-form" */ '../js/components/company-register-form'
+    );
+    new CompanyRegisterForm(document.querySelector('.company-register-form'));
   }
 };
 
@@ -125,9 +136,10 @@ const loadDynamicModules = () => {
   loadActionbar();
   loadYoutubeModals();
   loadSocialbar();
-  loadAnimeteCounters();
+  loadAnimateCounters();
   loadPartnersListing();
   loadCompaniesFilters();
+  loadCompanyRegisterForm();
 };
 
 /**

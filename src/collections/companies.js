@@ -1,7 +1,6 @@
 require('dotenv').config();
 const fetchContent = require('../assets/js/utils/fetch-content');
 const cacheClient = require('../assets/js/utils/clients/node-cache');
-const { documentToHtmlString } = require('@contentful/rich-text-html-renderer');
 
 const getCompanies = async () => {
   const data = await fetchContent('company');
@@ -10,7 +9,7 @@ const getCompanies = async () => {
     companies.push({
       id: item.sys.id,
       title: item.fields.title,
-      description: documentToHtmlString(item.fields.description),
+      description: item.fields.description,
       site: item.fields.site,
       unit: item.fields.unit.sys.id,
       area: item.fields.area.sys.id,

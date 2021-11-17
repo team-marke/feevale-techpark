@@ -32,8 +32,8 @@
   $toggler-border-radius: 1rem
 );
 @use '~@marke/ui-core/components/socialbar';
+@use '~@marke/ui-core/components/select';
 @use '~@marke/ui-core/components/text-field' with (
-  $border-color: transparent,
   $placeholder-color: rgba(mkui.$dark, .5)
 );
 
@@ -51,7 +51,6 @@
 @use './components/companies-listing';
 @use './components/partners-listing';
 @use './components/tabs';
-@use './components/select';
 @use './components/latest-posts';
 
 // Layouts

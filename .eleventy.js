@@ -32,13 +32,13 @@ module.exports = (eleventyConfig) => {
   }
   if (process.env.ELEVENTY_ENV == 'development') {
     global.nunjucksEnvironment = new Nunjucks.Environment([
-      new Nunjucks.FileSystemLoader('src/layouts', { ...commonLoaderOptions, watch: true }),
+      new Nunjucks.FileSystemLoader(['src/layouts', 'node_modules/@marke/ui-core/components'], { ...commonLoaderOptions, watch: true }),
       new Nunjucks.NodeResolveLoader({ ...commonLoaderOptions, watch: true })
     ]
     );
   } else {
     global.nunjucksEnvironment = new Nunjucks.Environment([
-      new Nunjucks.FileSystemLoader('src/layouts', { ...commonLoaderOptions }),
+      new Nunjucks.FileSystemLoader(['src/layouts', 'node_modules/@marke/ui-core/components'], { ...commonLoaderOptions }),
       new Nunjucks.NodeResolveLoader({ ...commonLoaderOptions })
     ]
     );

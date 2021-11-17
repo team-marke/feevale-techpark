@@ -1,0 +1,22 @@
+{%- extends 'base.njk' %}
+{%- block content %}
+  <main class="main-content">
+    {% include "./partials/masthead.njk" %}
+    <section id="{{ layout }}-form" class="position-relative">
+      <div class="container py-4 py-lg-5">
+        <div class="row">
+          <div class="col-8 mx-auto text-center">
+            <h2>{{ form.title | markdown | safe }}</h2>
+            {{ form.text | markdown | safe }}
+          </div>
+          <div class="col-8 mx-auto">
+            <div class="shadow rounded p-3">
+              {% include "./partials/company-register-form.njk" %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+{%- endblock %}
+{{ content | safe }}

@@ -9,14 +9,16 @@
     "url": "https://github.com/team-marke/feevale-techpark"
   },
   "dependencies": {
+    "@contentful/rich-text-from-markdown": "^15.6.2",
     "@fontsource/lato": "^4.5.0",
     "@fortawesome/fontawesome-free": "^5.15.3",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-regular-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
-    "@marke/ui-core": "ssh://git@github.com:team-marke/ui-core#v0.3.3",
+    "@marke/ui-core": "ssh://git@github.com:team-marke/ui-core#064706815e4bf8f8f55a7e2d2936010ddfda4081",
     "@popperjs/core": "^2.9.2",
+    "@types/nunjucks": "^3.2.0",
     "bootstrap": "^5.0.1",
     "cloudinary": "^1.25.2",
     "contentful": "^9.0.0",

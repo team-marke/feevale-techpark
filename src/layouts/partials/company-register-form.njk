@@ -1,0 +1,101 @@
+<form id="company-register-form" class="company-register-form form" novalidate>
+  <div class="row">
+    <div class="col-12 col-lg-6 mb-4">
+      {% set context = {
+        label: 'Nome da empresa',
+        placeholder: 'Digite o nome da empresa',
+        name: 'title',
+        id: 'title',
+        required: true,
+        invalidText: 'O nome da empresa é obrigatório'
+      } %}
+      {% include "@marke/ui-core/components/text-field/text-field.njk" %}
+    </div>
+    <div class="col-12 col-lg-6 mb-4">
+      {% set context = {
+        label: 'Site da empresa (opcional)',
+        placeholder: 'Digite o site da empresa',
+        name: 'site',
+        id: 'site',
+        required: false
+      } %}
+      {% include "@marke/ui-core/components/text-field/text-field.njk" %}
+    </div>
+    <div class="col-12 mb-4">
+      {% set context = {
+        label: 'Descrição da empresa',
+        multiline: true,
+        helperText: 'Digite uma breve descrição da empresa',
+        name: 'description',
+        id: 'description',
+        required: true,
+        invalidText: 'A descrição da empresa é obrigatória'
+      } %}
+      {% include "@marke/ui-core/components/text-field/text-field.njk" %}
+    </div>
+    <div class="col-12 col-lg-4 mb-4">
+      {% set context = {
+        label: 'Unidade',
+        name: 'unit',
+        id: 'unit',
+        placeholder: 'Selecione',
+        required: true,
+        invalidText: 'É preciso selecionar uma Unidade',
+        options: collections.units | selectOptions,
+        override_atts: {
+          "data-contentful-entry": "true"
+        }
+      } %}
+      {% include "@marke/ui-core/components/select/select.njk" %}
+    </div>
+    <div class="col-12 col-lg-4 mb-4">
+      {% set context = {
+        label: 'Área de atuação',
+        name: 'area',
+        id: 'area',
+        placeholder: 'Selecione',
+        required: true,
+        invalidText: 'É preciso selecionar uma Área de atuação',
+        options: collections.areas | selectOptions,
+        override_atts: {
+          "data-contentful-entry": "true"
+        }
+      } %}
+      {% include "@marke/ui-core/components/select/select.njk" %}
+    </div>
+    <div class="col-12 col-lg-4 mb-4">
+      {% set context = {
+        label: 'Modalidade',
+        name: 'modality',
+        id: 'modality',
+        placeholder: 'Selecione',
+        required: true,
+        invalidText: 'É preciso selecionar uma Modalidade',
+        options: collections.modalities | selectOptions,
+        override_atts: {
+          "data-contentful-entry": "true"
+        }
+      } %}
+      {% include "@marke/ui-core/components/select/select.njk" %}
+    </div>
+    <div class="col-12 col-lg-4 mb-4">
+      {% set context = {
+        theme: 'outline-secondary',
+        text: 'Escolha uma foto',
+        id: 'cloudinaryImage',
+        override_atts: {
+          "name": "cloudinaryImage"
+        }
+      } %}
+      {% include "@marke/ui-core/components/button/button.njk" %}
+    </div>
+    <div class="col-12">
+      {% set context = {
+        theme: 'primary',
+        text: 'Enviar',
+        type: 'submit'
+      } %}
+      {% include "@marke/ui-core/components/button/button.njk" %}
+    </div>
+  </div>
+</form>
