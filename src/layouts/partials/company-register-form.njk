@@ -80,16 +80,22 @@
     </div>
     <div class="col-12 col-lg-4 mb-4">
       {% set context = {
+        content: 'Logo da empresa (opcional)',
+        forId: 'cloudinaryImage'
+      } %}
+      {% include "@marke/ui-core/components/input-label/input-label.njk" %}
+      {% set context = {
         theme: 'outline-secondary',
-        text: 'Escolha uma foto',
+        text: 'Escolha uma imagem',
         id: 'cloudinaryImage',
         override_atts: {
-          "name": "cloudinaryImage"
+          "name": "cloudinaryImage",
+          "data-cloudinary-image-upload": "true"
         }
       } %}
       {% include "@marke/ui-core/components/button/button.njk" %}
     </div>
-    <div class="col-12">
+    <div class="col-12 text-center">
       {% set context = {
         theme: 'primary',
         text: 'Enviar',

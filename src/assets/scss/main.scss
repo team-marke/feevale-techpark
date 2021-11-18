@@ -33,6 +33,7 @@
 );
 @use '~@marke/ui-core/components/socialbar';
 @use '~@marke/ui-core/components/select';
+@use '~@marke/ui-core/components/toast-stack';
 @use '~@marke/ui-core/components/text-field' with (
   $placeholder-color: rgba(mkui.$dark, .5)
 );

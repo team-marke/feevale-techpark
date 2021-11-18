@@ -1,12 +1,13 @@
 /**
- * Form.
+ * CompanyRegisterForm
  */
 
-import { ToastArea } from './toast-area';
-import { Preloader } from './preloader';
 import { createClient } from 'contentful-management';
-import { TextField } from '@marke/ui-core/components/text-field/text-field';
+import { ToastStack } from '@marke/ui-core/components/toast-stack/toast-stack';
+import { Preloader } from './preloader';
 import { Select } from '@marke/ui-core/components/select/select';
+import { TextField } from '@marke/ui-core/components/text-field/text-field';
+import Input from '@marke/ui-core/tools/core-components/input/input';
 
 class CompanyRegisterForm {
   /**
@@ -18,16 +19,21 @@ class CompanyRegisterForm {
     this.el = form;
     this.fields = [];
     this.preloader = new Preloader();
+    this.toastStack = new ToastStack();
     this.successMessage = form.dataset.formMessage ? form.dataset.formMessage : 'Sua solicitação foi enviada com sucesso!';
     this.contentfulClient = createClient({ accessToken: process.env.CONTENTFUL_MANAGEMENT_TOKEN });
     this.contentTypeId = 'company';
     this.cloudinaryUploadWidget;
     this.cloudinaryImage;
+    this.uploadButton = form.querySelector('#cloudinaryImage');
     this.initFields();
     this.__createCloudinaryUploadWidget();
     this.__listenFormEvents();
   }
 
+  /**
+   * Inits all the text, selector and button fields inside the form
+   */
   initFields() {
     for (const field of this.el.elements) {
       if ((field instanceof HTMLInputElement && field.type === 'text') || field instanceof HTMLTextAreaElement) {
@@ -40,9 +46,18 @@ class CompanyRegisterForm {
         this.fields.push(select);
         continue;
       }
+      if (field instanceof HTMLButtonElement) {
+        const button = new Input(field);
+        this.fields.push(button);
+        continue;
+      }
     }
   }
 
+  /**
+   * Validate all the fields an then try to validate the form
+   * @returns {Boolean} form is valid
+   */
   validateForm() {
     for (const field of this.fields) {
       field.checkValidity();
@@ -51,49 +66,45 @@ class CompanyRegisterForm {
   }
 
   /**
-   * Method for check if the field represents a Contenful entry and then return the right value
+   * Method for returning the right object based on the field
    * @param {Element} field
+   * @returns {Object} field data
    */
-  getValue(field) {
-    if (field.dataset.contentfulEntry) {
+  getFieldData(field) {
+    if (field.el.dataset.contentfulEntry) {
       return {
-        'en-US': {
-          sys: {
-            type: 'Link',
-            linkType: 'Entry',
-            id: field.value,
-          },
+        sys: {
+          type: 'Link',
+          linkType: 'Entry',
+          id: field.getValue(),
         },
       };
     }
-    // TODO alerta de erro quando a imagem não for selecionada
-    if (field.id === 'cloudinaryImage') {
-      return {
-        'en-US': [
-          {
-            url: this.cloudinaryImage.url,
-            tags: this.cloudinaryImage.tags,
-            type: this.cloudinaryImage.type,
-            bytes: this.cloudinaryImage.bytes,
-            width: this.cloudinaryImage.width,
-            format: this.cloudinaryImage.format,
-            height: this.cloudinaryImage.height,
-            version: this.cloudinaryImage.vesrion,
-            duration: null,
-            metadata: [],
-            public_id: this.cloudinaryImage.public_id,
-            created_at: this.cloudinaryImage.created_at,
-            secure_url: this.cloudinaryImage.secure_url,
-            original_url: this.cloudinaryImage.url,
-            resource_type: this.cloudinaryImage.resource_type,
-            original_secure_url: this.cloudinaryImage.secure_url,
-          },
-        ],
-      };
+    if (field.el.dataset.cloudinaryImageUpload) {
+      const value = [];
+      if (this.cloudinaryImage) {
+        value.push({
+          metadata: [],
+          url: this.cloudinaryImage.url,
+          tags: this.cloudinaryImage.tags,
+          type: this.cloudinaryImage.type,
+          bytes: this.cloudinaryImage.bytes,
+          width: this.cloudinaryImage.width,
+          format: this.cloudinaryImage.format,
+          height: this.cloudinaryImage.height,
+          version: this.cloudinaryImage.vesrion,
+          duration: null,
+          public_id: this.cloudinaryImage.public_id,
+          created_at: this.cloudinaryImage.created_at,
+          secure_url: this.cloudinaryImage.secure_url,
+          original_url: this.cloudinaryImage.url,
+          resource_type: this.cloudinaryImage.resource_type,
+          original_secure_url: this.cloudinaryImage.secure_url,
+        });
+      }
+      return value;
     }
-    return {
-      'en-US': field.value,
-    };
+    return field.getValue();
   }
 
   /**
@@ -107,66 +118,38 @@ class CompanyRegisterForm {
         this.preloader.remove();
         return;
       }
-      const fields = {};
-      for (const field of this.el.elements) {
-        if (field.id) {
-          fields[field.name] = this.getValue(field);
+      const entryData = {};
+      for (const field of this.fields) {
+        if (field.el.id) {
+          entryData[field.el.id] = {
+            'en-US': this.getFieldData(field),
+          };
         }
       }
-      console.log(fields);
       const space = await this.contentfulClient.getSpace(process.env.CONTENTFUL_SPACE);
       const environment = await space.getEnvironment(!(process.env.ELEVENTY_ENV == 'main') ? 'develop' : 'main');
-      const res = await environment.createEntry(this.contentTypeId, { fields });
-      ToastArea.addToast({
+      await environment.createEntry(this.contentTypeId, { fields: entryData });
+      this.toastStack.enqueueToast({
         message: this.successMessage,
-        type: 'success',
+        variant: 'success',
+        autoHideDuration: 20000,
         id: `form-success-toast-${this.el.id}`,
-        delay: 20000,
       });
-      // await fetch(url, {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: body,
-      // })
-      //   .then((response) => {
-      //     if (!response.ok) {
-      //       throw new Error('HTTP status ' + response.status);
-      //     } else {
-      //       return response.json();
-      //     }
-      //   })
-      //   .then((response) => {
-      //     ToastArea.addToast({
-      //       message: this.successMessage,
-      //       type: 'success',
-      //       id: `form-success-toast-${this.el.id}`,
-      //       delay: 20000,
-      //     });
-      //     this.el.reset();
-      //   })
-      //   .catch((error) => {
-      //     console.error(error);
-      //     ToastArea.addToast({
-      //       message: 'Houve um erro no envio do formulário',
-      //       type: 'danger',
-      //       id: `form-error-toast-${this.el.id}`,
-      //       autohide: false,
-      //     });
-      //   });
     } catch (error) {
       console.error(error);
-      ToastArea.addToast({
-        message: 'Houve um erro ao processar o formulário! Tente novamente mais tarde.',
-        type: 'danger',
+      this.toastStack.enqueueToast({
+        message: 'Houve um erro ao processar a solicitação! Tente novamente mais tarde.',
+        variant: 'danger',
+        autoHideDuration: 5000,
         id: `form-error-toast-${this.el.id}`,
-        autohide: false,
       });
     }
     this.preloader.remove();
   }
 
+  /**
+   * Creates a new Cloudinary Upload Widget
+   */
   __createCloudinaryUploadWidget() {
     const opts = {
       cloudName: process.env.CLOUDINARY_CLOUD_NAME,
@@ -175,8 +158,21 @@ class CompanyRegisterForm {
     const callback = (error, result) => {
       if (!error && result && result.event === 'success') {
         this.cloudinaryImage = result.info;
-      } else {
-        //add toast de falha no upload
+        this.toastStack.enqueueToast({
+          message: 'Upload realizado com sucesso!',
+          variant: 'success',
+          autoHideDuration: 5000,
+          id: `image-upload-success-toast-${this.el.id}`,
+        });
+        return;
+      }
+      if (error) {
+        this.toastStack.enqueueToast({
+          message: 'Houve um erro no upload do seu arquivo! Tente novamente mais tarde.',
+          variant: 'danger',
+          autoHideDuration: 5000,
+          id: `image-upload-error-toast-${this.el.id}`,
+        });
       }
     };
     this.cloudinaryUploadWidget = cloudinary.createUploadWidget(opts, callback);
@@ -186,7 +182,7 @@ class CompanyRegisterForm {
    * Adds listeners for form events
    */
   __listenFormEvents() {
-    this.el.querySelector('#cloudinaryImage').addEventListener('click', (event) => {
+    this.uploadButton.addEventListener('click', (event) => {
       event.preventDefault();
       this.cloudinaryUploadWidget.open();
     });
