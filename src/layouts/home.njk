@@ -115,7 +115,7 @@
                       height: '200'
                     },
                     interactive: true,
-                    children: cardBody,
+                    body: cardBody,
                     componentClasses: ['h-100']
                 } %}
                 {% include "@marke/ui-core/components/card/card.njk" %}
@@ -201,23 +201,58 @@
                     <div class="row mb-5">
                       {% for company in (collections.companies | companiesByAreas(area.id) | arraySlice(0, 4)) %}
                         <div class="col-3">
+                        {% set cardHeader %}
+                          <div class="text-center p-3">
+                            <img 
+                              src="
+                              {%-
+                                imageUrl company.image, { 
+                                  effect: 'art:audrey',
+                                  fetch_format: 'auto',
+                                  quality: 'auto',
+                                  width: 150,
+                                  height: 100,
+                                  crop: 'pad'
+                              } %}"
+                              srcset="
+                              {%-
+                                imageUrl company.image, { 
+                                  effect: 'art:audrey',
+                                  fetch_format: 'auto',
+                                  quality: 'auto',
+                                  width: 150,
+                                  height: 100,
+                                  crop: 'pad',
+                                  dpr: 2
+                                } 
+                              %} 2x"
+                              loading="lazy"
+                              width="150"
+                              height="100"
+                              alt="Logo da {{ company.title | e | safe }}"
+                              title="Logo da {{ company.title | e | safe }}"
+                            >
+                          </div>
+                        {% endset %}
                         {% set cardBody %}
                           <div class="d-flex flex-column text-center h-100">
                             <h4 class="fw-bold">{{ company.title | e | safe }}</h4>
-                            <p>{{ company.description | e | safe }}</p>
+                            <div class="card-excerpt">{{ company.description | e | safe }}</div>
+                            {%- set context = {
+                              theme: 'primary',
+                              href: 'https://' + (company.site | url),
+                              text: 'Conheça',
+                              override_classes: ['align-self-center']
+                            } %}
+                            {% include "@marke/ui-core/components/button/button.njk" %}
                           </div>
                         {% endset %}
                         {% set context = {
-                            image: {
-                              url: company.image,
-                              alt: 'Logo da ' + (company.title | e | safe),
-                              title: 'Logo da ' + (company.title | e | safe),
-                              width: '150',
-                              height: '100'
-                            },
-                            children: cardBody
+                          body: cardBody,
+                          header: cardHeader,
+                          componentClasses: ['h-100']
                         } %}
-                        {% include "./components/company-card.njk" %}
+                        {% include "@marke/ui-core/components/card/card.njk" %}
                         </div>
                       {% endfor %}
                     </div>
@@ -253,7 +288,7 @@
                   </div>
                 {% endset %}
                 {% set context = {
-                    children: cardBody,
+                    body: cardBody,
                     componentClasses: ['h-100']
                 } %}
                 {% include "@marke/ui-core/components/card/card.njk" %}
@@ -319,7 +354,7 @@
                     },
                     interactive: true,
                     overlay: true,
-                    children: cardBody
+                    body: cardBody
                 } %}
                 {% include '@marke/ui-core/components/card/card.njk' %}
               {% endset %}
@@ -380,7 +415,7 @@
                 {% endset %}
                 {% set context = {
                     interactive: true,
-                    children: cardBody,
+                    body: cardBody,
                     componentClasses: ['h-100']
                 } %}
                 {% include "@marke/ui-core/components/card/card.njk" %}

@@ -4,38 +4,35 @@
 
 @use '../marke-ui' as mkui;
 
-$spacer: mkui.$spacer * 2.25;
-
 .partners-listing {
-  &__search-container {
+  &__search {
     position: relative;
-  }
-  &__search-icon {
-    font-size: 1rem;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-0.5rem) translateX(-1rem);
-  }
-  &__search-input {
-    width: 100%;
-    margin-bottom: $spacer / 2;
-    box-shadow: mkui.$box-shadow;
+    margin-bottom: mkui.$spacer * 2;
+
     @include mkui.media-breakpoint-up(lg) {
-      margin-bottom: $spacer;
+      margin-bottom: mkui.$spacer * 4;
+    }
+
+    > .form-control {
+      width: 100%;
+    }
+
+    > .partners-listing__search-icon {
+      font-size: 1rem;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-0.5rem) translateX(-1rem);
+      z-index: 1;
     }
   }
+
   &__partners {
     display: grid;
     grid-template-columns: 1fr;
-    gap: $spacer / 2;
+    gap: mkui.$spacer;
     @include mkui.media-breakpoint-up(lg) {
       grid-template-columns: repeat(3, 1fr);
-      gap: $spacer;
-    }
-
-    .partner-hidden {
-      display: none;
     }
   }
 }

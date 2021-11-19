@@ -17,7 +17,9 @@
   $padding-x-sm: 1.5rem,
   $text-transform: uppercase,
 );
-@use '~@marke/ui-core/components/card';
+@use '~@marke/ui-core/components/card' with (
+  $border: none
+);
 @use '~@marke/ui-core/components/carousel';
 @use '~@marke/ui-core/components/copyrightbar';
 @use '~@marke/ui-core/components/grid-responsive-slider';
@@ -41,12 +43,11 @@
 // Abstract styles
 @use './abstracts/root';
 
-// Genral styles
+// General styles
 @use './general/separators';
 
 // Project components
 @use './components/card-excerpt';
-@use './components/company-card';
 @use './components/vertical-timeline';
 @use './components/images';
 @use './components/companies-listing';

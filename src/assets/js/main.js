@@ -98,20 +98,27 @@ const loadAnimateCounters = async () => {
 const loadPartnersListing = async () => {
   if (document.querySelector('.partners-listing')) {
     const { PartnersListing } = await import(
-      /* webpackChunkName: "components.partners-listing" */ '../js/components/partners-listing'
+      /* webpackChunkName: "components.partners-listing" */ '../js/components/lists/partners-listing'
     );
-    document.querySelectorAll('.partners-listing').forEach((el) => {
-      new PartnersListing(el);
+    const el = document.querySelector('.partners-listing');
+    new PartnersListing({
+      partners: el.querySelector('.partners-listing__partners'),
+      search: el.querySelector('.partners-listing__search .text-field'),
     });
   }
 };
 
-const loadCompaniesFilters = async () => {
-  if (document.querySelector('.companies-listing__filters')) {
-    const { main } = await import(
-      /* webpackChunkName: "components.partners-listing" */ '../js/components/companies-filters'
+const loadCompaniesListing = async () => {
+  if (document.querySelector('.companies-listing')) {
+    const { CompaniesListing } = await import(
+      /* webpackChunkName: "components.companies-listing" */ '../js/components/lists/companies-listing'
     );
-    main();
+    const el = document.querySelector('.companies-listing');
+    new CompaniesListing({
+      companies: el.querySelector('.companies-listing__companies'),
+      filters: el.querySelector('.companies-listing__filters'),
+      mainPathName: '/nossas-empresas/',
+    });
   }
 };
 
@@ -138,7 +145,7 @@ const loadDynamicModules = () => {
   loadSocialbar();
   loadAnimateCounters();
   loadPartnersListing();
-  loadCompaniesFilters();
+  loadCompaniesListing();
   loadCompanyRegisterForm();
 };
 
