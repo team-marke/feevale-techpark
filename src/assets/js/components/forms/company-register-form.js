@@ -4,7 +4,7 @@
 
 import { createClient } from 'contentful-management';
 import { ToastStack } from '@marke/ui-core/components/toast-stack/toast-stack';
-import { Preloader } from './preloader';
+import { Preloader } from '../preloader';
 import { Select } from '@marke/ui-core/components/select/select';
 import { TextField } from '@marke/ui-core/components/text-field/text-field';
 import Input from '@marke/ui-core/tools/core-components/input/input';

@@ -1,0 +1,88 @@
+<form id="contact-form" class="contact-form form" novalidate>
+  <div class="row">
+    <div class="col-12 col-lg-6 mb-4">
+      {% set context = {
+        label: 'Nome completo',
+        placeholder: 'Digite o seu nome',
+        id: 'name',
+        name: 'name',
+        required: true,
+        invalidText: 'Esse campo é obrigatório!'
+      } %}
+      {% include "@marke/ui-core/components/text-field/text-field.njk" %}
+    </div>
+    <div class="col-12 col-lg-6 mb-4">
+      {% set context = {
+        label: 'Email',
+        placeholder: 'Digite o seu email',
+        id: 'email',
+        name: 'email',
+        required: true,
+        invalidText: 'Esse campo é obrigatório!'
+      } %}
+      {% include "@marke/ui-core/components/text-field/text-field.njk" %}
+    </div>
+    <div class="col-12 col-lg-6 mb-4">
+      {% set context = {
+        label: 'Telefone',
+        placeholder: 'Digite o seu telefone',
+        id: 'phone',
+        name: 'phone',
+        required: true,
+        invalidText: 'Esse campo é obrigatório!'
+      } %}
+      {% include "@marke/ui-core/components/text-field/text-field.njk" %}
+    </div>
+    <div class="col-12 col-lg-6 mb-4">
+      {% set context = {
+        label: 'Empresa',
+        placeholder: 'Digite o nome da sua empresa',
+        id: 'company',
+        name: 'company',
+        helperText: 'Opcional'
+      } %}
+      {% include "@marke/ui-core/components/text-field/text-field.njk" %}
+    </div>
+    <div class="col-12 mb-4">
+      {% set context = {
+        label: 'Cidade',
+        placeholder: 'Digite o nome da sua cidade',
+        id: 'city',
+        name: 'city',
+        helperText: 'Opcional'
+      } %}
+      {% include "@marke/ui-core/components/text-field/text-field.njk" %}
+    </div>
+    <div class="col-12 mb-4">
+      {% set context = {
+        label: 'Assunto',
+        placeholder: 'Digite o assunto',
+        id: 'subject',
+        name: 'subject',
+        required: true,
+        invalidText: 'Esse campo é obrigatório!'
+      } %}
+      {% include "@marke/ui-core/components/text-field/text-field.njk" %}
+    </div>
+    <div class="col-12 mb-4">
+      {% set context = {
+        multiline: true,
+        label: 'Mensagem',
+        placeholder: 'Sua mensagem aqui',
+        id: 'message',
+        name: 'message',
+        required: true,
+        invalidText: 'Esse campo é obrigatório!'
+      } %}
+      {% include "@marke/ui-core/components/text-field/text-field.njk" %}
+    </div>
+    <div class="col-12 text-center">
+      {% set context = {
+        theme: 'primary',
+        text: 'Enviar',
+        type: 'submit'
+      } %}
+      {% include "@marke/ui-core/components/button/button.njk" %}
+    </div>
+  </div>
+</form>
