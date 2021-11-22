@@ -58,11 +58,12 @@ class ContactForm {
       }
       let data = []
       for (const field of this.fields) {
-        console.dir(field.el);
-        data.push({
-          label: field.el.labels[0].textContent,
-          value: field.getValue(),
-        });
+        if (field.getValue()) {
+          data.push({
+            label: field.el.labels[0].textContent,
+            value: field.getValue(),
+          });
+        }
       }
       const body = JSON.stringify({
         senderID: process.env.FORM_SUBMIT_SENDERID,
@@ -70,7 +71,6 @@ class ContactForm {
         subject: process.env.FORM_SUBMIT_SUBJECT,
         fields: data,
       });
-      console.log(body);
       const url = process.env.FORM_SUBMIT_URL ? process.env.FORM_SUBMIT_URL : this.el.action;
       const res = await fetch(url, {
         method: 'POST',
@@ -80,7 +80,6 @@ class ContactForm {
         body: body,
       })
       console.log(res);
-
       this.toastStack.enqueueToast({
         message: this.successMessage,
         variant: 'success',
