@@ -29,4 +29,7 @@ posts:
 videos:
   title: >-
     Vídeos do <span class="text-primary">Feevale Techpark</span>
+  btn:
+    url: 'https://www.youtube.com/c/FeevalePlay'
+    text: Todos os vídeos
 ---

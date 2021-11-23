@@ -84,9 +84,46 @@
     </section>
     <section id="{{ layout }}-posts" class="bg-light">
       <div class="container py-4 py-lg-5">
-        <div class="row">
+        <div class="row mb-3 mb-lg-5">
           <div class="col-12 col-lg-7">
             <h2>{{ videos.title | markdown | safe }}</h2>
+          </div>
+        </div>
+        <div class="row gy-4 gy-lg-5">
+          <div class="col-12">
+            {% set teasers = [] %}
+            {% for video in collections.videos %}
+              {% set renderedItem %}
+                <figure>
+                  {% set context = {
+                    id: video.id,
+                    alt: video.title,
+                    toggles_modal: true,
+                    extra_classes: ['mb-2']
+                  } %}
+                  {% include "@marke/ui-core/components/video-teaser/video-teaser.njk" %}
+                  <figcaption class="h4 mb-0">{{ video.title | e | safe }}</figcaption>
+                </figure>
+              {% endset %}
+              {% set teasers = (teasers.push(renderedItem), teasers) %}
+            {% endfor %}
+            {%- set context = {
+              minSlidesPerView: 1,
+              maxSlidesPerView: 3,
+              total: (teasers | length),
+              items: teasers,
+              showNavs: true
+            } %}
+            {% include "@marke/ui-core/components/carousel/carousel.njk" %}
+          </div>
+          <div class="col-12 text-center">
+            {%- set context = {
+              theme: 'primary',
+              href: videos.btn.url,
+              text: videos.btn.text,
+              target: '_blank'
+            } %}
+            {% include "@marke/ui-core/components/button/button.njk" %}
           </div>
         </div>
       </div>
