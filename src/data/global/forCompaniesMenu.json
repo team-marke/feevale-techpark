@@ -6,7 +6,7 @@
       "description": "Visualize e gere o boleto da sua mensalidade aqui.",
       "btn": {
         "text": "Acesse",
-        "url": "#"
+        "url": "https://espaco.feevale.br/"
       }
     },
     {
@@ -14,15 +14,7 @@
       "description": "Efetue aqui as reservas de salas do Feevale Techpark para suas reuniões corporativas.",
       "btn": {
         "text": "Acesse",
-        "url": "#"
-      }
-    },
-    {
-      "title": "Cadastro de Oportunidades",
-      "description": "Cadastre aqui as vagas de trabalho disponíveis em sua empresa.",
-      "btn": {
-        "text": "Acesse",
-        "url": "#"
+        "url": "https://outlook.office365.com/owa/calendar/FeevaleTechpark@feevale.br/bookings/"
       }
     }
   ]

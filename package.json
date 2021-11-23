@@ -16,7 +16,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-regular-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
-    "@marke/ui-core": "ssh://git@github.com:team-marke/ui-core#01e3296629566b00d4ece020ca2cb5b4848df45a",
+    "@marke/ui-core": "ssh://git@github.com:team-marke/ui-core#v0.3.4",
     "@popperjs/core": "^2.9.2",
     "@types/nunjucks": "^3.2.0",
     "bootstrap": "^5.0.1",
