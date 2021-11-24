@@ -3,6 +3,7 @@ const fetchContent = require('../assets/js/utils/fetch-content');
 const cacheClient = require('../assets/js/utils/clients/node-cache');
 const { documentToHtmlString } = require('@contentful/rich-text-html-renderer');
 const slugify = require('slugify');
+const global = require('../data/global/global');
 
 const orderUnits = (units) => {
   return units.sort((a, b) => {
@@ -38,6 +39,7 @@ const getUnits = async () => {
       steps: item.fields.steps ? item.fields.steps : null,
       cta: item.fields.callToAction ? item.fields.callToAction : null,
       pathname: `unidades-parque-tecnologico/${slugify(item.fields.title, { lower: true })}/`,
+      url: `${global.site_absolute_url}/unidades-parque-tecnologico/${slugify(item.fields.title, { lower: true })}/`,
     });
   }
   return orderUnits(units);

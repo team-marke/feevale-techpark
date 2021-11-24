@@ -1,4 +1,5 @@
 const fetch = require('node-fetch');
+const slugify = require('slugify');
 const cacheClient = require('../assets/js/utils/clients/node-cache');
 const numberOfPosts = 25;
 
@@ -8,6 +9,7 @@ const getTechNews = async () => {
   const data = await response.json();
   for (const item of data) {
     allTechNews.push({
+      id: slugify(item.titulo, { lower: true }),
       title: item.titulo,
       excerpt: item.resumo,
       image: item.midia,

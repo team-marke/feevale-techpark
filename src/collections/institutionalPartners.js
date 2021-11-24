@@ -8,10 +8,12 @@ const getInstitutionalPartner = async () => {
   let institutionalPartners = [];
   for (const item of data.items) {
     institutionalPartners.push({
+      id: item.sys.id,
       title: item.fields.title,
       type: slugify(item.fields.type, { lower: true }),
       site: item.fields.site,
       image: item.fields.image[0].original_secure_url,
+      url: item.fields.site ? `https://${item.fields.site}` : null,
     });
   }
   return institutionalPartners;

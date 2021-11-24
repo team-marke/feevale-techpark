@@ -15,6 +15,7 @@ const getCompanies = async () => {
       area: item.fields.area.sys.id,
       modality: item.fields.modality.sys.id,
       image: item.fields.cloudinaryImage[0].original_secure_url,
+      url: item.fields.site ? `https://${item.fields.site}` : null,
     });
   }
   return companies;
