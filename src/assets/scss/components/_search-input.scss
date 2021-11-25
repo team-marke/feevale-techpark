@@ -5,16 +5,12 @@
 @use '../marke-ui' as mkui;
 
 .search-input {
-  padding-right: 1.5rem;
-  padding-left: 1.5rem;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-  min-width: 400px;
+  display: inline-block;
+  line-height: mkui.$btn-line-height;
+  text-align: right;
+  cursor: pointer;
+  background-color: lighten(mkui.$dark, 15%);
+  padding: 0.25rem 1.5rem;
   border-radius: mkui.$border-radius;
-  background: lighten(mkui.$dark, 15%);
-
-  &__search-icon {
-    font-size: .875em;
-    line-height: 1.5;
-  }
+  min-width: 320px;
 }
