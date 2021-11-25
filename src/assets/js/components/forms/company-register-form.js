@@ -153,7 +153,7 @@ class CompanyRegisterForm {
   __createCloudinaryUploadWidget() {
     const opts = {
       cloudName: process.env.CLOUDINARY_CLOUD_NAME,
-      uploadPreset: 'ml_default',
+      uploadPreset: 'unsigned_upload',
     };
     const callback = (error, result) => {
       if (!error && result && result.event === 'success') {

@@ -7,7 +7,7 @@ eleventyNavigation:
   key: programs 
   parent: home
   title: Programas
-  order: 2
+  order: 3
 metadata:
   title: Programas para impulsionar negócios | Feevale Techpark
   description: Conheça os programas para impulsionar negócios que o Feevale Techpark oferece às empresas residentes e à comunidade acadêmica e externa interessada.
@@ -16,9 +16,9 @@ masthead:
   title: >-
     <span class="fw-bold">Programas</span> para impulsionar negócios
   description: Conheça os programas exclusivos que o Feevale Techpark oferece às empresas vinculadas ao parque tecnológico.
-partners:
+institutional_partners:
   title: >-
-    <span class="text-primary">Parceiros</span> Institucionais
+    Parceiros <span class="text-primary">Institucionais</span>
   btn:
     text: Conheça todos os parceiros
     url: '/empresas-parceiras/'

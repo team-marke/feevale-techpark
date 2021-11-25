@@ -7,7 +7,7 @@ eleventyNavigation:
   key: benefits 
   parent: home
   title: Benefícios
-  order: 3
+  order: 2
 metadata:
   title: Benefícios para empresas do parque e região | Feevale Techpark
   description: Conheça os benefícios exclusivos que o parque tecnológico da Feevale oferece às empresas e seus colaboradores! Acesse e confira todos os detalhes.

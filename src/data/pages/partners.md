@@ -7,7 +7,7 @@ eleventyNavigation:
   key: partners
   parent: home
   title: Parceiros
-  order: 5
+  order: 4
 metadata:
   title: Empresas parceiras do parque | Feevale Techpark
   description: Conheça a lista de empresas parceiras de negócios e também as parceiras institucionais do parque tecnológico da Feevale. Confira o perfil de cada uma delas!
@@ -25,6 +25,12 @@ business_partners:
 institutional_partners:
   title: >-
     Parceiros <span class="text-primary">Institucionais</span>
+  btn:
+    text: Conheça todos os parceiros
+    url: '/empresas-parceiras/'
+partners:
+  title: >-
+    <span class="text-primary">Parceiros</span> Institucionais
   btn:
     text: Conheça todos os parceiros
     url: '/empresas-parceiras/'

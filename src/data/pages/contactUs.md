@@ -6,5 +6,5 @@ eleventyNavigation:
   key: contactUs
   parent: home
   title: Fale Conosco
-  order: 0
+  order: 7
 ---

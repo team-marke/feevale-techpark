@@ -10,7 +10,7 @@ eleventyNavigation:
   key: techNews
   parent: home
   title: TechNews
-  order: 1
+  order: 6
 pagination:
   data: collections.techNews
   size: 5

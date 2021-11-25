@@ -23,7 +23,95 @@
         </div>
       </div>
     </section>
-    {% include "./partials/institutional-partners.njk" %}
+    <section id="{{ layout }}-institutional-partners" class="bg-light">
+      <div class="container py-4 py-lg-5">
+        <div class="row gy-4">
+          <div class="col-12 text-center">
+            <h2>{{ partners.title | markdown | safe }}</h2>
+          </div>
+          <div class="col-12 col-lg-9 mx-auto text-center gx-3">
+            <h3>Associados:</h3>
+            {% set items = [] %}
+            {% for partner in (collections.institutionalPartners | partnersByType('parceiro-associado') | arraySlice(0, 4)) %}
+              {% set renderedItem %}
+                {% if partner.site %}
+                <a href="https://{{ partner.site }}" target="_blank">
+                {% endif %}
+                <picture>
+                  <source
+                    media="(max-width:992px)" 
+                    width="240"
+                    height="135"
+                    srcset="{%- imageUrl partner.image, { effect: 'art:audrey', fetch_format: 'auto', quality: 'auto', width: 240, aspect_ratio: '16:9', crop: 'pad' } %}"
+                  >
+                  <img
+                    width="154"
+                    height="87"
+                    src="{%- imageUrl partner.image, { effect: 'art:audrey', fetch_format: 'auto', quality: 'auto', width: 154, aspect_ratio: '16:9', crop: 'pad' } %}" 
+                    srcset="{%- imageUrl partner.image, { effect: 'art:audrey', fetch_format: 'auto', quality: 'auto', width: 154, aspect_ratio: '16:9', crop: 'pad', dpr: 2 } %} 2x" 
+                    alt="{{ partner.title | e | safe }}"
+                    loading="lazy"
+                    class="img-fluid"
+                  >
+                </picture>
+                {% if partner.site %}
+                </a>
+                {% endif %}
+              {% endset %}
+              {% set items = (items.push(renderedItem), items) %}
+            {% endfor %}
+            {%- set context = {
+              minSlidesPerView: 1,
+              maxSlidesPerView: (items | length),
+              total: (items | length),
+              items: items,
+              visibleOverflow: false
+            } %}
+            {% include "@marke/ui-core/components/carousel/carousel.njk" %}
+          </div>
+          <div class="col-12 col-lg-9 mx-auto text-center gx-3">
+            <h3>Parceiros Estratégicos:</h3>
+            {% set items = [] %}
+            {% for partner in (collections.institutionalPartners | partnersByType('parceiro-estrategico') | arraySlice(0, 4)) %}
+              {% set renderedItem %}
+                {% if partner.site %}
+                <a href="https://{{ partner.site }}" target="_blank">
+                {% endif %}
+                <picture>
+                  <source
+                    media="(max-width:992px)" 
+                    width="240"
+                    height="135"
+                    srcset="{%- imageUrl partner.image, { effect: 'art:audrey', fetch_format: 'auto', quality: 'auto', width: 240, aspect_ratio: '16:9', crop: 'pad' } %}"
+                  >
+                  <img
+                    width="154"
+                    height="87"
+                    src="{%- imageUrl partner.image, { effect: 'art:audrey', fetch_format: 'auto', quality: 'auto', width: 154, aspect_ratio: '16:9', crop: 'pad' } %}" 
+                    srcset="{%- imageUrl partner.image, { effect: 'art:audrey', fetch_format: 'auto', quality: 'auto', width: 154, aspect_ratio: '16:9', crop: 'pad', dpr: 2 } %} 2x" 
+                    alt="{{ partner.title | e | safe }}"
+                    loading="lazy"
+                    class="img-fluid"
+                  >
+                </picture>
+                {% if partner.site %}
+                </a>
+                {% endif %}
+              {% endset %}
+              {% set items = (items.push(renderedItem), items) %}
+            {% endfor %}
+            {%- set context = {
+              minSlidesPerView: 1,
+              maxSlidesPerView: (items | length),
+              total: (items | length),
+              items: items,
+              visibleOverflow: false
+            } %}
+            {% include "@marke/ui-core/components/carousel/carousel.njk" %}
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 {%- endblock %}
 {{ content | safe }}

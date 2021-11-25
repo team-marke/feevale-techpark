@@ -7,7 +7,7 @@ eleventyNavigation:
   key: about
   parent: home
   title: Quem Somos
-  order: 1
+  order: 0
 metadata:
   title: Conheça o Feevale Techpark | O Parque Tecnológico da Feevale
   description: Conheça a história do parque tecnológico da Feevale e as vantagens que oferece às empresas. Saiba mais sobre a Universidade e a Diretoria de Inovação.

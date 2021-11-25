@@ -10,7 +10,7 @@ eleventyNavigation:
   key: companies
   parent: home
   title: Nossas empresas
-  order: 10
+  order: 5
 masthead:
   image: https://res.cloudinary.com/feevale-techpark/image/upload/v1636133924/Nossas_Empresas.png
   title: >-
