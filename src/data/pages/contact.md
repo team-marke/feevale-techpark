@@ -73,6 +73,6 @@ cta:
     Não encontrou uma resposta para <span class="text-primary">sua dúvida?</span>
   description: Entre em contato através do formulário acima.
   btn:
-    url: '#form'
+    url: '#contact-form'
     text: Clique aqui
 ---

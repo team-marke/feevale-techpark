@@ -37,13 +37,6 @@
                     style="position: absolute; right: 0; top: 50%; transform: translate(8px, -150px)"
                   >
                   {% endif %}
-                  {%- set context = {
-                    theme: 'primary',
-                    href: item.btn.url,
-                    text: item.btn.text,
-                    override_classes: ['mt-auto']
-                  } %}
-                  {% include "@marke/ui-core/components/button/button.njk" %}
                 </div>
               {% endset %}
               {% set cards = (cards.push(renderedItem), cards) %}

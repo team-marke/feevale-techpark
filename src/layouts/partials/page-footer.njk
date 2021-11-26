@@ -53,7 +53,8 @@
               {%- set context = {
                 theme: 'outline-light',
                 href: item.url,
-                text: item.label
+                text: item.label,
+                target: '_blank'
               } %}
               {% include "@marke/ui-core/components/button/button.njk" %}
             {% endfor %}

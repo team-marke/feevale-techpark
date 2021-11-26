@@ -48,14 +48,16 @@
         } %}
         {% include "@marke/ui-core/components/grid-responsive-slider/grid-responsive-slider.njk" %}
       </div>
-      <div class="col-12 text-center">
-        {%- set context = {
-          theme: 'primary',
-          href: benefits.btn.url,
-          text: benefits.btn.text
-        } %}
-        {% include "@marke/ui-core/components/button/button.njk" %}
-      </div>
+      {% if layout != 'benefits' %}
+        <div class="col-12 text-center">
+          {%- set context = {
+            theme: 'primary',
+            href: benefits.btn.url,
+            text: benefits.btn.text
+          } %}
+          {% include "@marke/ui-core/components/button/button.njk" %}
+        </div>
+      {% endif %}
     </div>
   </div>
   {%- if layout != 'home' %}

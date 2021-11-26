@@ -12,7 +12,7 @@
         {% for item in news %}
           <div class="row gy-3 gx-lg-5 gx-xl-6 mb-5 mb-xl-6">
             <div class="col-12 col-lg-6">
-              <a href="{{ item.url | url }}">
+              <a href="{{ item.url | url }}" target="_blank">
                 {%- image item.image, { 
                   class: 'img-fluid rounded shadow', 
                   type: 'fetch', 
@@ -33,13 +33,13 @@
                 titleTag: 'h3',
                 title: item.title, 
                 date: item.date,
-                url: item.url,
                 excerpt: item.excerpt
               } %}
               {% include "@marke/ui-core/components/post-preview/post-preview.njk" %}
               {%- set context = {
                 theme: 'primary',
                 href: item.url,
+                target: '_blank',
                 text: posts.btn_label,
                 override_classes: ['mt-auto', 'align-self-start']
               } %}
@@ -82,7 +82,7 @@
         style="position: absolute; top: 3%; right: 15%; z-index: -1;"
       >
     </section>
-    <section id="{{ layout }}-posts" class="bg-light">
+    <section id="{{ layout }}-videos" class="bg-light">
       <div class="container py-4 py-lg-5">
         <div class="row mb-3 mb-lg-5">
           <div class="col-12 col-lg-7">

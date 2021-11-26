@@ -1,7 +1,7 @@
 {
   "btn": {
     "text": "Como Ingressar",
-    "url": "https://feevale.br/techpark/o-parque/como-ingressar"
+    "url": "/como-ingressar"
   },
   "bgColor": "#5e5e5e"
 }

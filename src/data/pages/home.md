@@ -22,7 +22,7 @@ welcome:
     O nosso objetivo é gerar um ambiente de convivência e sinergia entre a Universidade, o Poder Público e as empresas de base tecnológica, indústria criativa e outras áreas afins. Dispomos de estrutura, conhecimento e suporte para o desenvolvimento de negócios, fomento ao empreendedorismo, inovação e quaisquer outras expertises que possam ser agregadas ao Parque. Estamos localizados no Vale do Rio dos Sinos / RS.
   btn:
     text: Leia Mais
-    url: '/sobre/o-parque-tecnologico/'
+    url: '/sobre-o-parque-tecnologico/'
   image: 
     alt: Palestra da Feevale sobre negócios 
     url: https://res.cloudinary.com/feevale-techpark/image/upload/v1632244222/Refer%C3%AAncia_nacional_em_termos_de_coopera%C3%A7%C3%A3o_cient%C3%ADfica_e_tecnol%C3%B3gica.png

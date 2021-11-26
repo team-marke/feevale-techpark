@@ -24,9 +24,6 @@ benefits:
     
 
     Fortalecer as empresas instaladas no Feevale Techpark é fortalecer e legitimar todo o ecossistema. Pensando nisso, a Universidade Feevale e o Feevale Techpark disponibilizam diversos benefícios aos seus empreendedores e empresas instaladas.
-  btn:
-    text: Todos os benefícios
-    url: '/beneficios/'
   decorator: https://res.cloudinary.com/feevale-techpark/image/upload/v1634319869/grafismo-universidade-01.svg
 support:
   title: Suporte para as empresas e para a região
@@ -34,27 +31,18 @@ support:
     - title: Serviços especializados
       description: >-
         Utilize a estrutura da Universidade para suprir suas necessidades. Contamos com laboratórios técnicos de pesquisa especializados para oferecer serviços nas mais diversas áreas do conhecimento. Consulte os serviços oferecidos, como consultorias e pesquisas.
-      btn:
-        text: Saiba Mais
-        url: '#'
       image:
         alt: Ícone de um tubo de ensaio
         url: https://res.cloudinary.com/feevale-techpark/image/upload/v1635427815/servicos-especializados-01.svg
     - title: Projetos e captação de recursos
       description: >-
         Para que sua ideia se torne realidade, você pode contar com o Núcleo de Projetos e Captação de Recursos. Elaboramos projetos de pesquisa, desenvolvimento e inovação para resolução de problemas reais com potencial impacto científico, social, cultural e econômico. O núcleo avalia oportunidades através de editais, possibilitando o acesso a diversos tipos de recursos, além de realizar aproximação com professores e pesquisadores da Universidade Feevale.
-      btn:
-        text: Saiba Mais
-        url: '#'
       image:
         alt: Ícone de uma planta com uma moeda no lugar das flores
         url: https://res.cloudinary.com/feevale-techpark/image/upload/v1635427815/projetos-e-captacao-01.svg
     - title: Inovação e Transferência de Tecnologia
       description: >-
         A sua empresa tem algum desafio que a nossa comunidade possa solucionar? Traga sua proposta e participe dos nossos programas de incentivo à inovação. Aqui, você também pode compreender e resolver questões referentes a registros de propriedade intelectual (software, patente, etc.) dos projetos executados em parceria com a Universidade ou outros produtos gerados através dos programas da Dinova.
-      btn:
-        text: Saiba Mais
-        url: '#'
       image:
         alt: Ícone de uma lâmpada acendendo
         url: https://res.cloudinary.com/feevale-techpark/image/upload/v1635427823/inovacao-e-transferencia-01.svg
