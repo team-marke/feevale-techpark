@@ -57,7 +57,7 @@
             {% for item in numbers.items %}
               {% set renderedItem %}
                 <div class="text-center">
-                  <div class="h3 fw-bold d-block">
+                  <div class="h3 d-block">
                     {%- if item.plus %} + {%- endif %}
                     <span class="counter-up" data-count="{{ item.number | e | safe }}">{{ item.number | e | safe }}</span>
                     {{ item.metric | e | safe }}
@@ -165,11 +165,11 @@
             {{ areas.text | markdown | safe }}
           </div>
           <div id="desktop-areas" class="col-12 d-none d-lg-block">
-            <ul class="nav nav-tabs" id="areas-tab" role="tablist" style="--areas-tab-cols: {{ collections.areas | length }}">
+            <ul class="nav nav-tabs areas-tab" id="areas-tab" role="tablist" style="--areas-tab-cols: {{ collections.areas | length }}">
               {% for area in collections.areas %}
                 <li class="nav-item" role="presentation">
                   <button 
-                    class="nav-link{% if loop.index == 1 %} active{% endif %}" 
+                    class="nav-link areas-tab__button{% if loop.index == 1 %} active{% endif %}" 
                     id="{{ area.title | slug }}-tab" 
                     data-bs-toggle="tab" 
                     data-bs-target="#{{ area.title | slug }}-panel" 
@@ -180,11 +180,11 @@
                     <img
                       class="d-block"
                       loading="lazy"
-                      width="60"
-                      height="60"
-                      src="{%- imageUrl area.image, { fetch_format: 'auto', quality: 'auto', width: 60, height: 60, crop: 'pad', dpr: 2 } %}" 
+                      width="50"
+                      height="50"
+                      src="{%- imageUrl area.image, { fetch_format: 'auto', quality: 'auto', width: 50, height: 50, crop: 'pad', dpr: 2 } %}" 
                       alt="Ícone sobre {{ area.title | e | safe }}">
-                    <h3 class="h4 mb-2">{{ area.title | e | safe }}</h3>
+                    <h3 class="h5">{{ area.title | e | safe }}</h3>
                     </button>
                 </li>
               {% endfor %}
@@ -204,28 +204,23 @@
                         {% set cardHeader %}
                           <div class="text-center p-3">
                             <img 
-                              src="
-                              {%-
-                                imageUrl company.image, { 
-                                  effect: 'art:audrey',
-                                  fetch_format: 'auto',
-                                  quality: 'auto',
-                                  width: 150,
-                                  height: 100,
-                                  crop: 'pad'
+                              src="{%- imageUrl company.image, { 
+                                effect: 'art:audrey',
+                                fetch_format: 'auto',
+                                quality: 'auto',
+                                width: 150,
+                                height: 100,
+                                crop: 'pad'
                               } %}"
-                              srcset="
-                              {%-
-                                imageUrl company.image, { 
-                                  effect: 'art:audrey',
-                                  fetch_format: 'auto',
-                                  quality: 'auto',
-                                  width: 150,
-                                  height: 100,
-                                  crop: 'pad',
-                                  dpr: 2
-                                } 
-                              %} 2x"
+                              srcset="{%- imageUrl company.image, { 
+                                effect: 'art:audrey',
+                                fetch_format: 'auto',
+                                quality: 'auto',
+                                width: 150,
+                                height: 100,
+                                crop: 'pad',
+                                dpr: 2
+                              } %} 2x"
                               loading="lazy"
                               width="150"
                               height="100"
@@ -236,10 +231,10 @@
                         {% endset %}
                         {% set cardBody %}
                           <div class="d-flex flex-column text-center h-100">
-                            <h4 class="fw-bold">{{ company.title | e | safe }}</h4>
+                            <h4>{{ company.title | e | safe }}</h4>
                             <div class="card-excerpt">{{ company.description | e | safe }}</div>
                             {%- set context = {
-                              theme: 'primary',
+                              theme: 'outline-secondary',
                               href: 'https://' + (company.site | url),
                               text: 'Conheça',
                               override_classes: ['align-self-center']
@@ -249,6 +244,7 @@
                         {% endset %}
                         {% set context = {
                           body: cardBody,
+                          interactive: true,
                           header: cardHeader,
                           componentClasses: ['h-100']
                         } %}
@@ -274,7 +270,7 @@
                       src="{%- imageUrl area.image, { fetch_format: 'auto', quality: 'auto', width: 60, height: 60, crop: 'pad', dpr: 2 } %}" 
                       alt="Ícone sobre {{ area.title | e | safe }}"
                     >
-                    <h3 class="fw-bold">{{ area.title | e | safe }}</h3>
+                    <h3>{{ area.title | e | safe }}</h3>
                     <div class="card-excerpt">
                       {{ area.description | safe }}
                     </div>

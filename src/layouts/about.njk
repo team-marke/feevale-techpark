@@ -17,7 +17,7 @@
             {{ park.text | markdown | safe }}
             <ol class="list-unstyled column-count-1 column-count-lg-2">
               {% for area in collections.areas %}
-                <li><span class="h3 text-primary fw-bold">{{ loop.index | romanize }}</span> {{ area.title }}</li>
+                <li><span class="h3 text-primary">{{ loop.index | romanize }}</span> {{ area.title }}</li>
               {% endfor %}
             </ol>
           </div>

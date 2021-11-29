@@ -18,7 +18,7 @@ pagination:
 masthead:
   image: https://res.cloudinary.com/feevale-techpark/image/upload/v1636116851/Tecnologia_no_Feevale_Techpark.png
   title: >-
-    Tech<span class="fw-bold">News</span>
+    TechNews
   description: O espaço de notícias sobre tecnologia do Feevale Techpark.
 posts:
   title: >-

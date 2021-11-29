@@ -14,7 +14,7 @@ eleventyNavigation:
 masthead:
   image: https://res.cloudinary.com/feevale-techpark/image/upload/v1636737948/Como_ingressar.png
   title: >-
-    Como <span class="fw-bold">ingressar</span>
+    Como ingressar
   description: Entenda como fazer parte do Parque Tecnológico da Feevale e conheça os detalhes das diferentes modalidades de ingresso.
 incubator:
   title: >-

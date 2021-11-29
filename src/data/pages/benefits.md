@@ -14,7 +14,7 @@ metadata:
 masthead:
   image: https://res.cloudinary.com/feevale-techpark/image/upload/v1635427793/Benef%C3%ADcios_para_empresas_do_parque_e_regi%C3%A3o.png
   title: >-
-    <span class="fw-bold">Benefícios</span> para empresas do parque e região
+    Benefícios para empresas do parque e região
   description: O Feevale Techpark oferece benefícios exclusivos aos empresários e funcionários das empresas instaladas no Parque Tecnológico, bem como às empresas integrantes do programa Parceiros de Negócio.
 benefits:
   title: >-

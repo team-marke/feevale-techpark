@@ -13,7 +13,7 @@ metadata:
 masthead:
   image: https://res.cloudinary.com/feevale-techpark/image/upload/v1632244222/Parque_Tecnol%C3%B3gico_Feevale_Techpark.png
   title: >-
-    Feevale <span class="fw-bold">Techpark</span>
+    Feevale Techpark
 welcome:
   title: >-
     Bem-vindo ao <span class="text-primary">Feevale Techpark!</span>

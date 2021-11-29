@@ -14,7 +14,7 @@ metadata:
 masthead:
   image: https://res.cloudinary.com/feevale-techpark/image/upload/v1634319952/Conhe%C3%A7a_o_Feevale_Techpark.png
   title: >-
-    Conheça o <span class="fw-bold">Feevale Techpark</span>
+    Conheça o Feevale Techpark
   description: Somos um centro de inovação e referência nacional em cooperação científica e tecnológica. O Feevale Techpark presta apoio às empresas consolidadas ou iniciantes, organizações públicas, privadas ou mistas.
 park:
   title: >-

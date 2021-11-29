@@ -14,7 +14,7 @@ metadata:
 masthead:
   image: https://res.cloudinary.com/feevale-techpark/image/upload/v1635527494/Empresas_parceiras_do_parque.png
   title: >-
-    <span class="fw-bold">Empresas parceiras</span> do parque
+    Empresas parceiras do parque
   description: Conheça quais são as empresas parceiras de negócio e as parcerias institucionais do Feevale Techpark.
 business_partners:
   title: >-

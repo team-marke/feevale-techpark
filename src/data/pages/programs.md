@@ -14,7 +14,7 @@ metadata:
 masthead:
   image: https://res.cloudinary.com/feevale-techpark/image/upload/v1635271452/Programas_para_impulsionar_neg%C3%B3cios.png
   title: >-
-    <span class="fw-bold">Programas</span> para impulsionar negócios
+    Programas para impulsionar negócios
   description: Conheça os programas exclusivos que o Feevale Techpark oferece às empresas vinculadas ao parque tecnológico.
 institutional_partners:
   title: >-

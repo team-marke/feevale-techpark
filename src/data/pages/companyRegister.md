@@ -14,7 +14,7 @@ eleventyNavigation:
 masthead:
   image: https://res.cloudinary.com/feevale-techpark/image/upload/v1637080649/Contato_Parque_Tecnol%C3%B3gico_Feevale_Techpark.png
   title: >-
-    Cadastre sua <span class="fw-bold">empresa</span>
+    Cadastre sua empresa
   description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 form:
   title: >-
