@@ -33,17 +33,18 @@ numbers:
   text: >-
     O Feevale Techpark gera novos empregos, abriga empresas e demonstra crescimento no faturamento. Os números mostram como o empreendimento vem se consolidando e se expandindo ao longo dos anos.
   items:
-    - number: 236
-      plus: true
-      metric: milhões
+    - text: + 236 milhões
       label: Faturamento anual das empresas
-    - number: 450
-      plus: true
+      icon: https://res.cloudinary.com/feevale-techpark/image/upload/v1638214861/Faturamento_anual_das_empresas.svg
+    - text: + 450
       label: Empregos indiretos gerados
-    - number: 11
+      icon: https://res.cloudinary.com/feevale-techpark/image/upload/v1638214864/Empregos_indiretos_gerados.svg
+    - text: 11
       label: Empresas incubadas
-    - number: 78
+      icon: https://res.cloudinary.com/feevale-techpark/image/upload/v1638214867/Empresas_incubadas.svg
+    - text: 78
       label: Empresas residentes
+      icon: https://res.cloudinary.com/feevale-techpark/image/upload/v1638214870/Empresas_residentes.svg
 units:
   title: >-
     Conheça nossas <span class="text-primary">Unidades</span>

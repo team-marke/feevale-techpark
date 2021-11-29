@@ -57,12 +57,22 @@
             {% for item in numbers.items %}
               {% set renderedItem %}
                 <div class="text-center">
-                  <div class="h3 d-block">
-                    {%- if item.plus %} + {%- endif %}
-                    <span class="counter-up" data-count="{{ item.number | e | safe }}">{{ item.number | e | safe }}</span>
-                    {{ item.metric | e | safe }}
-                  </div>
-                  <div>{{ item.label | e | safe }}</div>
+                  <img 
+                    src="{%- imageUrl item.icon, { 
+                      fetch_format: 'auto', 
+                      quality: 'auto', 
+                      width: 70, 
+                      height: 70, 
+                      dpr: 2, 
+                      crop: 'pad' 
+                    } %}" 
+                    alt="{{ item.text }}"
+                    height="70"
+                    width="70"
+                    class="mb-3"
+                  >
+                  <p>{{ item.label }}</p>
+                  <h3>{{ item.text }}</h3>
                 </div>
               {% endset %}
               {% set items = (items.push(renderedItem), items) %}

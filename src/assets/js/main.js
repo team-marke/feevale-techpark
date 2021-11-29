@@ -85,17 +85,6 @@ const loadSocialbar = async () => {
   }
 };
 
-const loadAnimateCounters = async () => {
-  if (document.querySelector('.counter-up')) {
-    const { animateCounter } = await import(
-      /* webpackChunkName: "components.animate-counter" */ '../js/components/animate-counter'
-    );
-    document.querySelectorAll('.counter-up').forEach((counter) => {
-      animateCounter(counter, 7000);
-    });
-  }
-};
-
 const loadPartnersListing = async () => {
   if (document.querySelector('.partners-listing')) {
     const { PartnersListing } = await import(
@@ -155,7 +144,6 @@ const loadDynamicModules = () => {
   loadActionbar();
   loadYoutubeModals();
   loadSocialbar();
-  loadAnimateCounters();
   loadPartnersListing();
   loadCompaniesListing();
   loadContactForm();

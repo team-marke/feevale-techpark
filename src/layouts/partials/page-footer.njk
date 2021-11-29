@@ -1,16 +1,16 @@
 <footer role="contentinfo" class="page-footer bg-dark">
   <div class="container pt-4 pt-lg-5">
-    <div class="row gy-3">
+    <div class="row mb-lg-4">
       <div class="col-12 col-lg-3">
-        <div class="row gy-3 gx-2">
+        <div class="row">
           <div class="col-6 col-lg-12">
             <a href="{{ global.site_absolute_url | url }}">
               <img 
-                src="{%- imageUrl site.logos.techpark.light, { fetch_format: 'auto', quality: 'auto', width: 160, crop: 'thumb' } %}"
-                srcset=" {%- imageUrl site.logos.techpark.light, { fetch_format: 'auto', quality: 'auto', width: 160, crop: 'thumb', dpr: 2 } %} 2x"
-                width="160"
+                src="{%- imageUrl site.logos.techpark.light, { fetch_format: 'auto', quality: 'auto', width: 200, crop: 'thumb' } %}"
+                srcset=" {%- imageUrl site.logos.techpark.light, { fetch_format: 'auto', quality: 'auto', width: 200, crop: 'thumb', dpr: 2 } %} 2x"
+                width="200"
                 loading="lazy"
-                class="img-fluid"
+                class="img-fluid mb-3"
                 alt="{{ site.name | e | safe }}"
               >
             </a>
@@ -18,17 +18,21 @@
           <div class="col-6 col-lg-12">
             <a href="{{ footer.feevale.siteUrl | url }}" target="_blank">
               <img 
-                src="{%- imageUrl site.logos.feevale.light, { fetch_format: 'auto', quality: 'auto', width: 160, crop: 'thumb' } %}"
-                srcset=" {%- imageUrl site.logos.feevale.light, { fetch_format: 'auto', quality: 'auto', width: 160, crop: 'thumb', dpr: 2 } %} 2x"
-                width="160"
+                src="{%- imageUrl site.logos.feevale.light, { fetch_format: 'auto', quality: 'auto', width: 200, crop: 'thumb' } %}"
+                srcset=" {%- imageUrl site.logos.feevale.light, { fetch_format: 'auto', quality: 'auto', width: 200, crop: 'thumb', dpr: 2 } %} 2x"
+                width="200"
                 loading="lazy"
                 class="img-fluid"
                 alt="{{ footer.feevale.title | e | safe }}"
               >
             </a>
           </div>
-          <div class="col-12 text-center text-lg-start">
-            <h4 class="text-primary mb-1">{{ site.name | e | safe }}</h4>
+        </div>
+      </div>
+      <div class="col-12 col-lg-3">
+        <div class="row gy-3">
+          <div class="col-6 col-lg-12">
+            <h4 class="text-primary fw-normal mb-1">{{ site.name | e | safe }}</h4>
             <ul class="list-unstyled mb-0">
                 <li><a class="link-light" href="mailto:{{ site.contact.email | safe }}">{{ site.contact.email | safe }}</a></li>
             </ul>
@@ -38,29 +42,12 @@
                 instagram: site.social.instagram,
                 facebook: site.social.facebook,
                 linkedin: site.social.linkedin
-              },
-              componentClasses: ['justify-content-center', 'justify-content-lg-start']
+              }
             } %}
             {% include '@marke/ui-core/components/socialbar/socialbar.njk' %}
           </div>
-        </div>
-      </div>
-      <div class="col-12 col-lg-3">
-        <div class="row gy-3">
           <div class="col-6 col-lg-12">
-            <h4 class="text-primary">{{ footer.extra.title | e | safe }}</h4>
-            {% for item in footer.extra.items %}
-              {%- set context = {
-                theme: 'outline-light',
-                href: item.url,
-                text: item.label,
-                target: '_blank'
-              } %}
-              {% include "@marke/ui-core/components/button/button.njk" %}
-            {% endfor %}
-          </div>
-          <div class="col-6 col-lg-12">
-            <h4 class="text-primary mb-1">Unidades</h4>
+            <h4 class="text-primary mb-1 fw-normal">Unidades</h4>
             <ul class="list-unstyled">
               {% set unitsLinks = (collections.navbar | eleventyNavigation('units')) %}
               {% for item in unitsLinks %}
@@ -70,11 +57,11 @@
           </div>
         </div>
       </div>
-      <div class="col-12 col-lg-6">
+      <div class="col-12 col-lg-3">
         <ul class="list-unstyled row gy-3">
           {% for unit in collections.units %}
-            <li class="col-6">
-              <h4 class="text-primary mb-1">{{ unit.title | e | safe }}</h4>
+            <li class="col-6 col-lg-12">
+              <h4 class="text-primary mb-1 fw-normal">{{ unit.title | e | safe }}</h4>
               <a class="link-light d-block" target="_blank" href="{{ unit.address | gmapsLink }}">
                 {{ unit.address | e | safe }}
               </a>
@@ -84,6 +71,19 @@
             </li>
           {% endfor %}
         </ul>
+      </div>
+      <div class="col-12 col-lg-3 text-center text-lg-start">
+        <h4 class="text-primary fw-normal">{{ footer.extra.title | e | safe }}</h4>
+        {% for item in footer.extra.items %}
+          {%- set context = {
+            theme: 'outline-light',
+            href: item.url,
+            text: item.label,
+            target: '_blank',
+            override_classes: ['mb-3', 'mb-lg-0']
+          } %}
+          {% include "@marke/ui-core/components/button/button.njk" %}
+        {% endfor %}
       </div>
     </div>
     <div class="row border-primary border-top ">
