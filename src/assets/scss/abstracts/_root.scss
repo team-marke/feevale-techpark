@@ -5,3 +5,7 @@
     --#{mkui.$variable-prefix}body-font-size: #{mkui.rfs-fluid-value(mkui.$font-size-base)};
   }
 }
+
+.selectchoices__item {
+  word-break: keep-all !important;
+}

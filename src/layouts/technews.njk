@@ -102,7 +102,7 @@
                     extra_classes: ['mb-2']
                   } %}
                   {% include "@marke/ui-core/components/video-teaser/video-teaser.njk" %}
-                  <figcaption class="h4 mb-0">{{ video.title | e | safe }}</figcaption>
+                  <figcaption class="h5 fw-normal mb-0 mt-3">{{ video.title | e | safe }}</figcaption>
                 </figure>
               {% endset %}
               {% set teasers = (teasers.push(renderedItem), teasers) %}

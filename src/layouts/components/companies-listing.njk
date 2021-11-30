@@ -60,28 +60,23 @@
         {% set cardHeader %}
           <div class="text-center p-3">
             <img 
-              src="
-              {%-
-                imageUrl company.image, { 
-                  effect: 'art:audrey',
-                  fetch_format: 'auto',
-                  quality: 'auto',
-                  width: 150,
-                  height: 100,
-                  crop: 'pad'
+              src="{%- imageUrl company.image, { 
+                effect: 'art:audrey',
+                fetch_format: 'auto',
+                quality: 'auto',
+                width: 150,
+                height: 100,
+                crop: 'pad'
               } %}"
-              srcset="
-              {%-
-                imageUrl company.image, { 
-                  effect: 'art:audrey',
-                  fetch_format: 'auto',
-                  quality: 'auto',
-                  width: 150,
-                  height: 100,
-                  crop: 'pad',
-                  dpr: 2
-                } 
-              %} 2x"
+              srcset="{%- imageUrl company.image, { 
+                effect: 'art:audrey',
+                fetch_format: 'auto',
+                quality: 'auto',
+                width: 150,
+                height: 100,
+                crop: 'pad',
+                dpr: 2
+              } %} 2x"
               loading="lazy"
               width="150"
               height="100"
