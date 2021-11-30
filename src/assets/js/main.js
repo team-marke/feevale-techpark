@@ -1,6 +1,6 @@
 import 'regenerator-runtime/runtime.js';
 import '../scss/main.scss';
-import '@marke/ui-core/components/accordion/accordion'
+import '@marke/ui-core/components/accordion/accordion';
 
 /**
  * Load Carousel.
@@ -127,8 +127,16 @@ const loadCompanyRegisterForm = async () => {
     const { CompanyRegisterForm } = await import(
       /* webpackChunkName: "components.company-register-form" */ '../js/components/forms/company-register-form'
     );
-    const el = document.querySelector('.company-register-form')
+    const el = document.querySelector('.company-register-form');
     new CompanyRegisterForm(el);
+  }
+};
+
+const loadQueryTab = async () => {
+  if (document.querySelector('.query-tab')) {
+    const { QueryTab } = await import(/* webpackChunkName: "components.query-tab" */ '../js/components/query-tab');
+    const el = document.querySelector('.query-tab');
+    new QueryTab(el);
   }
 };
 
@@ -148,6 +156,7 @@ const loadDynamicModules = () => {
   loadCompaniesListing();
   loadContactForm();
   loadCompanyRegisterForm();
+  loadQueryTab();
 };
 
 /**

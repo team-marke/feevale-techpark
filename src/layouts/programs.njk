@@ -70,7 +70,7 @@
         <div class="row gy-4 gx-5 gx-xl-6">
           <div class="col-5">
             <div 
-              class="nav nav-pills d-inline-block shadow rounded" 
+              class="nav nav-pills d-inline-block shadow rounded query-tab" 
               id="programs-tab" 
               aria-orientation="vertical"
               role="tablist" 
@@ -85,6 +85,7 @@
                   role="tab" 
                   aria-controls="{{ program.data.title | slug }}" 
                   aria-selected="{% if loop.index == 1 %}true{% else %}false{% endif %}"
+                  data-title="{{ program.data.title | slug }}"
                 >
                   <span class="h3" style="color: inherit;">{{ program.data.title | e | safe }}</span>
                 </button>
@@ -99,6 +100,7 @@
                   id="{{ program.data.title | slug }}"
                   aria-labelledby="{{ program.data.title | slug }}-tab"
                   role="tabpanel"
+                  data-title="{{ program.data.title | slug }}"
                 > 
                   <img 
                     class="img-fluid mb-3"
