@@ -64,9 +64,10 @@
         {% endset %}
         {% set context = {
             body: cardBody,
+            interactive: true,
             componentClasses: ['h-100']
         } %}
-        {% include "@marke/ui-core/components/card/card.njk" %}
+        {% include "./card.njk" %}
       </div>
     {% endfor %}  
   </div>

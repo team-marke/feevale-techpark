@@ -106,9 +106,10 @@
         {% set context = {
             body: cardBody,
             header: cardHeader,
+            interactive: true,
             componentClasses: ['h-100']
         } %}
-        {% include "@marke/ui-core/components/card/card.njk" %}
+        {% include "./card.njk" %}
       </div>
     {% endfor %}
   </div>

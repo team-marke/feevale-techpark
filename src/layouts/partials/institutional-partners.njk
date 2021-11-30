@@ -32,7 +32,7 @@
             {% set context = {
                 body: cardBody
             } %}
-            {% include '@marke/ui-core/components/card/card.njk' %}
+            {% include '../components/card.njk' %}
           {% endset %}
           {% set cards = (cards.push(renderedItem), cards) %}
         {% endfor %}

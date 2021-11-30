@@ -128,7 +128,7 @@
                     body: cardBody,
                     componentClasses: ['h-100']
                 } %}
-                {% include "@marke/ui-core/components/card/card.njk" %}
+                {% include "./components/card.njk" %}
               {% endset %}
               {% set cards = (cards.push(renderedItem), cards) %}
             {% endfor %}
@@ -258,7 +258,7 @@
                           header: cardHeader,
                           componentClasses: ['h-100']
                         } %}
-                        {% include "@marke/ui-core/components/card/card.njk" %}
+                        {% include "./components/card.njk" %}
                         </div>
                       {% endfor %}
                     </div>
@@ -297,7 +297,7 @@
                     body: cardBody,
                     componentClasses: ['h-100']
                 } %}
-                {% include "@marke/ui-core/components/card/card.njk" %}
+                {% include "./components/card.njk" %}
               {% endset %}
               {% set cards = (cards.push(renderedItem), cards) %}
             {% endfor %}
@@ -359,10 +359,11 @@
                       link: program.data.link
                     },
                     interactive: true,
+                    interactiveBg: true,
                     overlay: true,
                     body: cardBody
                 } %}
-                {% include '@marke/ui-core/components/card/card.njk' %}
+                {% include './components/card.njk' %}
               {% endset %}
               {% set cards = (cards.push(renderedItem), cards) %}
             {% endfor %}
@@ -421,10 +422,11 @@
                 {% endset %}
                 {% set context = {
                     interactive: true,
+                    interactiveBg: true,
                     body: cardBody,
                     componentClasses: ['h-100']
                 } %}
-                {% include "@marke/ui-core/components/card/card.njk" %}
+                {% include "./components/card.njk" %}
               {% endset %}
               {% set cards = (cards.push(renderedItem), cards) %}
             {% endfor %}

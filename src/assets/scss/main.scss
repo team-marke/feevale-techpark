@@ -17,7 +17,6 @@
     $padding-x-sm: 1.5rem,
     $text-transform: uppercase
   );
-@use '~@marke/ui-core/components/card' with ($border: none);
 @use '~@marke/ui-core/components/carousel';
 @use '~@marke/ui-core/components/copyrightbar';
 @use '~@marke/ui-core/components/grid-responsive-slider';
@@ -37,6 +36,7 @@
 @use './general/separators';
 
 // Project components
+@use './components/card' with ($border: none);
 @use './components/card-excerpt';
 @use './components/vertical-timeline';
 @use './components/images';

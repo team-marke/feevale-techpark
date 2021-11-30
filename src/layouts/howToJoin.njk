@@ -26,15 +26,11 @@
                     {{ item.description | markdown | safe }}
                   </div>
                 {% endset %}
-                {% set componentClasses = ['h-100'] %}
-                {% if loop.index0 % 2 == 1 %}
-                  {% set componentClasses = ['h-100', 'bg-primary'] %}
-                {% endif %}
                 {% set context = {
                     body: cardBody,
-                    componentClasses: componentClasses
+                    componentClasses: ['h-100']
                 } %}
-                {% include "@marke/ui-core/components/card/card.njk" %}
+                {% include "./components/card.njk" %}
               {% endset %}
               {% set items = (items.push(renderedItem), items) %}
             {% endfor %}
@@ -68,15 +64,13 @@
                     {% include "@marke/ui-core/components/button/button.njk" %}
                   </div>
                 {% endset %}
-                {% set componentClasses = ['h-100'] %}
-                {% if loop.index0 % 2 == 1 %}
-                  {% set componentClasses = ['h-100', 'bg-primary'] %}
-                {% endif %}
                 {% set context = {
+                    interactive: true,
+                    interactiveBg: true,
                     body: cardBody,
-                    componentClasses: componentClasses
+                    componentClasses: ['h-100']
                 } %}
-                {% include "@marke/ui-core/components/card/card.njk" %}
+                {% include "./components/card.njk" %}
               {% endset %}
               {% set items = (items.push(renderedItem), items) %}
             {% endfor %}
@@ -134,15 +128,13 @@
                     {% include "@marke/ui-core/components/button/button.njk" %}
                   </div>
                 {% endset %}
-                {% set componentClasses = ['h-100'] %}
-                {% if loop.index0 % 2 == 1 %}
-                  {% set componentClasses = ['h-100', 'bg-primary'] %}
-                {% endif %}
                 {% set context = {
                     body: cardBody,
-                    componentClasses: componentClasses
+                    interactive: true,
+                    interactiveBg: true,
+                    componentClasses: ['h-100']
                 } %}
-                {% include "@marke/ui-core/components/card/card.njk" %}
+                {% include "./components/card.njk" %}
               {% endset %}
               {% set items = (items.push(renderedItem), items) %}
             {% endfor %}
@@ -186,15 +178,13 @@
                     {% include "@marke/ui-core/components/button/button.njk" %}
                   </div>
                 {% endset %}
-                {% set componentClasses = ['h-100'] %}
-                {% if loop.index0 % 2 == 1 %}
-                  {% set componentClasses = ['h-100', 'bg-primary'] %}
-                {% endif %}
                 {% set context = {
                     body: cardBody,
-                    componentClasses: componentClasses
+                    interactive: true,
+                    interactiveBg: true,
+                    componentClasses: ['h-100']
                 } %}
-                {% include "@marke/ui-core/components/card/card.njk" %}
+                {% include "./components/card.njk" %}
               {% endset %}
               {% set items = (items.push(renderedItem), items) %}
             {% endfor %}

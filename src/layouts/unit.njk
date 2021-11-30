@@ -131,11 +131,12 @@
                   </div>
                 {% endset %}
                 {% set context = {
+                    interactive: true,
                     body: cardBody,
                     header: cardHeader,
                     componentClasses: ['h-100']
                 } %}
-                {% include "@marke/ui-core/components/card/card.njk" %}
+                {% include "./components/card.njk" %}
               {% endset %}
               {% set cards = (cards.push(renderedItem), cards) %}
             {% endfor %}
