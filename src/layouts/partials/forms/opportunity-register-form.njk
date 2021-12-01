@@ -1,0 +1,67 @@
+<form id="opportunity-register-form" class="opportunity-register-form form" novalidate>
+  <div class="row">
+    <div class="col-12 mb-4">
+      {% set context = {
+        label: 'Empresa',
+        name: 'company',
+        id: 'company',
+        placeholder: 'Selecione',
+        required: true,
+        invalidText: 'É preciso selecionar uma Empresa',
+        options: collections.companies | selectOptions,
+        override_atts: {
+          "data-contentful-entry": "true"
+        }
+      } %}
+      {% include "@marke/ui-core/components/select/select.njk" %}
+    </div>
+    <div class="col-12 mb-4">
+      {% set context = {
+        label: 'Título da vaga',
+        placeholder: 'Digite o título da vaga',
+        name: 'title',
+        id: 'title',
+        required: true,
+        invalidText: 'O título da vaga é obrigatório'
+      } %}
+      {% include "@marke/ui-core/components/text-field/text-field.njk" %}
+    </div>
+    <div class="col-12 mb-4">
+      {% set context = {
+        label: 'Descrição da vaga',
+        multiline: true,
+        helperText: 'Descreva os detalhes da vaga',
+        name: 'description',
+        id: 'description',
+        required: true,
+        invalidText: 'A descrição da vaga é obrigatória'
+      } %}
+      {% include "@marke/ui-core/components/text-field/text-field.njk" %}
+    </div>
+    <div class="col-12 col-lg-4 mb-4">
+      {% set context = {
+        content: 'Imagem (opcional)',
+        forId: 'cloudinaryImage'
+      } %}
+      {% include "@marke/ui-core/components/input-label/input-label.njk" %}
+      {% set context = {
+        theme: 'outline-secondary',
+        text: 'Escolha uma imagem',
+        id: 'cloudinaryImage',
+        override_atts: {
+          "name": "cloudinaryImage",
+          "data-cloudinary-image-upload": "true"
+        }
+      } %}
+      {% include "@marke/ui-core/components/button/button.njk" %}
+    </div>
+    <div class="col-12 text-center">
+      {% set context = {
+        theme: 'primary',
+        text: 'Enviar',
+        type: 'submit'
+      } %}
+      {% include "@marke/ui-core/components/button/button.njk" %}
+    </div>
+  </div>
+</form>

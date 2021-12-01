@@ -132,6 +132,16 @@ const loadCompanyRegisterForm = async () => {
   }
 };
 
+const loadOpportunityRegisterForm = async () => {
+  if (document.querySelector('.opportunity-register-form')) {
+    const { OpportunityRegisterForm } = await import(
+      /* webpackChunkName: "components.opportunity-register-form" */ '../js/components/forms/opportunity-register-form'
+    );
+    const el = document.querySelector('.opportunity-register-form');
+    new OpportunityRegisterForm(el);
+  }
+};
+
 const loadQueryTab = async () => {
   if (document.querySelector('.query-tab')) {
     const { QueryTab } = await import(/* webpackChunkName: "components.query-tab" */ '../js/components/query-tab');
@@ -156,6 +166,7 @@ const loadDynamicModules = () => {
   loadCompaniesListing();
   loadContactForm();
   loadCompanyRegisterForm();
+  loadOpportunityRegisterForm();
   loadQueryTab();
 };
 
