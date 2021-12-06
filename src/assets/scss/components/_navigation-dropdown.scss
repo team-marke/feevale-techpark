@@ -1,0 +1,14 @@
+//
+// Navigation dropdown styles
+//
+
+@use '../marke-ui' as mkui;
+
+.navigation-dropdown {
+  padding-right: mkui.$spacer;
+  padding-left: mkui.$spacer;
+  @include mkui.media-breakpoint-up(lg) {
+    z-index: mkui.$zindex-sticky + 1;
+    min-width: 400px;
+  }
+}

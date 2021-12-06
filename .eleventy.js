@@ -6,8 +6,9 @@ const fs = require('fs');
 const del = require('del');
 const rssPlugin = require('@11ty/eleventy-plugin-rss');
 const navigationPlugin = require('@11ty/eleventy-navigation');
-const mkuiPlugin = require("@marke/ui-core/tools/plugins/11ty");
+const mkuiPlugin = require('@marke/ui-core/tools/plugins/11ty');
 const Nunjucks = require('nunjucks');
+const updateIndexes = require('./src/assets/js/utils/update-indexes');
 
 /**
  * Eleventy configuration
@@ -29,19 +30,20 @@ module.exports = (eleventyConfig) => {
   const commonLoaderOptions = {
     trimBlocks: true,
     lstripBlocks: true,
-  }
+  };
   if (process.env.ELEVENTY_ENV == 'development') {
     global.nunjucksEnvironment = new Nunjucks.Environment([
-      new Nunjucks.FileSystemLoader(['src/layouts', 'node_modules/@marke/ui-core/components'], { ...commonLoaderOptions, watch: true }),
-      new Nunjucks.NodeResolveLoader({ ...commonLoaderOptions, watch: true })
-    ]
-    );
+      new Nunjucks.FileSystemLoader(['src/layouts', 'node_modules/@marke/ui-core/components'], {
+        ...commonLoaderOptions,
+        watch: true,
+      }),
+      new Nunjucks.NodeResolveLoader({ ...commonLoaderOptions, watch: true }),
+    ]);
   } else {
     global.nunjucksEnvironment = new Nunjucks.Environment([
       new Nunjucks.FileSystemLoader(['src/layouts', 'node_modules/@marke/ui-core/components'], { ...commonLoaderOptions }),
-      new Nunjucks.NodeResolveLoader({ ...commonLoaderOptions })
-    ]
-    );
+      new Nunjucks.NodeResolveLoader({ ...commonLoaderOptions }),
+    ]);
   }
   eleventyConfig.setLibrary('njk', global.nunjucksEnvironment);
 
@@ -108,6 +110,15 @@ module.exports = (eleventyConfig) => {
       },
     });
   }
+
+  // Add a afterBuild listener to update Algolia indexes in production
+  eleventyConfig.on('afterBuild', async () => {
+    if (process.env.ELEVENTY_ENV == 'production') {
+      const data = fs.readFileSync(path.resolve(dirs.output, 'search-indexes.json'));
+      const indexes = JSON.parse(data);
+      await updateIndexes(indexes);
+    }
+  });
 
   return {
     dir: dirs,

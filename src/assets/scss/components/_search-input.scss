@@ -1,0 +1,16 @@
+//
+// Search input styles
+//
+
+@use '../marke-ui' as mkui;
+
+.search-input {
+  display: inline-block;
+  line-height: mkui.$btn-line-height;
+  text-align: right;
+  cursor: pointer;
+  background-color: lighten(mkui.$dark, 15%);
+  padding: 0.25rem 1.5rem;
+  border-radius: mkui.$border-radius;
+  min-width: 320px;
+}

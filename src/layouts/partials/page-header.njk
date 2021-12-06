@@ -1,30 +1,13 @@
 <aside class="d-lg-block d-none bg-dark">
   <div class="container">
-    {% set dropdownContent %}
-      {% for item in forCompaniesMenu.items %}
-        <div>
-          <p class="h4">{{ item.title | e | safe }}</p>
-          <p>{{ item.description | e | safe }}</p>
-          {%- set context = {
-            theme: 'primary',
-            text: item.btn.text,
-            href: item.btn.url,
-            target: '_blank'
-          } %}
-          {% include "@marke/ui-core/components/button/button.njk" %}
-          <hr>
-        </div>
-      {% endfor %}
-      <p>{{ forCompaniesMenu.title | e | safe }}</p>
-    {% endset %}
-    {% set forCompaniesDropdown %}
+    {% set navigationDropdown %}
       <div class="dropdown">
         {%- set context = {
           theme: 'light',
           size: 'sm',
           text: 'Para Empresas do Parque',
           type: 'button',
-          id: 'forCompaniesDropdown',
+          id: 'navigationDropdown',
           override_classes: ['dropdown-toggle'],
           override_atts: {
             'data-bs-toggle': 'dropdown',
@@ -33,30 +16,36 @@
           }
         } %}
         {% include "@marke/ui-core/components/button/button.njk" %}
-        <div class="dropdown-menu dropdown-menu-end p-4" style="min-width: 400px;" aria-labelledby="forCompaniesDropdown">
-          {{ dropdownContent | safe }}
+        <div class="dropdown-menu dropdown-menu-end navigation-dropdown" aria-labelledby="navigationDropdown">
+          <p class="mb-3">{{ forCompaniesMenu.title | e | safe }}</p>
+          {% for item in forCompaniesMenu.items %}
+            <div>
+              <hr>
+              <p class="h4">{{ item.title | e | safe }}</p>
+              <p>{{ item.description | e | safe }}</p>
+              {%- set context = {
+                theme: 'primary',
+                text: item.btn.text,
+                href: item.btn.url,
+                target: '_blank'
+              } %}
+              {% include "@marke/ui-core/components/button/button.njk" %}
+            </div>
+          {% endfor %}
         </div>
       </div>
     {% endset %}
-    {% set forCompaniesDropdownMobile %}
-      <div class="dropdown mt-2">
-        {%- set context = {
-          theme: 'primary',
-          text: 'Para Empresas do Parque',
-          type: 'button',
-          id: 'forCompaniesDropdown',
-          override_classes: ['dropdown-toggle'],
-          override_atts: {
-            'data-bs-toggle': 'dropdown',
-            'aria-expanded': 'false'
-          }
-        } %}
-        {% include "@marke/ui-core/components/button/button.njk" %}
-        <div class="dropdown-menu dropdown-menu-end p-3" aria-labelledby="forCompaniesDropdown">
-          {{ dropdownContent | safe }}
-        </div>
+
+    {% set searchInput %}
+      <div class="search-input search-toggler" title="Abrir busca"><i class="fas fa-search search-input__search-icon"></i></div>
+    {% endset %}
+
+    {% set actionArea %}
+      <div class="d-flex d-lg-none">
+        {{ navigationDropdown | safe }}
       </div>
     {% endset %}
+
     {% set context = {
       variant: 'dark',
       componentClasses: ['d-flex', 'justify-content-between'],
@@ -67,7 +56,10 @@
       ],
       endItems: [
         {
-          html: forCompaniesDropdown
+          html: searchInput
+        },
+        {
+          html: navigationDropdown
         },
         {
           href: site.social.facebook,
@@ -92,16 +84,18 @@
 <header class="page-header">
   <div class="container position-relative">
     {%- set context = {
-      navbarLinks: (collections.navbar | eleventyNavigation('home')),
-      currentPage: page,
+      id: 'main-navbar',
+      links: (collections.navbar | eleventyNavigation('home')),
+      children: actionArea,
+      currentPageUrl: page.url,
       brandLogo: site.logos.techpark.dark,
       brandLogoMobile: site.logos.techpark.dark,
       brandLogoWidth: 160,
       brandLogoMobileWidth: 100,
       brandUrl: global.site_absolute_url | url,
       variant: 'light',
-      extraOffcanvasContent: forCompaniesDropdownMobile
+      nav_override_classes: ['w-100', 'justify-content-end']
     } %}
-    {% include '@marke/ui-core/components/navbar/navbar.njk' %}
+    {% include '../components/navbar.njk' %}
   </div>
 </header>

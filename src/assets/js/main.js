@@ -150,6 +150,17 @@ const loadQueryTab = async () => {
   }
 };
 
+const loadSearchModalAndTogglers = async () => {
+  const searchModalEl = document.querySelector('.search-modal');
+  if (searchModalEl) {
+    const { SearchModal } = await import(/* webpackChunkName: "components.search-modal" */ '../js/components/search-modal');
+    const searchModal = new SearchModal(searchModalEl);
+    document.querySelectorAll('.search-toggler').forEach((toggler) => {
+      toggler.addEventListener('click', () => searchModal.show());
+    });
+  }
+};
+
 /**
  * Dynamically load modules that are split from the main JS bundle.
  */
@@ -168,6 +179,7 @@ const loadDynamicModules = () => {
   loadCompanyRegisterForm();
   loadOpportunityRegisterForm();
   loadQueryTab();
+  loadSearchModalAndTogglers();
 };
 
 /**

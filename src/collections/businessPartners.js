@@ -8,12 +8,16 @@ const getBusinessPartners = async () => {
   let businessPartners = [];
   for (const item of data.items) {
     businessPartners.push({
+      id: item.sys.id,
       title: item.fields.title,
       description: documentToHtmlString(item.fields.description),
       site: item.fields.site,
       email: item.fields.email,
       phone: item.fields.phone,
       image: item.fields.image[0].original_secure_url,
+      url: item.fields.site ? `https://${item.fields.site}` : null,
+      icon: '<i class="fas fa-briefcase"></i>',
+      label: 'Parceiro de Negócios',
     });
   }
   return businessPartners;

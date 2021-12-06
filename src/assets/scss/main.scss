@@ -21,7 +21,8 @@
 @use '~@marke/ui-core/components/copyrightbar';
 @use '~@marke/ui-core/components/grid-responsive-slider';
 @use '~@marke/ui-core/components/masthead' with ($height: 500px);
-@use '~@marke/ui-core/components/navbar' with ($nav-link-padding-x: 0.75rem);
+@use '~@marke/ui-core/components/navbar' with
+  ($nav-link-padding-x: 0.75rem, $offcanvas-light-bg: mkui.$body-bg, $light-toggler-border-color: transparent);
 @use '~@marke/ui-core/components/video-modal';
 @use '~@marke/ui-core/components/video-teaser' with ($toggler-border-radius: 1rem);
 @use '~@marke/ui-core/components/socialbar';
@@ -44,6 +45,9 @@
 @use './components/partners-listing';
 @use './components/areas-tab';
 @use './components/latest-posts';
+@use './components/navigation-dropdown';
+@use './components/search-input';
+@use './components/search-modal';
 
 // Layouts
 @use './layouts/page-header';

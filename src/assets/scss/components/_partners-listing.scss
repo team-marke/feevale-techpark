@@ -7,6 +7,7 @@
 .partners-listing {
   &__search {
     position: relative;
+    z-index: mkui.$zindex-dropdown - 1;
     margin-bottom: mkui.$spacer * 2;
 
     @include mkui.media-breakpoint-up(lg) {
