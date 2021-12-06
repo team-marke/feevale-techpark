@@ -40,6 +40,8 @@ const getUnits = async () => {
       cta: item.fields.callToAction ? item.fields.callToAction : null,
       pathname: `unidades-parque-tecnologico/${slugify(item.fields.title, { lower: true })}/`,
       url: `${global.site_absolute_url}/unidades-parque-tecnologico/${slugify(item.fields.title, { lower: true })}/`,
+      icon: '<i class="fas fa-map-marker-alt"></i>',
+      label: 'Unidade',
     });
   }
   return orderUnits(units);

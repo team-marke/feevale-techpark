@@ -29,6 +29,8 @@ class SearchIndexes {
             objectID: item.id,
             title: item.title,
             url: item.url,
+            icon: item.icon,
+            label: item.label,
           });
         }
       }

@@ -143,14 +143,13 @@ const loadCompanyRegisterForm = async () => {
   }
 };
 
-const loadSearch = async () => {
-  if (document.querySelector('.search-toggler')) {
-    const { Search } = await import(/* webpackChunkName: "components.search" */ '../js/components/search');
-    const toggler = document.querySelector('.search-toggler');
-    const modal = document.querySelector('.search-modal');
-    new Search({
-      toggler: toggler,
-      modal: modal,
+const loadSearchModalAndTogglers = async () => {
+  const searchModalEl = document.querySelector('.search-modal');
+  if (searchModalEl) {
+    const { SearchModal } = await import(/* webpackChunkName: "components.search-modal" */ '../js/components/search-modal');
+    const searchModal = new SearchModal(searchModalEl);
+    document.querySelectorAll('.search-toggler').forEach((toggler) => {
+      toggler.addEventListener('click', () => searchModal.show());
     });
   }
 };
@@ -172,7 +171,7 @@ const loadDynamicModules = () => {
   loadCompaniesListing();
   loadContactForm();
   loadCompanyRegisterForm();
-  loadSearch();
+  loadSearchModalAndTogglers();
 };
 
 /**

@@ -40,9 +40,8 @@
       <div class="search-input search-toggler" title="Abrir busca"><i class="fas fa-search search-input__search-icon"></i></div>
     {% endset %}
 
-    {% set extraOffcanvasContent %}
-      <div class="d-flex flex-column gap-4">
-        {{ searchInput | safe }}
+    {% set actionArea %}
+      <div class="d-flex d-lg-none">
         {{ navigationDropdown | safe }}
       </div>
     {% endset %}
@@ -85,16 +84,18 @@
 <header class="page-header">
   <div class="container position-relative">
     {%- set context = {
-      navbarLinks: (collections.navbar | eleventyNavigation('home')),
-      currentPage: page,
+      id: 'main-navbar',
+      links: (collections.navbar | eleventyNavigation('home')),
+      children: actionArea,
+      currentPageUrl: page.url,
       brandLogo: site.logos.techpark.dark,
       brandLogoMobile: site.logos.techpark.dark,
       brandLogoWidth: 160,
       brandLogoMobileWidth: 100,
       brandUrl: global.site_absolute_url | url,
       variant: 'light',
-      extraOffcanvasContent: extraOffcanvasContent
+      nav_override_classes: ['w-100', 'justify-content-end']
     } %}
-    {% include '@marke/ui-core/components/navbar/navbar.njk' %}
+    {% include '../components/navbar.njk' %}
   </div>
 </header>

@@ -16,6 +16,8 @@ const getTechNews = async () => {
       featured: item.destaque,
       url: item.tituloUrl,
       date: item.dataCadastro,
+      icon: '<i class="far fa-newspaper"></i>',
+      label: 'Notícia',
     });
   }
   return allTechNews;

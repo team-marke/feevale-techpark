@@ -16,6 +16,8 @@ const getBusinessPartners = async () => {
       phone: item.fields.phone,
       image: item.fields.image[0].original_secure_url,
       url: item.fields.site ? `https://${item.fields.site}` : null,
+      icon: '<i class="fas fa-briefcase"></i>',
+      label: 'Parceiro de Negócios',
     });
   }
   return businessPartners;

@@ -14,6 +14,8 @@ const getInstitutionalPartner = async () => {
       site: item.fields.site,
       image: item.fields.image[0].original_secure_url,
       url: item.fields.site ? `https://${item.fields.site}` : null,
+      icon: '<i class="fas fa-university"></i>',
+      label: 'Parceiro Institucional',
     });
   }
   return institutionalPartners;

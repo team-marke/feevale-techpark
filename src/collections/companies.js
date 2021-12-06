@@ -16,6 +16,8 @@ const getCompanies = async () => {
       modality: item.fields.modality.sys.id,
       image: item.fields.cloudinaryImage[0].original_secure_url,
       url: item.fields.site ? `https://${item.fields.site}` : null,
+      icon: '<i class="far fa-building"></i>',
+      label: 'Empresa Parceira',
     });
   }
   return companies;

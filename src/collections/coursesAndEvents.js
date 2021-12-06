@@ -14,6 +14,8 @@ const getCoursesAndEvents = async () => {
       excerpt: item.resumo,
       url: item.tituloURL,
       date: item.dataInicial,
+      icon: '<i class="far fa-calendar-alt"></i>',
+      label: 'Curso/Evento',
     });
   }
   return allCoursesAndEvents;
