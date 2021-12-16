@@ -1,5 +1,17 @@
 {
   "projects": {
     "default": "feevale-techpark"
+  },
+  "targets": {
+    "feevale-techpark": {
+      "hosting": {
+        "staging": [
+          "feevale-techpark-staging"
+        ],
+        "production": [
+          "feevale-techpark"
+        ]
+      }
+    }
   }
 }
