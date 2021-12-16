@@ -5,11 +5,11 @@
   "targets": {
     "feevale-techpark": {
       "hosting": {
-        "staging": [
-          "feevale-techpark-staging"
-        ],
         "production": [
           "feevale-techpark"
+        ],
+        "staging": [
+          "staging-feevale-techpark"
         ]
       }
     }
