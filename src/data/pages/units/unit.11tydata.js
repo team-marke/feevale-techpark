@@ -12,6 +12,7 @@ module.exports = {
     key: null,
   },
   eleventyComputed: {
+    permalink: (data) => `/unidades-parque-tecnologico/${slugify(data.unit.title, { lower: true })}/`,
     eleventyNavigation: {
       parent: 'units',
       title: (data) => data.unit.title,

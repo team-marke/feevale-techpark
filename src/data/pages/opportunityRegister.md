@@ -9,7 +9,7 @@ tags:
 eleventyNavigation:
   key: opportunityRegister
   parent: contactUs
-  title: Cadastrar Vaga
+  title: Cadastrar vaga
   order: 3
 masthead:
   image: https://res.cloudinary.com/feevale-techpark/image/upload/v1637080649/Contato_Parque_Tecnol%C3%B3gico_Feevale_Techpark.png
