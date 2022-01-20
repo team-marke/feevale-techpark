@@ -63,7 +63,7 @@
             <li class="col-6 col-lg-12">
               <h4 class="text-primary mb-1 fw-normal">{{ unit.title | e | safe }}</h4>
               <a class="link-light d-block" target="_blank" href="{{ unit.address | gmapsLink }}">
-                {{ unit.address | e | safe }}
+                <i class="fas fa-map-marker-alt me-2"></i>{{ unit.address | e | safe }}
               </a>
               <a class="link-light d-block" href="{{ unit.phone | phoneLink }}">
                 <i class="fas fa-phone-square-alt me-2"></i>{{ unit.phone | e | safe }}
@@ -80,7 +80,7 @@
             href: item.url,
             text: item.label,
             target: '_blank',
-            override_classes: ['mb-3', 'mb-lg-0']
+            override_classes: ['mb-3']
           } %}
           {% include "@marke/ui-core/components/button/button.njk" %}
         {% endfor %}

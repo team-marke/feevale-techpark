@@ -29,9 +29,8 @@ welcome:
 numbers:
   title: >-
     Feevale Techpark em <span class="text-primary">Números</span>
-  subtitle: Empreendimento em expansão
   text: >-
-    O Feevale Techpark gera novos empregos, abriga empresas e demonstra crescimento no faturamento. Os números mostram como o empreendimento vem se consolidando e se expandindo ao longo dos anos.
+    <span class="fs-5">O Feevale Techpark gera novos empregos, abriga empresas e demonstra crescimento no faturamento. Os números mostram como o empreendimento vem se consolidando e se expandindo ao longo dos anos.</span>
   items:
     - text: + 236 milhões
       label: Faturamento anual das empresas
@@ -98,7 +97,7 @@ courses_and_events:
     Fique por dentro dos próximos cursos e eventos sobre empreendedorismo, inovação e tecnologia, promovidos pelo Feevale Techpark.
   btn:
     text: Todos os Cursos e Eventos
-    url: 'https://www.feevale.br/cursos-e-eventos'
+    url: 'https://www.feevale.br/inovacao/pilulas-da-inovacao'
 institutional_partners:
   title: >-
     Parceiros <span class="text-primary">Institucionais</span>

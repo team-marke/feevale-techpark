@@ -34,7 +34,10 @@ const getUnits = async () => {
         : item.fields.mastheadImage[0].original_secure_url,
       phone: item.fields.phone ? item.fields.phone : null,
       address: item.fields.address ? item.fields.address : null,
-      content: item.fields.content ? documentToHtmlString(item.fields.content) : null,
+      content: {
+        col1: item.fields.col1 ? documentToHtmlString(item.fields.col1) : null,
+        col2: item.fields.col1 ? documentToHtmlString(item.fields.col2) : null,
+      },
       slider: item.fields.slider ? item.fields.slider.map((img) => img.original_secure_url) : null,
       steps: item.fields.steps ? item.fields.steps : null,
       cta: item.fields.callToAction ? item.fields.callToAction : null,

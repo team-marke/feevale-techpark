@@ -36,18 +36,26 @@ faq:
         Também é possível ingressar ao Feevale Techpark através da Incubadora Tecnológica, nas modalidades de pré-incubação, incubação interna e incubação externa, por meio do Pitch Night / Day (evento de seleção para a incubadora).
     - header: Quais os valores das modalidades de incubação do Techpark?
       body: >-
-        Pré-incubação - Programa completo = R$ 200,00;
-        Incubação Interna - 1º semestre = R$ 23,00 m² | 2º semestre = R$ 27,00 m² | 3º semestre = R$ 31,00 m²  | 4º semestre = R$ 35,00 m²;
-        Incubação Externa = 1º semestre = R$ 275,00  | 2º semestre = R$ 320,00 | 3º semestre = R$ 375,00 | 4º semestre = R$ 420,00 
+        <strong>Pré-incubação</strong>
+
+
+        Programa completo = R$ 200,00
+
+
+        <strong>Incubação Interna</strong>
+        
+        <ol class="list-unstyled"><li>1º semestre = R$ 23,00 m²</li><li>2º semestre = R$ 27,00 m²</li><li>3º semestre = R$ 31,00 m²</li><li>4º semestre = R$ 35,00 m²</li></ol>
+
+
+        <strong>Incubação Externa</strong>
+        
+        <ol class="list-unstyled"><li>1º semestre = R$ 275,00</li><li>2º semestre = R$ 320,00</li><li>3º semestre = R$ 375,00</li><li>4º semestre = R$ 420,00</li></ol>
     - header: Qual a diferença entre empresas vigentes e graduadas?
       body: >-
         Empresas vigentes são todas aquelas que fazem parte do ecossistema de inovação do Feevale Techpark. 
 
 
         Empresas graduadas são aquelas que concluíram o processo de incubação na Incubadora Tecnológica da Feevale.
-    - header: Como colaborar com o banco de ideias do Techpark?
-      body: >-
-        Entre em contato com a incubadora através do e-mail: incubadora@feevale.br e informe o nome do projeto em questão. 
     - header: O que é incubação?
       body: >-
         O processo de incubação de empresas da Incubadora Tecnológica da Feevale inclui 2 etapas:

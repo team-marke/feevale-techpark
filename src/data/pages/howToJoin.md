@@ -29,10 +29,11 @@ incubator:
           Fase em que o empreendedor, proponente do projeto, participa de um programa de capacitação que objetiva o desenvolvimento do planejamento do negócio da empresa. Os empreendedores irão se preparar para a apresentação formal do planejamento, para seleção de ingresso na modalidade de Incubação. Programa completo = R$ 200,00.
       - title: Incubação interna
         description: >-
-          A empresa coloca em prática o Plano de Negócios, usufrui de um espaço na Incubadora Tecnológica da Feevale e de todos os serviços oferecidos. 1º semestre = R$ 23,00 m² | 2º semestre = R$ 27,00 m² | 3º semestre = R$ 31,00 m² | 4º semestre = R$ 35,00 m².
+          A empresa coloca em prática o Plano de Negócios, usufrui de um espaço na Incubadora Tecnológica da Feevale e de todos os serviços oferecidos.
+          <ol class="list-unstyled"><li>1º semestre = R$ 23,00 m²</li><li>2º semestre = R$ 27,00 m²</li><li>3º semestre = R$ 31,00 m²</li><li>4º semestre = R$ 35,00 m²</li></ol>
       - title: Incubação externa
         description: >-
-          A empresa coloca em prática seu Plano de Negócios, usufrui de todos os serviços oferecidos pela Incubadora Tecnológica da Feevale, no entanto, não dispõe de uma sala exclusiva na Incubadora. Esta modalidade poderá ser acessada somente quando não houver espaços físicos disponibilizados pela Incubadora Tecnológica da Feevale para instalação de empresas. 1º semestre = R$ 275,00 | 2º semestre = R$ 320,00 | 3º semestre = R$ 375,00 | 4º semestre = R$ 420,00. 
+          A empresa coloca em prática seu Plano de Negócios, usufrui de todos os serviços oferecidos pela Incubadora Tecnológica da Feevale, no entanto, não dispõe de uma sala exclusiva na Incubadora. Esta modalidade poderá ser acessada somente quando não houver espaços físicos disponibilizados pela Incubadora Tecnológica da Feevale para instalação de empresas. <ol class="list-unstyled"><li>1º semestre = R$ 275,00</li><li>2º semestre = R$ 320,00</li><li>3º semestre = R$ 375,00</li><li>4º semestre = R$ 420,00</li></ol> 
     documents:
       title: 'Para ingressar na Incubadora Tecnológica acesse os documentos e inscreva-se:'
       items:

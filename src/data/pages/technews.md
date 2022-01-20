@@ -28,7 +28,7 @@ posts:
   all_posts_url: https://www.feevale.br/acontece/noticias
 videos:
   title: >-
-    Vídeos do <span class="text-primary">Feevale Techpark</span>
+    Vídeos do <span class="text-primary">Feevale Play</span>
   btn:
     url: 'https://www.youtube.com/c/FeevalePlay'
     text: Todos os vídeos

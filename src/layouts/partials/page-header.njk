@@ -21,8 +21,10 @@
           {% for item in forCompaniesMenu.items %}
             <div>
               <hr>
-              <p class="h4">{{ item.title | e | safe }}</p>
-              <p>{{ item.description | e | safe }}</p>
+              <p class="fs-4">{{ item.title | e | safe }}</p>
+              {% if item.description %}
+                <p>{{ item.description | e | safe }}</p>
+              {% endif %}
               {%- set context = {
                 theme: 'primary',
                 text: item.btn.text,
@@ -51,7 +53,7 @@
       componentClasses: ['d-flex', 'justify-content-between'],
       startItems: [
         {
-          text: header.actionbar.title
+          html: '<span class="fs-6">'+ header.actionbar.title + '</span>'
         }
       ],
       endItems: [
@@ -74,6 +76,11 @@
         {
           href: site.social.linkedin,
           icon: 'linkedin',
+          external: true
+        },
+        {
+          href: site.contact.whatsapp | whatsAppLink,
+          icon: 'whatsapp',
           external: true
         }
       ]

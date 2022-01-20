@@ -11,14 +11,13 @@
     {% include "./partials/masthead.njk" %}
     <section id="{{ layout }}-welcome">
       <div class="container py-4 py-lg-5">
-        <div class="row gy-lg-4">
-          <div class="col-12">
-            <h2>Conheça a <span class="text-primary">{{ unit.title | e | safe }}</span></h2>
+        <div class="row align-items-center gx-lg-5 gx-xl-6">
+          <div class="col-12 col-lg-6">
+            <h2>Conheça a unidade {{ unit.title | e | safe }}</h2>
+            {{ unit.content.col1 | safe }}
           </div>
-          <div class="col-12">
-            <div class="column-count-1 column-count-lg-2" style="column-gap: var(--mkui-gutter-x);">
-              {{ unit.content | safe }}
-            </div>
+          <div class="col-12 col-lg-6">
+            {{ unit.content.col2 | safe }}
           </div>
         </div>
       </div>

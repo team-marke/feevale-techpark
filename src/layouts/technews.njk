@@ -84,7 +84,7 @@
     </section>
     <section id="{{ layout }}-videos" class="bg-light">
       <div class="container py-4 py-lg-5">
-        <div class="row mb-3 mb-lg-5">
+        <div class="row">
           <div class="col-12 col-lg-7">
             <h2>{{ videos.title | markdown | safe }}</h2>
           </div>
@@ -94,7 +94,7 @@
             {% set teasers = [] %}
             {% for video in collections.videos %}
               {% set renderedItem %}
-                <figure>
+                <figure class="mb-0 mt-5">
                   {% set context = {
                     id: video.id,
                     alt: video.title,
@@ -102,7 +102,7 @@
                     extra_classes: ['mb-2']
                   } %}
                   {% include "@marke/ui-core/components/video-teaser/video-teaser.njk" %}
-                  <figcaption class="h5 fw-normal mb-0 mt-3">{{ video.title | e | safe }}</figcaption>
+                  <figcaption class="fs-6 text-black mb-0 mt-3">{{ video.title | e | safe }}</figcaption>
                 </figure>
               {% endset %}
               {% set teasers = (teasers.push(renderedItem), teasers) %}

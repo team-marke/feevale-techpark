@@ -63,7 +63,8 @@
             {%- set context = {
               theme: 'primary',
               href: all_benefits.btn.url,
-              text: all_benefits.btn.text
+              text: all_benefits.btn.text,
+              target: "_blank"
             } %}
             {% include "@marke/ui-core/components/button/button.njk" %}
           </div>

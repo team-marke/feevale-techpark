@@ -16,6 +16,14 @@
         "text": "Acesse",
         "url": "https://outlook.office365.com/owa/calendar/FeevaleTechpark@feevale.br/bookings/"
       }
+    },
+    {
+      "title": "Manual da Marca",
+      "description": "Guia para as futuras aplicações da marca e padroniza sua representação",
+      "btn": {
+        "text": "Acesse",
+        "url": "https://www.feevale.br/Comum/midias/d74f5bc6-189b-4c76-bb60-b90bcbab68a2/MIV_FEEVALE_TECHPARK.PDF"
+      }
     }
   ]
 }

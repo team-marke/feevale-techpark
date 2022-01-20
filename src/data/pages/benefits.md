@@ -56,5 +56,5 @@ all_benefits:
     As empresas vinculadas ao Feevale Techpark e ao Programa Parceiros de Negócio dispõem de diversos benefícios, compilados neste arquivo em PDF. Este documento tem o objetivo de informar e orientar os empresários e funcionários de empresas instaladas no Feevale Techpark, quanto aos benefícios disponíveis e formas de acesso a cada um deles. Os benefícios aqui contidos visam estimular a interação entre a Universidade Feevale, as empresas do Feevale Techpark e as empresas parceiras, bem como gerar sinergia entre alunos e empresários, desenvolvendo o potencial empreendedor e criativo de ambos
   btn:
     text: Acesse os benefícios
-    url: '#'
+    url: 'https://www.feevale.br/Comum/midias/aa53f9fa-9d3c-4280-b7d2-0eeceb27bae4/Beneficios%20TechPark_Versao%20dez%202019.pdf'
 ---
