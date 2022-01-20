@@ -52,7 +52,7 @@
   <div class="companies-listing__companies">
     {% for company in companies %}
       <div 
-        data-unit="{{ (company.unit | entryById(units)).title | slug }}"
+        data-unit="{% if company.unit %}{{ (company.unit | entryById(units)).title | slug }}{% else %}externa{% endif %}"
         data-area="{{ (company.area | entryById(areas)).title | slug }}"
         data-modality="{{ (company.modality | entryById(modalities)).title | slug }}"
         data-title="{{ company.title | e | safe }}"

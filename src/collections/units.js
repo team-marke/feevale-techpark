@@ -29,7 +29,9 @@ const getUnits = async () => {
       meta_description: item.fields.metaDescription ? item.fields.metaDescription : null,
       excerpt: item.fields.excerpt ? documentToHtmlString(item.fields.excerpt) : null,
       mastheadImage: item.fields.mastheadImage ? item.fields.mastheadImage[0].original_secure_url : null,
-      cardImage: item.fields.cardImage ? item.fields.cardImage[0].original_secure_url : null,
+      cardImage: item.fields.cardImage
+        ? item.fields.cardImage[0].original_secure_url
+        : item.fields.mastheadImage[0].original_secure_url,
       phone: item.fields.phone ? item.fields.phone : null,
       address: item.fields.address ? item.fields.address : null,
       content: item.fields.content ? documentToHtmlString(item.fields.content) : null,

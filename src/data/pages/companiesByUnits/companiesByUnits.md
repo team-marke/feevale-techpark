@@ -5,7 +5,6 @@ pagination:
   size: 1
   alias: unit
   addAllPagesToCollections: true
-permalink: nossas-empresas/{{ unit.title | slug }}/
 masthead:
   image: https://res.cloudinary.com/feevale-techpark/image/upload/v1636133924/Nossas_Empresas.png
   title: >-

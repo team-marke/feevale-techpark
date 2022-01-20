@@ -2,20 +2,23 @@ require('dotenv').config();
 const fetchContent = require('../assets/js/utils/fetch-content');
 const cacheClient = require('../assets/js/utils/clients/node-cache');
 const { documentToHtmlString } = require('@contentful/rich-text-html-renderer');
+const site = require('../data/global/site.json')
 
 const getCompanies = async () => {
   const data = await fetchContent('company');
   let companies = [];
   for (const item of data.items) {
-    companies.push({
-      id: item.sys.id,
-      title: item.fields.title,
-      description: documentToHtmlString(item.fields.description),
-      unit: item.fields.unit.sys.id,
-      area: item.fields.area.sys.id,
-      modality: item.fields.modality.sys.id,
-      image: item.fields.cloudinaryImage[0].original_secure_url,
-    });
+    if (item.fields.unit) {
+      companies.push({
+        id: item.sys.id,
+        title: item.fields.title,
+        description: documentToHtmlString(item.fields.description),
+        unit: item.fields.unit.sys.id,
+        area: item.fields.area.sys.id,
+        modality: item.fields.modality.sys.id,
+        image: item.fields.cloudinaryImage[0] ? item.fields.cloudinaryImage[0].original_secure_url : site.logos.techpark.dark,
+      });
+    }
   }
   return companies;
 };

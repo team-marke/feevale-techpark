@@ -27,7 +27,10 @@ class CompaniesListing {
    * @returns {Array}
    */
   __initSelectorFields() {
-    return Array.from(this.filters.querySelectorAll('.select')).map((select) => new Select(select));
+    return Array.from(this.filters.querySelectorAll('.select')).map((select) => {
+      if (select.name == 'unit') this.addExternalOption(select)
+      return new Select(select)
+    });
   }
 
   /**
@@ -66,6 +69,13 @@ class CompaniesListing {
     const canonical = document.querySelector("link[rel='canonical']");
     const url = new URL(canonical.href);
     return url.pathname === this.mainPathName;
+  }
+
+  addExternalOption(select) {
+    const externalOption = document.createElement('option');
+    externalOption.value = 'externa';
+    externalOption.text = 'Externa';
+    select.add(externalOption);
   }
 
   /**

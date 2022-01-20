@@ -42,6 +42,7 @@ class CompanyRegisterForm {
         continue;
       }
       if (field instanceof HTMLSelectElement) {
+        if (field.name == 'unit') this.addExternalOption(field);
         const select = new Select(field);
         this.fields.push(select);
         continue;
@@ -52,6 +53,13 @@ class CompanyRegisterForm {
         continue;
       }
     }
+  }
+
+  addExternalOption(select) {
+    const externalOption = document.createElement('option');
+    externalOption.value = 0;
+    externalOption.text = 'Externa';
+    select.add(externalOption);
   }
 
   /**
@@ -72,6 +80,7 @@ class CompanyRegisterForm {
    */
   getFieldData(field) {
     if (field.el.dataset.contentfulEntry) {
+      if (field.getValue() == 0) return null;
       return {
         sys: {
           type: 'Link',
