@@ -1390,11 +1390,11 @@ __metadata:
   linkType: hard
 
 "@babel/runtime@npm:^7.9.2":
-  version: 7.15.4
-  resolution: "@babel/runtime@npm:7.15.4"
+  version: 7.16.7
+  resolution: "@babel/runtime@npm:7.16.7"
   dependencies:
     regenerator-runtime: ^0.13.4
-  checksum: c40825430400e47c19b97e4142d5315d2910305b9714d44a711472587ee2fd4521fdba5f02ddd9df3902f5e988d9854fa83f4da1e0c091f70f6983fa52480606
+  checksum: 47912f0aaacd1cab2e2552aaf3e6eaffbcaf2d5ac9b07a89a12ac0d42029cb92c070b0d16f825e4277c4a34677c54d8ffe85e1f7c6feb57de58f700eec67ce2f
   languageName: node
   linkType: hard
 
@@ -1662,9 +1662,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@marke/ui-core@ssh://git@github.com:team-marke/ui-core#c723d2249edb04d839d0ecac98b0aa06c7d9ab7e":
+"@marke/ui-core@https://github.com/team-marke/ui-core.git#v0.3.4":
   version: 0.3.4
-  resolution: "@marke/ui-core@ssh://git@github.com:team-marke/ui-core#commit=c723d2249edb04d839d0ecac98b0aa06c7d9ab7e"
+  resolution: "@marke/ui-core@https://github.com/team-marke/ui-core.git#commit=18f595a19b3b8e522ee4456e51d132c4af5ada4a"
   dependencies:
     "@fortawesome/fontawesome-free": ^5.15.3
     "@fortawesome/fontawesome-svg-core": ^1.2.35
@@ -1680,7 +1680,7 @@ __metadata:
     regenerator-runtime: ^0.13.7
     swiper: ^6.8.0
     yt-player: ^3.5.0
-  checksum: 8f38230f79669221af009a1b6e95f278e1f675e4465f15884ceff8454bb45d7fdfda2e5d06508dc269ceffb52d19a3aaa059cf7c32729cf10fa4439d6efacc1f
+  checksum: 57a806cff0cf71dfb6b49c9d26a8573f5793c5c631c77a9d8cecfad7771d21c5625a7d6040fb8789ee8c5fac66ceb8e9e9a4e9530281dba38545c5d0e5b4c0e0
   languageName: node
   linkType: hard
 
@@ -3596,13 +3596,13 @@ __metadata:
   linkType: hard
 
 "choices.js@npm:^9.0.1":
-  version: 9.0.1
-  resolution: "choices.js@npm:9.0.1"
+  version: 9.1.0
+  resolution: "choices.js@npm:9.1.0"
   dependencies:
-    deepmerge: ^4.2.0
-    fuse.js: ^3.4.5
-    redux: ^4.0.4
-  checksum: e97a1532da530e4e02765776cd96121fb5d42636185c62251b5ccd54d1e7eb476a72d35f95a38f08fff05c44e08495820c5e0d1c9efd0e6056c65fdca1c93966
+    deepmerge: ^4.2.2
+    fuse.js: ^3.4.6
+    redux: ^4.1.2
+  checksum: bb8bca48cbccc2615da465bb1d2c5d6f9c80a506775e64813ffaa5c9e5dc0a580e0936220ad5906088dbe96548e25bc1cd0459c04f8ccd211d1676d518aec713
   languageName: node
   linkType: hard
 
@@ -3837,14 +3837,18 @@ __metadata:
   linkType: hard
 
 "cloudinary@npm:^1.26.1":
-  version: 1.27.1
-  resolution: "cloudinary@npm:1.27.1"
+  version: 1.28.1
+  resolution: "cloudinary@npm:1.28.1"
   dependencies:
     cloudinary-core: ^2.10.2
     core-js: 3.6.5
     lodash: ^4.17.11
+    proxy-agent: ^5.0.0
     q: ^1.5.1
-  checksum: 574f4b57dddd168bc7e0c3b2269fde41d5c77a485c7981488e7f4a8e5cb79cec205ba9baa9d3cdde53c3ed47b989d49d3fafad574c4cf1234e13daf5e5186631
+  dependenciesMeta:
+    proxy-agent:
+      optional: true
+  checksum: 8938cef91298840a83c08adae0b5f807fb12cb345a60901149db042a8b7cce070f6c18983cc65455c51d119a0941f889abd39c53962f80ff14aff68cc6c79101
   languageName: node
   linkType: hard
 
@@ -4800,7 +4804,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"deepmerge@npm:^4.2.0":
+"deepmerge@npm:^4.2.2":
   version: 4.2.2
   resolution: "deepmerge@npm:4.2.2"
   checksum: a8c43a1ed8d6d1ed2b5bf569fa4c8eb9f0924034baf75d5d406e47e157a451075c4db353efea7b6bcc56ec48116a8ce72fccf867b6e078e7c561904b5897530b
@@ -4840,6 +4844,18 @@ __metadata:
     escodegen: ^1.8.1
     esprima: ^4.0.0
   checksum: 37f2e9ec9c47bf5b471b607e4a8808d44c92be02ddfe0de4746bd1d8145f044873c7df76e58d681aad03eb3c9939391e9bbe42b0b6499fca9789f5abf4fb9ebb
+  languageName: node
+  linkType: hard
+
+"degenerator@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "degenerator@npm:3.0.1"
+  dependencies:
+    ast-types: ^0.13.2
+    escodegen: ^1.8.1
+    esprima: ^4.0.0
+    vm2: ^3.9.3
+  checksum: 110d5fa772933d21484995e518feeb2ea54e5804421edf8546900973a227dcdf621a0cbac0a5d0a13273424ea3763aba815246dfffa386483f5480d60f50bed1
   languageName: node
   linkType: hard
 
@@ -6010,7 +6026,7 @@ __metadata:
     "@fortawesome/free-brands-svg-icons": ^5.15.3
     "@fortawesome/free-regular-svg-icons": ^5.15.3
     "@fortawesome/free-solid-svg-icons": ^5.15.3
-    "@marke/ui-core": "ssh://git@github.com:team-marke/ui-core#c723d2249edb04d839d0ecac98b0aa06c7d9ab7e"
+    "@marke/ui-core": "https://github.com/team-marke/ui-core.git#v0.3.4"
     "@popperjs/core": ^2.9.2
     "@types/bootstrap": ^5.0.0
     "@types/nunjucks": ^3.2.0
@@ -6470,7 +6486,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fuse.js@npm:^3.4.5":
+"fuse.js@npm:^3.4.6":
   version: 3.6.1
   resolution: "fuse.js@npm:3.6.1"
   checksum: 958aa877ace65dc900df776becd39a03df68d7eebc7890b5fd2fc8c5d88e2fff238f60c37f80013ce70e9d9e7ac8efa9f503695fdd23d1eca3cc983797b50191
@@ -8492,9 +8508,9 @@ __metadata:
   linkType: hard
 
 "lightgallery@npm:^2.1.6":
-  version: 2.2.1
-  resolution: "lightgallery@npm:2.2.1"
-  checksum: a96a4b0c29f809a6389c49bf3b8e9680385dfd7840f37caee4994cec2f216d2bc2960361008de743dd0c9ec3695a6fdb2b45d423e921a567371b266f9e863e78
+  version: 2.3.0
+  resolution: "lightgallery@npm:2.3.0"
+  checksum: 54d32c64b04cd8de92d6888bd54e7e99076896c1ab4eb05d27919d930984a4334a20140681488662d36768d9311ae6fe19f31accd65a4107425b73ae4f22d2fe
   languageName: node
   linkType: hard
 
@@ -10121,6 +10137,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pac-proxy-agent@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "pac-proxy-agent@npm:5.0.0"
+  dependencies:
+    "@tootallnate/once": 1
+    agent-base: 6
+    debug: 4
+    get-uri: 3
+    http-proxy-agent: ^4.0.1
+    https-proxy-agent: 5
+    pac-resolver: ^5.0.0
+    raw-body: ^2.2.0
+    socks-proxy-agent: 5
+  checksum: cfd26a0e2ebfea4ca6162465018ce093bf147d26cf6c8fb3e7155bc7c184370d80d4d09a1c097e3db7676d0e3f574ea1cb56a4aa7d1d2e5cca6238935fabf010
+  languageName: node
+  linkType: hard
+
 "pac-resolver@npm:^4.1.0":
   version: 4.2.0
   resolution: "pac-resolver@npm:4.2.0"
@@ -10129,6 +10162,17 @@ __metadata:
     ip: ^1.1.5
     netmask: ^2.0.1
   checksum: 84471dbdf45a4853e6d8977297456016b18fb2b2eda2b2af6bf786b1254dd1ddcc5283bb8f5c16e29dcbec6f1346932c7400197c4d68aa1549757b9224f373c6
+  languageName: node
+  linkType: hard
+
+"pac-resolver@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "pac-resolver@npm:5.0.0"
+  dependencies:
+    degenerator: ^3.0.1
+    ip: ^1.1.5
+    netmask: ^2.0.1
+  checksum: d6c0f86917bcb759136f47ded0818f14bf2b424a1c3efe6e11bdb9728e5465bfefd05c163f9808766b06605aa0d211c538583293c72dca4c499452493550f4d7
   languageName: node
   linkType: hard
 
@@ -11459,6 +11503,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"proxy-agent@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "proxy-agent@npm:5.0.0"
+  dependencies:
+    agent-base: ^6.0.0
+    debug: 4
+    http-proxy-agent: ^4.0.0
+    https-proxy-agent: ^5.0.0
+    lru-cache: ^5.1.1
+    pac-proxy-agent: ^5.0.0
+    proxy-from-env: ^1.0.0
+    socks-proxy-agent: ^5.0.0
+  checksum: 3b0bb73a4d3a07711d3cad72b2fa4320880f7a6ec1959cdcc186ac6ffb173db8137d7c4046c27fdfa6e2207b2eb75e802f3d5e14c766700586ec4d47299a5124
+  languageName: node
+  linkType: hard
+
 "proxy-from-env@npm:^1.0.0":
   version: 1.1.0
   resolution: "proxy-from-env@npm:1.1.0"
@@ -11931,12 +11991,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"redux@npm:^4.0.4":
-  version: 4.1.1
-  resolution: "redux@npm:4.1.1"
+"redux@npm:^4.1.2":
+  version: 4.1.2
+  resolution: "redux@npm:4.1.2"
   dependencies:
     "@babel/runtime": ^7.9.2
-  checksum: 99519438a5d20b69404ad3816307ccc189f16df04b64c50d82c415ec488ea68b656d7a2fc81b6345e8d90f095344dfea68246500f72613d76464986660bc0485
+  checksum: 6a839cee5bd580c5298d968e9e2302150e961318253819bcd97f9d945a5a409559eacddf6026f4118bb68b681c593d90e8a2c5bbf278f014aff9bf0d2d8fa084
   languageName: node
   linkType: hard
 
@@ -14455,6 +14515,15 @@ __metadata:
     unist-util-stringify-position: ^2.0.0
     vfile-message: ^2.0.0
   checksum: ee5726e10d170472cde778fc22e0f7499caa096eb85babea5d0ce0941455b721037ee1c9e6ae506ca2803250acd313d0f464328ead0b55cfe7cb6315f1b462d6
+  languageName: node
+  linkType: hard
+
+"vm2@npm:^3.9.3":
+  version: 3.9.5
+  resolution: "vm2@npm:3.9.5"
+  bin:
+    vm2: bin/vm2
+  checksum: d83dbe929ca4d1c9fca71cda34a5aee9a6b4bdc1de1ddb11777c4f6e1e48a471764195258dbf608f962df1a1c3d6ae917c9755f11a8f37b9e0bbf691313a725c
   languageName: node
   linkType: hard
 
