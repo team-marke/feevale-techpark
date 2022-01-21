@@ -15,7 +15,7 @@ masthead:
   image: https://res.cloudinary.com/feevale-techpark/image/upload/v1637080649/Contato_Parque_Tecnol%C3%B3gico_Feevale_Techpark.png
   title: >-
     Contato
-  description: Se você está pensando em tirar a sua ideia de negócio do papel ou já possui uma empresa e pretende instalar ela em um ambiente inovador, entre em contato com o Feevale Techpark!
+  description: No Feevale Techpark você conta com assessorias e toda a estrutura do parque tecnológico para desenvolver sua ideia, e transformá-la em uma startup, ou ainda, fortalecer a sua empresa tecnológica já consolidada.
 form:
   title: >-
     Fale <span class="text-primary">conosco</span>
@@ -50,12 +50,6 @@ faq:
         <strong>Incubação Externa</strong>
         
         <ol class="list-unstyled"><li>1º semestre = R$ 275,00</li><li>2º semestre = R$ 320,00</li><li>3º semestre = R$ 375,00</li><li>4º semestre = R$ 420,00</li></ol>
-    - header: Qual a diferença entre empresas vigentes e graduadas?
-      body: >-
-        Empresas vigentes são todas aquelas que fazem parte do ecossistema de inovação do Feevale Techpark. 
-
-
-        Empresas graduadas são aquelas que concluíram o processo de incubação na Incubadora Tecnológica da Feevale.
     - header: O que é incubação?
       body: >-
         O processo de incubação de empresas da Incubadora Tecnológica da Feevale inclui 2 etapas:
@@ -73,7 +67,7 @@ faq:
         Incubação externa
         A empresa implanta o plano de negócios, usufruindo de todos os serviços oferecidos pela Incubadora. Nesta modalidade, a empresa não usufrui de uma sala exclusiva, somente conta com as áreas comuns do prédio da Incubadora.
         Duração: 24 meses.
-    - header: O que é uma incubadora?
+    - header: O que é uma incubadora tecnológica?
       body: >-
         É um ambiente que oferece suporte aos empreendedores no desenvolvimento de projetos inovadores e ajuda a transformá-los em negócios de sucesso.
 cta:

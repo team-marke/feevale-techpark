@@ -15,7 +15,7 @@ masthead:
   image: https://res.cloudinary.com/feevale-techpark/image/upload/v1635527494/Empresas_parceiras_do_parque.png
   title: >-
     Empresas parceiras do parque
-  description: Conheça quais são as empresas parceiras de negócio e as parcerias institucionais do Feevale Techpark.
+  description: Conheça as empresas integrantes do programa Parceiros de Negócio e as parcerias institucionais do Feevale Techpark.
 business_partners:
   title: >-
     Parceiros de <span class="text-primary">Negócio</span>

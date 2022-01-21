@@ -49,7 +49,7 @@ units:
     Conheça nossas <span class="text-primary">Unidades</span>
   subtitle: Espaços focados no desenvolvimento científico, tecnológico e econômico
   text: >-
-    As unidades do parque tecnológico da Feevale contam com ambientes inovadores, fomentando trocas de experiências profissionais, ambientes colaborativos, alta tecnologia e diversidade cultural às empresas, acadêmicos e comunidade interessada.
+    As unidades do Feevale Techpark contam com ambientes inovadores, fomentando trocas de experiências profissionais, ambientes colaborativos, alta tecnologia e diversidade cultural às empresas, acadêmicos e comunidade interessada.
   decorator: https://res.cloudinary.com/feevale-techpark/image/upload/v1632244217/grafismo-unidades-01.svg
 video:
   id: jtFzjcMeelw

@@ -17,18 +17,17 @@
                 } %}
               {%- if loop.index == 1 %}
                 <a href="{{ item.url | url }}">
-                  {%- image item.image, { 
-                    class: 'latest-posts__thumb img-fluid', 
-                    type: 'fetch', 
-                    loading: 'lazy',
-                    transformation: [{ 
-                      fetch_format: 'auto', 
-                      quality: 'auto', 
-                      width: 600, 
-                      crop: 'thumb', 
-                      gravity: 'auto', 
-                      aspect_ratio: '21:9'
-                    }] 
+                  {% imageFetch item.image, {
+                    fetch_format: 'auto', 
+                    quality: 'auto', 
+                    crop: 'thumb', 
+                    gravity: 'auto', 
+                    aspect_ratio: '21:9',
+                    width: 600 
+                  },
+                  {
+                    class: 'latest-posts__thumb img-fluid',
+                    alt: item.title | e | safe
                   } %}
                 </a>
               {%- endif %}

@@ -13,18 +13,17 @@
           <div class="row gy-3 gx-lg-5 gx-xl-6 mb-5 mb-xl-6">
             <div class="col-12 col-lg-6">
               <a href="{{ item.url | url }}" target="_blank">
-                {%- image item.image, { 
-                  class: 'img-fluid rounded shadow', 
-                  type: 'fetch', 
-                  loading: 'lazy',
-                  transformation: [{ 
-                    fetch_format: 'auto', 
-                    quality: 'auto', 
-                    width: 600, 
-                    crop: 'thumb', 
-                    gravity: 'auto', 
-                    aspect_ratio: '21:9'
-                  }] 
+                {% imageFetch item.image, {
+                  fetch_format: 'auto', 
+                  quality: 'auto', 
+                  crop: 'thumb', 
+                  gravity: 'auto', 
+                  aspect_ratio: '21:9',
+                  width: 600 
+                },
+                {
+                  class: 'img-fluid rounded shadow',
+                  alt: item.title | e | safe
                 } %}
               </a>
             </div>

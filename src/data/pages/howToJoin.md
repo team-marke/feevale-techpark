@@ -33,7 +33,7 @@ incubator:
           <ol class="list-unstyled"><li>1º semestre = R$ 23,00 m²</li><li>2º semestre = R$ 27,00 m²</li><li>3º semestre = R$ 31,00 m²</li><li>4º semestre = R$ 35,00 m²</li></ol>
       - title: Incubação externa
         description: >-
-          A empresa coloca em prática seu Plano de Negócios, usufrui de todos os serviços oferecidos pela Incubadora Tecnológica da Feevale, no entanto, não dispõe de uma sala exclusiva na Incubadora. Esta modalidade poderá ser acessada somente quando não houver espaços físicos disponibilizados pela Incubadora Tecnológica da Feevale para instalação de empresas. <ol class="list-unstyled"><li>1º semestre = R$ 275,00</li><li>2º semestre = R$ 320,00</li><li>3º semestre = R$ 375,00</li><li>4º semestre = R$ 420,00</li></ol> 
+          A empresa coloca em prática seu Plano de Negócios, usufrui de todos os serviços oferecidos pela Incubadora Tecnológica da Feevale, no entanto, não dispõe de uma sala exclusiva na Incubadora. Esta modalidade poderá ser acessada somente quando não houver espaços físicos disponibilizados pela Incubadora Tecnológica da Feevale para instalação de empresas. <ol class="list-unstyled"><li>1º semestre = R$ 275,00</li><li>2º semestre = R$ 320,00</li><li>3º semestre = R$ 375,00</li></ol> 
     documents:
       title: 'Para ingressar na Incubadora Tecnológica acesse os documentos e inscreva-se:'
       items:
@@ -60,7 +60,7 @@ park:
   residence:
     title: Residência
     description: >-
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Na modalidade de residência, a empresa já consolidada executa seu plano de negócios, além de agregar novos produtos, serviços e tornar-se uma empresa escalável
 
 
       Para ingressar na modalidade Residência do Feevale Techpark, acesse os documentos e inscreva-se:
@@ -87,7 +87,7 @@ park:
   batch:
     title: Lote
     description: >-
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Na modalidade de lote, a empresa interessada poderá adquirir o seu espaço no loteamento, construir sua unidade industrial, e desenvolver soluções tecnológicas e relacionamentos com a Universidade Feevale e Feevale Techpark.
 
 
       Para ingressar na modalidade Lote (aquisição e construção de unidade industrial) do Feevale Techpark, acesse os documentos e inscreva-se:

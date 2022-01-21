@@ -71,7 +71,7 @@ partnership:
     Por meio da Universidade Feevale, o Feevale Techpark oferece aos seus empreendedores espaços para eventos, laboratórios técnicos, pesquisas de ponta, projetos de extensão e ainda conexão com os acadêmicos. 
 
 
-    Essas ações promovem a aproximação para captação de novos talentos e o desenvolvimento de desafios tecnológicos que visam a solução de gargalos tecnológicos nas empresas.
+    Essas ações promovem a aproximação para captação de novos talentos e o desenvolvimento de desafios que visam a solução de gargalos tecnológicos nas empresas.
 university:
   image: 
     alt: Foto no alto do Feevale Campus II
@@ -86,7 +86,7 @@ university:
     Aliando a tradição de 50 anos à vanguarda, especialmente na criação de cursos, processos e serviços, a Feevale vem se projetando internacionalmente em função das parcerias com instituições estrangeiras, distribuídas em diversos países.
 
 
-    Atualmente, a Universidade Feevale oferece cursos de Graduação Presencial, Graduação Digital, Pós-Graduação, Cursos e Eventos de Qualificação e Idiomas.
+    Atualmente, a instituição Feevale oferece cursos de Graduação Presencial, Graduação Digital, Pós-Graduação, Cursos e Eventos de Qualificação e Idiomas.
 
 
     Os câmpus da Feevale oferecem ótimas instalações, que contam com salas de aula climatizadas, laboratórios com equipamentos de alta tecnologia, entre outros recursos que facilitam e enriquecem a experiência acadêmica e escolar.

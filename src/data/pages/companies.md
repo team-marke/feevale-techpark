@@ -15,8 +15,8 @@ masthead:
   image: https://res.cloudinary.com/feevale-techpark/image/upload/v1636133924/Nossas_Empresas.png
   title: >-
     Nossas Empresas
-  description: Conheça as empresas vinculadas ao Ecossistema de Inovação do Parque Tecnológico da FEEVALE.
+  description: Conheça as empresas vinculadas ao Ecossistema de Inovação do Parque Tecnológico da Feevale.
 companies_list:
   title: >-
-    Ecossistema de <span class="text-primary">Empresas de Inovação</span>
+    Empresas integrantes do Ecossistema de <span class="text-primary">Inovação</span>
 ---

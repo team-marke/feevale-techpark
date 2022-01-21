@@ -19,16 +19,16 @@ masthead:
   image: https://res.cloudinary.com/feevale-techpark/image/upload/v1636116851/Tecnologia_no_Feevale_Techpark.png
   title: >-
     TechNews
-  description: O espaço de notícias sobre tecnologia do Feevale Techpark.
+  description: Nesse espaço, você encontra as principais notícias sobre inovação e tecnologia sobre o Ecossistema do Feevale Techpark.
 posts:
   title: >-
-    Leia <span class="text-primary">nossas notícias</span> sobre tecnologia e inovação
+    Saiba o que está rolando em nosso <span class="text-primary">ecossistema</span>
   decorator: https://res.cloudinary.com/feevale-techpark/image/upload/v1632244217/grafismo-unidades-01.svg
   btn_label: Leia Mais
   all_posts_url: https://www.feevale.br/acontece/noticias
 videos:
   title: >-
-    Vídeos do <span class="text-primary">Feevale Play</span>
+    Vídeos
   btn:
     url: 'https://www.youtube.com/c/FeevalePlay'
     text: Todos os vídeos

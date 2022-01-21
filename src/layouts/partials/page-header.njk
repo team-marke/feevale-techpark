@@ -21,7 +21,7 @@
           {% for item in forCompaniesMenu.items %}
             <div>
               <hr>
-              <p class="fs-4">{{ item.title | e | safe }}</p>
+              <p class="fs-5 mb-2 text-black">{{ item.title | e | safe }}</p>
               {% if item.description %}
                 <p>{{ item.description | e | safe }}</p>
               {% endif %}
@@ -29,7 +29,8 @@
                 theme: 'primary',
                 text: item.btn.text,
                 href: item.btn.url,
-                target: '_blank'
+                target: '_blank',
+                size: 'sm'
               } %}
               {% include "@marke/ui-core/components/button/button.njk" %}
             </div>
