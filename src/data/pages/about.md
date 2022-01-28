@@ -38,21 +38,33 @@ timeline:
     Nossa <span class="text-primary">História</span>
   items:
     - title: 1998
-      description: Criação da Associação de Desenvolvimento Tecnológico do Vale – Valetec, responsável pelo Parque Tecnológico do Vale dos Sinos.
+      description: Criação da Associação de Desenvolvimento Tecnológico do Vale - VALETEC, responsável pelo Parque Tecnológico do Vale dos Sinos.
     - title: 2002
-      description: Doação de 3 hectares pelo município de Campo Bom para a implantação da segunda fase do Parque Tecnológico do Vale do Sinos.
+      description: Doação de 3 hectares pelo Município de Campo Bom para a implementação da segunda fase do Parque Tecnológico do Vale dos Sinos.
     - title: 2004
-      description: Doação de mais 6,5 hectares pelo município de Campo Bom para implantação da segunda fase do Parque Tecnológico do Vale do Sinos.
+      description: Doação de mais de 6,5 hectares pelo Município de Campo Bom para a implementação da segunda fase do Parque Tecnológico do Vale Dos Sinos.
     - title: 2005
-      description: Inauguração do primeiro prédio empresarial na Unidade Campo Bom, que compreende a Incubadora Tecnológica da Universidade Feevale.
+      description: Inauguração do primeiro prédio empresarial na Unidade de Campo Bom, com capacidade para 9 empresas, onde a Incubadora Tecnológica da Feevale passou a operar.
     - title: 2011
-      description: Inauguração da Unidade de Novo Hamburgo do Valetec.
+      description: Inauguração da Unidade de Novo Hamburgo da VALETEC, denominada Hamburgtec, aliando tecnologia e inovação à revitalização do bairro Hamburgo Velho, em parceria com o Município de Novo Hamburgo.  
     - title: 2012
-      description: Inauguração do segundo prédio empresarial da Unidade Campo Bom. Doação de mais 10 hectares pelo município para ampliação do parque tecnológico.
+      description: Inauguração do segundo prédio empresarial da Unidade de Campo Bom, em parceria com a Secretaria de Inovação, Ciência e Desenvolvimento Tecnológico do Estado do RS, que tem capacidade para 7 empresas, além de laboratórios técnicos.
     - title: 2014
-      description: Execução das obras de infraestrutura da segunda fase do Parque Tecnológico do Vale do Sinos. Mudança na governança do mesmo, passando a ser administrado pela Universidade Feevale.
+      description: Mudança na governança do Parque Tecnológico do Vale dos Sinos, que foi incorporado pela ASPEUR/Feevale.
     - title: 2015
-      description: Alteração do nome do Parque Tecnológico para Feevale Techpark e reposicionamento.
+      description: Mudança de posicionamento do parque, que passou a se chamar Feevale Techpark. Tornou-se membro da Associação Nacional de Entidades Promotoras de Empreendimentos Inovadores – ANPROTEC.
+    - title: 2016
+      description: Inauguração do terceiro prédio empresarial, com apoio da Secretaria de Inovação, Ciência e Tecnologia do Estado do RS, que tem capacidade para 25 empresas.
+    - title: 2018
+      description: Mudança de local da unidade Novo Hamburgo, no centro histórico da cidade, para o campus II da Universidade Feevale. O Hub One de Novo Hamburgo foi inaugurado com capacidade para 22 empresas, além de laboratórios técnicos.  
+    - title: 2019
+      description: A Incubadora Tecnológica da Feevale recebeu certificação do Centro de Referência para apoio a Novos Empreendimentos (CERNE).  
+    - title: 2020
+      description: Implementação da unidade do Feevale Techpark no Small Campus da cidade de Esteio, em parceria com o Município de Esteio.  
+    - title: 2021
+      description: Implementação da unidade do Feevale Techpark no Small Campus da cidade de Sapiranga, em parceria com o Município de Sapiranga.  
+    - title: 2021
+      description: A Incubadora Tecnológica da Feevale recebeu certificação nível 2 do Centro de Referência para apoio a Novos Empreendimentos (CERNE).
 benefits:
   title: >-
     No Feevale Techpark você <span class="text-primary">encontra</span>

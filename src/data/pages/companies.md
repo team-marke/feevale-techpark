@@ -2,14 +2,14 @@
 layout: companies
 permalink: nossas-empresas/
 metadata:
-  title: Nossas empresas | Feevale Techpark
+  title: Nossas Empresas | Feevale Techpark
   description: Veja quais são as empresas que fazem parte do ecossistema de inovação do Feevale Techpark. Conheça a área de atuação e a unidade que cada empresa faz parte.
 tags:
   - navbar
 eleventyNavigation:
   key: companies
   parent: home
-  title: Nossas empresas
+  title: Nossas Empresas
   order: 5
 masthead:
   image: https://res.cloudinary.com/feevale-techpark/image/upload/v1636133924/Nossas_Empresas.png
