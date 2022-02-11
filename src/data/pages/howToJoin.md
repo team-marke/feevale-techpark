@@ -26,14 +26,20 @@ incubator:
     items:
       - title: Pré-incubação
         description: >-
-          Fase em que o empreendedor, proponente do projeto, participa de um programa de capacitação que objetiva o desenvolvimento do planejamento do negócio da empresa. Os empreendedores irão se preparar para a apresentação formal do planejamento, para seleção de ingresso na modalidade de Incubação. Programa completo = R$ 200,00.
+          Fase em que o empreendedor, proponente do projeto, participa de um programa de capacitação que objetiva o desenvolvimento do planejamento do negócio da empresa. Os empreendedores irão se preparar para a apresentação formal do planejamento, para seleção de ingresso na modalidade de Incubação. 
+
+          
+          Programa completo = <strong>R$ 200,00</strong>
       - title: Incubação interna
         description: >-
           A empresa coloca em prática o Plano de Negócios, usufrui de um espaço na Incubadora Tecnológica da Feevale e de todos os serviços oferecidos.
           <ol class="list-unstyled"><li>1º semestre = R$ 23,00 m²</li><li>2º semestre = R$ 27,00 m²</li><li>3º semestre = R$ 31,00 m²</li><li>4º semestre = R$ 35,00 m²</li></ol>
       - title: Incubação externa
         description: >-
-          A empresa coloca em prática seu Plano de Negócios, usufrui de todos os serviços oferecidos pela Incubadora Tecnológica da Feevale, no entanto, não dispõe de uma sala exclusiva na Incubadora. Esta modalidade poderá ser acessada somente quando não houver espaços físicos disponibilizados pela Incubadora Tecnológica da Feevale para instalação de empresas. <ol class="list-unstyled"><li>1º semestre = R$ 275,00</li><li>2º semestre = R$ 320,00</li><li>3º semestre = R$ 375,00</li></ol> 
+          A empresa coloca em prática seu Plano de Negócios, usufrui de todos os serviços oferecidos pela Incubadora Tecnológica da Feevale, no entanto, não dispõe de uma sala exclusiva na Incubadora. Esta modalidade poderá ser acessada somente quando não houver espaços físicos disponibilizados pela Incubadora Tecnológica da Feevale para instalação de empresas.
+          
+
+          Programa completo = <strong>R$ 275,00</strong>
     documents:
       title: 'Para ingressar na Incubadora Tecnológica acesse os documentos e inscreva-se:'
       items:
@@ -106,7 +112,7 @@ park:
         file: https://www.feevale.br/Comum/midias/4e3e5136-a5e0-4e7b-a0af-aaac1f8b65d5/ANEXO%20V%20-%20MANUAL%20PARA%20INGRESSO%20DE%20EMPRESAS%20OU%20INSTITUICOES%20INTERESSADAS%20EM%20LOTES%20NO%20FEEVALE%20TECHPARK.pdf
     btn:
       text: Inscreva-se
-      url: http://www.feevale.br/formularios/formulario/AjustaSessao?IdCurso=8706
+      url: http://www.feevale.br/Formularios/Formulario/formulario-de-inscricao-para-empresas-ou-instituicoes-interessadas---anexo-iv/identificacao
 find:
   title: >-
     No Feevale Techpark <span class="text-primary">você encontra</span>

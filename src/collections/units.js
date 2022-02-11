@@ -34,6 +34,7 @@ const getUnits = async () => {
         : item.fields.mastheadImage[0].original_secure_url,
       phone: item.fields.phone ? item.fields.phone : null,
       address: item.fields.address ? item.fields.address : null,
+      addressLink: item.fields.addressLink ? item.fields.addressLink : null,
       content: {
         col1: item.fields.col1 ? documentToHtmlString(item.fields.col1) : null,
         col2: item.fields.col1 ? documentToHtmlString(item.fields.col2) : null,

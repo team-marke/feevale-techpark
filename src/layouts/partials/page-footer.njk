@@ -41,7 +41,8 @@
               items: {
                 instagram: site.social.instagram,
                 facebook: site.social.facebook,
-                linkedin: site.social.linkedin
+                linkedin: site.social.linkedin,
+                whatsapp: site.contact.whatsapp
               }
             } %}
             {% include '@marke/ui-core/components/socialbar/socialbar.njk' %}
@@ -62,7 +63,9 @@
           {% for unit in collections.units %}
             <li class="col-6 col-lg-12">
               <h4 class="text-primary mb-1 fw-normal">{{ unit.title | e | safe }}</h4>
-              <a class="link-light d-block" target="_blank" href="{{ unit.address | gmapsLink }}">
+              <a class="link-light d-block" 
+                target="_blank" 
+                href="{% if unit.addressLink %}{{ unit.addressLink }}{% else %}{{ unit.address | gmapsLink }}{% endif %}">
                 <i class="fas fa-map-marker-alt me-2"></i>{{ unit.address | e | safe }}
               </a>
               <a class="link-light d-block" href="{{ unit.phone | phoneLink }}">
