@@ -38,12 +38,24 @@
             </ul>
             {%- set context = {
               variant: 'dark',
-              items: {
-                instagram: site.social.instagram,
-                facebook: site.social.facebook,
-                linkedin: site.social.linkedin,
-                whatsapp: site.contact.whatsapp
-              }
+              items: [
+                {
+                  href: site.social.instagram,
+                  icon: 'instagram'
+                },
+                {
+                  href: site.social.facebook,
+                  icon: 'facebook'
+                },
+                {
+                  href: site.social.linkedin,
+                  icon: 'linkedin'
+                },
+                {
+                  href: (site.contact.whatsapp | whatsAppLink),
+                  icon: 'whatsapp'
+                }
+              ]
             } %}
             {% include '@marke/ui-core/components/socialbar/socialbar.njk' %}
           </div>

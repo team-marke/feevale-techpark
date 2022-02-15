@@ -1662,9 +1662,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@marke/ui-core@https://github.com/team-marke/ui-core.git#v0.3.4":
-  version: 0.3.4
-  resolution: "@marke/ui-core@https://github.com/team-marke/ui-core.git#commit=18f595a19b3b8e522ee4456e51d132c4af5ada4a"
+"@marke/ui-core@https://github.com/team-marke/ui-core.git#v0.3.7":
+  version: 0.3.5
+  resolution: "@marke/ui-core@https://github.com/team-marke/ui-core.git#commit=6b5483f81bfea000f65400c7afd081c38b6014ef"
   dependencies:
     "@fortawesome/fontawesome-free": ^5.15.3
     "@fortawesome/fontawesome-svg-core": ^1.2.35
@@ -1673,14 +1673,14 @@ __metadata:
     "@fortawesome/free-solid-svg-icons": ^5.15.3
     "@popperjs/core": ^2.9.2
     bootstrap: ^5.1.0
-    choices.js: ^9.0.1
+    choices.js: ^10.0.0
     cloudinary: ^1.26.1
     lightgallery: ^2.1.6
     npm-run-all: ^4.1.5
     regenerator-runtime: ^0.13.7
     swiper: ^6.8.0
     yt-player: ^3.5.0
-  checksum: 57a806cff0cf71dfb6b49c9d26a8573f5793c5c631c77a9d8cecfad7771d21c5625a7d6040fb8789ee8c5fac66ceb8e9e9a4e9530281dba38545c5d0e5b4c0e0
+  checksum: d5905ef81d6b39910dc131403652974548163fce3520643593bbb4e4ff95fcd4680f35930b3fb74e861f29f0d3d980f786a83a5b0f37aa2f02723e2b168d4eda
   languageName: node
   linkType: hard
 
@@ -3595,14 +3595,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"choices.js@npm:^9.0.1":
-  version: 9.1.0
-  resolution: "choices.js@npm:9.1.0"
+"choices.js@npm:^10.0.0":
+  version: 10.1.0
+  resolution: "choices.js@npm:10.1.0"
   dependencies:
     deepmerge: ^4.2.2
-    fuse.js: ^3.4.6
+    fuse.js: ^6.5.3
     redux: ^4.1.2
-  checksum: bb8bca48cbccc2615da465bb1d2c5d6f9c80a506775e64813ffaa5c9e5dc0a580e0936220ad5906088dbe96548e25bc1cd0459c04f8ccd211d1676d518aec713
+  checksum: 9f64eaeb16ded3ba7828c1a7c028da872e9580ddfb017a369763d28620ef6186b3a4fe0df8d467ac6b0bfd6079323976f96b0a94f811198642fde60fe616308e
   languageName: node
   linkType: hard
 
@@ -6026,7 +6026,7 @@ __metadata:
     "@fortawesome/free-brands-svg-icons": ^5.15.3
     "@fortawesome/free-regular-svg-icons": ^5.15.3
     "@fortawesome/free-solid-svg-icons": ^5.15.3
-    "@marke/ui-core": "https://github.com/team-marke/ui-core.git#v0.3.4"
+    "@marke/ui-core": "https://github.com/team-marke/ui-core.git#v0.3.7"
     "@popperjs/core": ^2.9.2
     "@types/bootstrap": ^5.0.0
     "@types/nunjucks": ^3.2.0
@@ -6486,10 +6486,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fuse.js@npm:^3.4.6":
-  version: 3.6.1
-  resolution: "fuse.js@npm:3.6.1"
-  checksum: 958aa877ace65dc900df776becd39a03df68d7eebc7890b5fd2fc8c5d88e2fff238f60c37f80013ce70e9d9e7ac8efa9f503695fdd23d1eca3cc983797b50191
+"fuse.js@npm:^6.5.3":
+  version: 6.5.3
+  resolution: "fuse.js@npm:6.5.3"
+  checksum: f7c14f4422000e7f7e3515c66f7cefdfc38adec4cf380097f4146a201ea438af60b67dc5849b3c0de0115ce3f9bc5afad6fc6570c08dcfcef5bf6e95eb8e6d6f
   languageName: node
   linkType: hard
 
