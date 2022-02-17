@@ -8,14 +8,22 @@
             <p class="text-white fs-5">{{ masthead.description | e | safe }}</p>
           {%- endif %}
         </div>
-        {% if layout != 'howToJoin' and layout != 'partners' %}
+        {% if layout != 'howToJoin' %}
         <div class="col-12 col-lg-4 offset-lg-1 align-self-lg-end text-lg-end">
-          {%- set context = {
+          {% set context = {
             theme: 'primary',
             size: 'lg',
             href: masthead.btn.url,
             html: masthead.btn.text+'<i class="fas fa-chevron-right ms-2"></i>'
           } %}
+          {% if layout == 'partners' %}
+            {% set context = {
+              theme: 'primary',
+              size: 'lg',
+              href: "mailto:" + site.contact.email,
+              html: masthead.btn.text+'<i class="fas fa-chevron-right ms-2"></i>'
+            } %}
+          {% endif %}
           {% include "@marke/ui-core/components/button/button.njk" %}
         </div>
         {% endif %}

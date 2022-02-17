@@ -115,7 +115,7 @@
             {% for item in park.residence.items %}
               {% set renderedItem %}
                 {% set cardBody %}
-                  <div class="text-center">
+                  <div class="d-flex flex-column h-100 text-center">
                     <p class="fw-bold">{{ item.title | e | safe }}</p>
                     {{ item.description | markdown | safe }}
                     {% set context = {
