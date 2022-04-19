@@ -22,11 +22,14 @@ class SearchIndexes {
 
   addIndexesFromCollectios(collections) {
     for (const collection of collections) {
-
+      
       // debug para as collections
+      if (!collection.items) {
+        continue;
+      }
       console.log({
         nome: collection.index,
-        itens: collection.items.length
+        itens: collection.items.length,
       });
       // fim do debug
 
