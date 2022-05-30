@@ -22,14 +22,6 @@ class SearchIndexes {
 
   addIndexesFromCollectios(collections) {
     for (const collection of collections) {
-
-      // debug para as collections
-      console.log({
-        nome: collection.index,
-        itens: collection.items.length
-      });
-      // fim do debug
-
       let records = [];
       for (const item of collection.items) {
         if (item.url) {
