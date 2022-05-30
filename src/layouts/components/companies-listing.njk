@@ -89,12 +89,14 @@
           <div class="d-flex flex-column text-center h-100">
             <h4>{{ company.title | e | safe }}</h4>
             <div class="card-excerpt">{{ company.description | e | safe }}</div>
-            {%- set context = {
-              theme: 'primary',
-              href: 'https://' + (company.site | url),
-              text: 'Conheça',
-              override_classes: ['align-self-center']
-            } %}
+            {% if company.site %}
+              {% set context = {
+                theme: 'primary',
+                href: 'https://' + (company.site | url),
+                text: 'Conheça',
+                override_classes: ['align-self-center']
+              } %}
+            {% endif %}
             {% include "@marke/ui-core/components/button/button.njk" %}
           </div>
         {% endset %}
