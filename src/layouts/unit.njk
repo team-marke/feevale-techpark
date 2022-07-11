@@ -119,7 +119,7 @@
                 {% endset %}
                 {% set cardBody %}
                   <div class="d-flex flex-column text-center h-100">
-                    <h4>{{ company.title | e | safe }}</h4>
+                    <h4 class="text-primary">{{ company.title | e | safe }}</h4>
                     <div class="card-excerpt">{{ company.description | e | safe }}</div>
                     {%- set context = {
                       theme: 'outline-secondary',
