@@ -104,10 +104,6 @@ park:
         file: https://www.feevale.br/Comum/midias/85757666-dc0a-4135-b950-9abae2ea50c3/ANEXO%20II%20-%20Convenio%20de%20Cooperacao%20Tecnologica.pdf
       - title: ANEXO II
         description:
-          Valores e Prazo de Pagamentos para Aquisição de Lote
-        file: https://www.feevale.br/Comum/midias/739b7787-4c2f-4c63-878f-a88e23720312/ANEXO%20III%20-%20Valores%20e%20prazo%20de%20pagamento%20para%20aquisicao%20de%20lote.pdf
-      - title: ANEXO III
-        description:
           Manual para Ingresso de Empresas ou Instituições Interessadas em Lotes no Feevale Techpark
         file: https://www.feevale.br/Comum/midias/4e3e5136-a5e0-4e7b-a0af-aaac1f8b65d5/ANEXO%20V%20-%20MANUAL%20PARA%20INGRESSO%20DE%20EMPRESAS%20OU%20INSTITUICOES%20INTERESSADAS%20EM%20LOTES%20NO%20FEEVALE%20TECHPARK.pdf
     btn:
