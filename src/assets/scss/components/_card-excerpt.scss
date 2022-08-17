@@ -6,11 +6,8 @@
 
 .card-excerpt {
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 9;
   -webkit-box-orient: vertical;
   overflow: hidden;
   margin-bottom: mkui.$paragraph-margin-bottom;
-  @include mkui.media-breakpoint-up(lg){
-    -webkit-line-clamp: 5;
-  }
 }
