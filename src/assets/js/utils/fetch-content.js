@@ -9,6 +9,7 @@ const fetchContent = async (contentType) => {
   return await contentfulClient.getEntries({
     content_type: contentType,
     order: 'fields.title',
+    limit: 1000,
   });
 };
 
